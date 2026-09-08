@@ -1,0 +1,1384 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="_ds/industry-7bfb7375-813e-408a-9c0b-8a3a535b2b7a/styles.css">
+<script src="_ds/industry-7bfb7375-813e-408a-9c0b-8a3a535b2b7a/_ds_bundle.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
+<style>
+  body { margin: 0; background: var(--color-bg); color: var(--color-text); font-family: var(--font-body); -webkit-font-smoothing: antialiased; }
+  * { box-sizing: border-box; }
+  a { color: var(--color-accent-700); text-decoration: none; }
+  a:hover { color: var(--color-accent-900); }
+  ::selection { background: var(--color-accent-200); }
+  :focus-visible { outline: 2px solid var(--color-accent); outline-offset: 2px; }
+  input, button { font-family: inherit; }
+  html.lenis, html.lenis body { height: auto; }
+  .lenis.lenis-smooth { scroll-behavior: auto !important; }
+  .lenis.lenis-stopped { overflow: hidden; }
+  .mono { font-family: "IBM Plex Mono", ui-monospace, monospace; }
+  [data-nav] { display: flex; align-items: center; gap: 10px; padding: 5px 0; color: var(--color-neutral-600); font-family: "IBM Plex Mono", monospace; font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.25s ease; }
+  [data-nav] i { width: 14px; height: 1px; background: var(--color-neutral-400); flex: none; transition: width 0.3s ease, background 0.3s ease; }
+  [data-nav]:hover { color: var(--color-accent-800); }
+  [data-nav][data-active="1"] { color: var(--color-accent-900); }
+  [data-nav][data-active="1"] i { width: 30px; background: var(--color-accent); }
+  @media (max-width: 1180px) { [data-rail] { display: none !important; } }
+</style>
+</helmet>
+
+<div style="min-height: 100vh; background: var(--color-bg); overflow-x: hidden">
+
+  <div style="position: fixed; top: 0; left: 0; right: 0; height: 3px; background: var(--color-neutral-300); z-index: 60">
+    <div data-progress style="height: 100%; background: var(--color-accent); width: 0%"></div>
+  </div>
+
+  <nav data-rail style="position: fixed; top: 50%; left: 26px; transform: translateY(-50%); z-index: 50; display: grid; gap: 2px">
+    <a data-nav href="#portada"><i></i><span>00 Portada</span></a>
+    <a data-nav href="#s01"><i></i><span>01 La primitiva</span></a>
+    <a data-nav href="#s02"><i></i><span>02 Doce usos</span></a>
+    <a data-nav href="#s03"><i></i><span>03 Sellado de tiempo</span></a>
+    <a data-nav href="#s04"><i></i><span>04 Blockchain artesanal</span></a>
+    <a data-nav href="#s05"><i></i><span>05 El sobre sellado</span></a>
+    <a data-nav href="#s06"><i></i><span>06 Catálogo</span></a>
+    <a data-nav href="#s07"><i></i><span>07 Dónde funciona</span></a>
+    <a data-nav href="#s08"><i></i><span>08 Autoevaluación</span></a>
+    <a data-nav href="#s09"><i></i><span>09 Fuentes</span></a>
+  </nav>
+
+  <header id="portada" style="background: var(--color-accent-900); color: var(--color-bg); padding: 104px 0 84px">
+    <div data-anim="hero" style="max-width: 1180px; margin: 0 auto; padding: 0 40px; display: grid; gap: 34px">
+      <div class="mono" style="display: flex; align-items: center; gap: 12px; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--color-accent-400)">
+        <span style="width: 26px; height: 1px; background: var(--color-accent)"></span>
+        <span>Portafolio · Blockchain</span>
+      </div>
+      <h1 style="margin: 0; font-size: 96px; line-height: 0.92; letter-spacing: -0.02em; max-width: 16ch; text-wrap: balance">Blockchain</h1>
+      <p style="margin: 0; font-size: 22px; line-height: 1.5; color: var(--color-accent-200); max-width: 58ch; text-wrap: pretty">Siete temas, una analogía para cada uno y demostraciones que puede tocar con el ratón. La matemática está aquí, pero solo si la pide.</p>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1px; background: var(--color-accent-800); margin-top: 10px">
+        <div style="background: var(--color-accent-900); padding: 20px 0 6px; display: grid; gap: 4px">
+          <div style="font-family: var(--font-heading); font-size: 40px; line-height: 1">7</div>
+          <div class="mono" style="font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-accent-400)">Temas</div>
+        </div>
+        <div style="background: var(--color-accent-900); padding: 20px 0 6px 20px; display: grid; gap: 4px">
+          <div style="font-family: var(--font-heading); font-size: 40px; line-height: 1">6</div>
+          <div class="mono" style="font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-accent-400)">Demos jugables</div>
+        </div>
+        <div style="background: var(--color-accent-900); padding: 20px 0 6px 20px; display: grid; gap: 4px">
+          <div style="font-family: var(--font-heading); font-size: 40px; line-height: 1">6</div>
+          <div class="mono" style="font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-accent-400)">Documentos fuente</div>
+        </div>
+        <div style="background: var(--color-accent-900); padding: 20px 0 6px 20px; display: grid; gap: 4px">
+          <div style="font-family: var(--font-heading); font-size: 40px; line-height: 1">0</div>
+          <div class="mono" style="font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-accent-400)">Fórmulas obligatorias</div>
+        </div>
+      </div>
+      <div class="mono" style="display: flex; flex-wrap: wrap; gap: 8px 26px; font-size: 11.5px; letter-spacing: 0.08em; color: var(--color-accent-300); padding-top: 22px; border-top: 1px solid var(--color-accent-800)">
+        <span>Fuentes: Dr. José de Jesús Ángel Ángel</span>
+        <span>Lab-IA · Facultad de Ingeniería</span>
+        <span>Universidad Anáhuac México</span>
+      </div>
+    </div>
+  </header>
+
+  <section id="s01" style="max-width: 1180px; margin: 0 auto; padding: 84px 40px 0">
+    <div data-anim="up" style="display: flex; align-items: center; gap: 18px; margin-bottom: 36px">
+      <span style="width: 62px; height: 62px; background: var(--color-accent); color: var(--color-bg); display: grid; place-items: center; font-family: var(--font-heading); font-size: 32px; line-height: 1; flex: none">01</span>
+      <div style="display: grid; gap: 2px">
+        <div class="mono" style="font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-accent-700)">La primitiva</div>
+        <h2 style="margin: 0; font-size: 52px; line-height: 1; letter-spacing: -0.01em">¿Qué es una función hash?</h2>
+      </div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 44px; align-items: start">
+      <div data-anim="up" style="display: grid; gap: 20px">
+        <p style="margin: 0; font-size: 20px; line-height: 1.6; color: var(--color-neutral-900); text-wrap: pretty">Una función hash toma cualquier cosa —una palabra, un contrato de cuatrocientas páginas, una película— y devuelve siempre una cadena de la misma longitud: sesenta y cuatro caracteres, ni uno más.</p>
+        <p style="margin: 0; font-size: 18px; line-height: 1.6; color: var(--color-neutral-700); text-wrap: pretty">Sobre esa idea descansan las contraseñas de todos los servicios que usa, la seguridad de HTTPS, el historial de Git, la verificación del software que instala y Bitcoin entero. No es un accesorio de la seguridad informática: es una pieza estructural.</p>
+      </div>
+      <div data-anim="up" style="background: var(--color-accent-100); border-left: 3px solid var(--color-accent); padding: 26px 26px 28px; display: grid; gap: 12px">
+        <div class="mono" style="font-size: 10.5px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-accent-700)">La analogía</div>
+        <div style="font-family: var(--font-heading); font-size: 34px; line-height: 1.04; color: var(--color-accent-900)">Una huella digital</div>
+        <p style="margin: 0; font-size: 17px; line-height: 1.58; color: var(--color-accent-800); text-wrap: pretty">Identifica sin describir. De una huella nadie reconstruye la cara de su dueño, y dos personas distintas no comparten la suya. Eso es lo que hace una función hash con un archivo.</p>
+      </div>
+    </div>
+
+    <div data-anim="stagger" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 22px; margin-top: 48px">
+      <div class="blueprint" style="padding: 26px 24px; display: grid; gap: 12px; align-content: start">
+        <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+        <div class="mono" style="font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-accent-700)">Un solo sentido</div>
+        <div style="font-family: var(--font-heading); font-size: 30px; line-height: 1.06">De la huella no se llega al dedo</div>
+        <p style="margin: 0; font-size: 16px; line-height: 1.55; color: var(--color-neutral-700)">Calcular el hash de un documento toma un instante. Recuperar el documento a partir del hash es, en la práctica, imposible.</p>
+      </div>
+      <div class="blueprint" style="padding: 26px 24px; display: grid; gap: 12px; align-content: start">
+        <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+        <div class="mono" style="font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-accent-700)">Sin dos iguales</div>
+        <div style="font-family: var(--font-heading); font-size: 30px; line-height: 1.06">Nadie puede fabricar una coincidencia</div>
+        <p style="margin: 0; font-size: 16px; line-height: 1.55; color: var(--color-neutral-700)">Hallar dos documentos distintos con la misma huella —una colisión— debe estar fuera del alcance de cualquiera. Cuando deja de estarlo, la función se retira: es lo que le pasó a SHA-1 en 2017.</p>
+      </div>
+      <div class="blueprint" style="padding: 26px 24px; display: grid; gap: 12px; align-content: start">
+        <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+        <div class="mono" style="font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-accent-700)">Determinista</div>
+        <div style="font-family: var(--font-heading); font-size: 30px; line-height: 1.06">El mismo archivo, la misma huella, siempre</div>
+        <p style="margin: 0; font-size: 16px; line-height: 1.55; color: var(--color-neutral-700)">Aquí termina el parecido con la biología: no hay margen de error ni lectura aproximada. Coincide exactamente o no coincide.</p>
+      </div>
+    </div>
+
+    <div style="margin-top: 30px">
+      <button class="btn btn-secondary" onClick="{{ toggle.formal }}" style="border-color: var(--color-accent); color: var(--color-accent-700); padding: 12px 20px; font-size: 11.5px; letter-spacing: 0.1em; text-transform: uppercase; border-radius: 0" style-hover="background: var(--color-accent-100)">
+        <span style="font-size: 15px">{{ sign.formal }}</span><span>Ver el detalle técnico</span>
+      </button>
+      <sc-if value="{{ panels.formal }}" hint-placeholder-val="{{ false }}">
+        <div style="margin-top: 16px; background: var(--color-surface); border-top: 3px solid var(--color-accent); padding: 26px; display: grid; gap: 16px; max-width: 880px">
+          <p style="margin: 0; font-size: 17px; line-height: 1.6">Formalmente, una función hash criptográfica es una aplicación <span class="mono" style="font-size: 15px; background: var(--color-bg); padding: 2px 6px">H : {0,1}* → {0,1}<sup>n</sup></span> que debe satisfacer tres propiedades: resistencia a preimagen, resistencia a segunda preimagen y resistencia a colisiones.</p>
+          <p style="margin: 0; font-size: 17px; line-height: 1.6; color: var(--color-neutral-700)">Las familias SHA-2 y SHA-3, estandarizadas por el NIST en FIPS PUB 180-4 (2015) y FIPS PUB 202 (2015), cumplen estas propiedades bajo los modelos de seguridad actuales. Su resistencia frente a adversarios cuánticos sigue siendo un área activa de investigación.</p>
+        </div>
+      </sc-if>
+    </div>
+  </section>
+
+  <section style="margin-top: 84px; background: var(--color-surface); padding: 62px 0 68px">
+    <div style="max-width: 1180px; margin: 0 auto; padding: 0 40px; display: grid; gap: 30px">
+      <div data-anim="up" style="display: grid; gap: 10px; max-width: 660px">
+        <div class="mono" style="font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-accent-700)">Demostración 1 · en vivo</div>
+        <h3 style="margin: 0; font-size: 42px; line-height: 1.02">Escriba cualquier cosa</h3>
+        <p style="margin: 0; font-size: 18px; line-height: 1.55; color: var(--color-neutral-700)">Su navegador calcula el SHA-256 mientras teclea. Nada sale de esta página. Cambie la longitud de la entrada todo lo que quiera: la salida mide siempre lo mismo.</p>
+      </div>
+
+      <div data-anim="up" style="display: grid; grid-template-columns: minmax(0, 1fr) 54px minmax(0, 1.3fr); gap: 0; align-items: center">
+        <div class="blueprint" style="background: var(--color-bg); padding: 24px 22px; display: grid; gap: 10px">
+          <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+          <label class="mono" for="calc-in" style="font-size: 10.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-neutral-600)">Entrada · longitud libre</label>
+          <input id="calc-in" class="input" type="text" value="{{ calcText }}" onInput="{{ onCalc }}" placeholder="Escriba aquí…" style="font-size: 18px; padding: 13px 14px; border-radius: 0; background: var(--color-neutral-100)">
+          <div class="mono" style="display: flex; gap: 20px; font-size: 10.5px; color: var(--color-neutral-500); letter-spacing: 0.08em">
+            <span>{{ calcLen }} caracteres</span><span>{{ calcBytes }} bytes</span>
+          </div>
+        </div>
+        <div style="display: grid; place-items: center; gap: 6px">
+          <span class="mono" style="font-size: 9.5px; letter-spacing: 0.1em; color: var(--color-neutral-600)">SHA-256</span>
+          <span data-anim="arrow" style="font-family: var(--font-heading); font-size: 30px; line-height: 1; color: var(--color-accent)">→</span>
+        </div>
+        <div style="background: var(--color-accent-900); padding: 24px 22px; display: grid; gap: 12px">
+          <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 14px; flex-wrap: wrap">
+            <span class="mono" style="font-size: 10.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-accent-400)">Salida</span>
+            <span class="mono" style="font-size: 10.5px; letter-spacing: 0.08em; color: var(--color-accent-400)">256 bits · 64 hex · siempre igual de largo</span>
+          </div>
+          <div class="mono" style="display: flex; flex-wrap: wrap; gap: 6px; font-size: 18px; letter-spacing: 0.04em; color: var(--color-bg)">
+            <sc-for list="{{ calcChunks }}" as="c" hint-placeholder-count="8">
+              <span style="background: var(--color-accent-800); padding: 4px 7px">{{ c }}</span>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="max-width: 1180px; margin: 0 auto; padding: 78px 40px 0">
+    <div data-anim="up" style="display: grid; gap: 12px; max-width: 720px; margin-bottom: 32px">
+      <div class="mono" style="font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-accent-700)">Demostración 2 · efecto avalancha</div>
+      <h3 style="margin: 0; font-size: 42px; line-height: 1.02">Cambie un carácter y mire qué pasa</h3>
+      <p style="margin: 0; font-size: 18px; line-height: 1.55; color: var(--color-neutral-700); text-wrap: pretty">Dos frases casi idénticas. Sus huellas no se parecen en nada: cerca de la mitad de los 256 bits cambian, y el resultado no delata cuál fue la diferencia. Es lo que hace imposible manipular un documento «un poquito».</p>
+    </div>
+
+    <div data-anim="up" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 22px">
+      <div style="border: 1px solid var(--color-divider); padding: 20px; display: grid; gap: 10px; background: var(--color-neutral-100)">
+        <label class="mono" for="ava-a" style="font-size: 10.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-neutral-600)">Original</label>
+        <input id="ava-a" class="input" type="text" value="{{ avaA }}" onInput="{{ onAvaA }}" style="font-size: 17px; padding: 12px 13px; border-radius: 0; background: var(--color-bg)">
+        <div class="mono" style="font-size: 14px; line-height: 1.5; color: var(--color-neutral-700); word-break: break-all">{{ hashA }}</div>
+      </div>
+      <div style="border: 1px solid var(--color-accent); padding: 20px; display: grid; gap: 10px; background: var(--color-accent-100)">
+        <label class="mono" for="ava-b" style="font-size: 10.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-accent-700)">Modificado</label>
+        <input id="ava-b" class="input" type="text" value="{{ avaB }}" onInput="{{ onAvaB }}" style="font-size: 17px; padding: 12px 13px; border-radius: 0; background: var(--color-bg); border-color: var(--color-accent-300)">
+        <div class="mono" style="font-size: 14px; line-height: 1.5; color: var(--color-accent-900); word-break: break-all">{{ hashB }}</div>
+      </div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 250px minmax(0, 1fr); gap: 0; margin-top: 22px; align-items: stretch">
+      <div style="background: var(--color-accent); color: var(--color-bg); padding: 28px 24px; display: grid; align-content: center; gap: 4px">
+        <div data-diff style="font-family: var(--font-heading); font-size: 82px; line-height: 0.9">{{ diffBits }}</div>
+        <div style="font-family: var(--font-heading); font-size: 22px; line-height: 1.1">de 256 bits distintos</div>
+        <div class="mono" style="font-size: 11px; letter-spacing: 0.08em; margin-top: 8px; color: var(--color-accent-200)">{{ diffPct }} % · lo esperado ≈ 50 %</div>
+      </div>
+      <div style="border: 1px solid var(--color-divider); border-left: none; padding: 26px 24px; display: grid; gap: 18px; align-content: center">
+        <div data-bits style="display: grid; grid-template-columns: repeat(32, 1fr); gap: 3px">
+          <sc-for list="{{ bitCells }}" as="b" hint-placeholder-count="64">
+            <span style="aspect-ratio: 1; background: {{ b.bg }}"></span>
+          </sc-for>
+        </div>
+        <div class="mono" style="display: flex; flex-wrap: wrap; gap: 8px 22px; font-size: 10.5px; letter-spacing: 0.1em; color: var(--color-neutral-600); text-transform: uppercase">
+          <span style="display: flex; align-items: center; gap: 7px"><span style="width: 11px; height: 11px; background: var(--color-accent)"></span>Bit que cambió</span>
+          <span style="display: flex; align-items: center; gap: 7px"><span style="width: 11px; height: 11px; background: var(--color-neutral-200); border: 1px solid var(--color-neutral-300)"></span>Bit igual</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="s02" style="max-width: 1180px; margin: 0 auto; padding: 100px 40px 0">
+    <div data-anim="up" style="display: flex; align-items: center; gap: 18px; margin-bottom: 36px">
+      <span style="width: 62px; height: 62px; background: var(--color-accent); color: var(--color-bg); display: grid; place-items: center; font-family: var(--font-heading); font-size: 32px; line-height: 1; flex: none">02</span>
+      <div style="display: grid; gap: 2px">
+        <div class="mono" style="font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-accent-700)">Doce usos reales</div>
+        <h2 style="margin: 0; font-size: 52px; line-height: 1; letter-spacing: -0.01em">Dónde ya está trabajando un hash</h2>
+      </div>
+    </div>
+
+    <p data-anim="up" style="margin: 0 0 40px; font-size: 19px; line-height: 1.6; color: var(--color-neutral-700); max-width: 68ch; text-wrap: pretty">Seis casos explicados y seis más en la lista corta. Todos están en producción hoy, no en un artículo. Cada uno lleva su propia analogía.</p>
+
+    <div data-anim="stagger" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(330px, 1fr)); gap: 1px; background: var(--color-neutral-300); border: 1px solid var(--color-neutral-300)">
+      <sc-for list="{{ usos }}" as="u" hint-placeholder-count="6">
+        <div style="background: var(--color-bg); padding: 30px 26px 32px; display: grid; gap: 12px; align-content: start">
+          <div style="display: flex; align-items: baseline; gap: 12px">
+            <span class="mono" style="font-size: 11px; color: var(--color-accent)">{{ u.n }}</span>
+            <span class="mono" style="font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-neutral-600)">{{ u.kicker }}</span>
+          </div>
+          <div style="font-family: var(--font-heading); font-size: 31px; line-height: 1.05">{{ u.title }}</div>
+          <div style="font-family: var(--font-heading); font-size: 19px; line-height: 1.2; color: var(--color-accent-700)">{{ u.analogy }}</div>
+          <p style="margin: 0; font-size: 16.5px; line-height: 1.58; color: var(--color-neutral-800); text-wrap: pretty">{{ u.body }}</p>
+          <div class="mono" style="margin-top: 4px; padding-top: 12px; border-top: 1px solid var(--color-neutral-300); font-size: 10.5px; letter-spacing: 0.06em; color: var(--color-neutral-600)">{{ u.ref }}</div>
+        </div>
+      </sc-for>
+    </div>
+
+    <div data-anim="up" style="margin-top: 44px">
+      <div class="mono" style="font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-accent-700); margin-bottom: 16px">Los otros seis, en corto</div>
+      <div style="display: grid; gap: 1px; background: var(--color-neutral-300); border-top: 1px solid var(--color-neutral-300); border-bottom: 1px solid var(--color-neutral-300)">
+        <sc-for list="{{ usosCortos }}" as="u" hint-placeholder-count="6">
+          <div style="background: var(--color-bg); display: grid; grid-template-columns: 44px minmax(0, 0.9fr) minmax(0, 1.6fr); gap: 22px; align-items: baseline; padding: 18px 4px">
+            <span class="mono" style="font-size: 11px; color: var(--color-neutral-400)">{{ u.n }}</span>
+            <span style="font-family: var(--font-heading); font-size: 24px; line-height: 1.12">{{ u.title }}</span>
+            <span style="font-size: 16px; line-height: 1.52; color: var(--color-neutral-700)">{{ u.body }}</span>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section id="s03" style="max-width: 1180px; margin: 0 auto; padding: 100px 40px 0">
+    <div data-anim="up" style="display: flex; align-items: center; gap: 18px; margin-bottom: 36px">
+      <span style="width: 62px; height: 62px; background: var(--color-accent); color: var(--color-bg); display: grid; place-items: center; font-family: var(--font-heading); font-size: 32px; line-height: 1; flex: none">03</span>
+      <div style="display: grid; gap: 2px">
+        <div class="mono" style="font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-accent-700)">Sellado de tiempo</div>
+        <h2 style="margin: 0; font-size: 52px; line-height: 1; letter-spacing: -0.01em">Probar que algo existía ayer</h2>
+      </div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 44px; align-items: start">
+      <div data-anim="up" style="display: grid; gap: 20px">
+        <p style="margin: 0; font-size: 20px; line-height: 1.6; color: var(--color-neutral-900); text-wrap: pretty">La fecha que trae un archivo se cambia en dos clics. El sellado de tiempo resuelve el problema de otra forma: en lugar de firmar el documento, se firma su hash junto con la fecha, y ese sello se ancla donde ya no se puede retocar.</p>
+        <p style="margin: 0; font-size: 18px; line-height: 1.6; color: var(--color-neutral-700); text-wrap: pretty">Lo importante es lo que <em>no</em> viaja: solo se envía el hash. El documento nunca sale de su poder, así que nadie —ni la autoridad que sella— ve lo que dice.</p>
+      </div>
+      <div data-anim="up" style="background: var(--color-accent-100); border-left: 3px solid var(--color-accent); padding: 26px 26px 28px; display: grid; gap: 12px">
+        <div class="mono" style="font-size: 10.5px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-accent-700)">La analogía</div>
+        <div style="font-family: var(--font-heading); font-size: 34px; line-height: 1.04; color: var(--color-accent-900)">El matasellos de correos</div>
+        <p style="margin: 0; font-size: 17px; line-height: 1.58; color: var(--color-accent-800); text-wrap: pretty">La oficina estampa la fecha en el sobre sin abrirlo. Certifica cuándo pasó por sus manos, no qué había dentro. Un sello de tiempo hace lo mismo, y además el sobre queda cerrado para siempre.</p>
+      </div>
+    </div>
+
+    <div style="margin-top: 46px">
+      <div data-anim="up" class="mono" style="font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-accent-700); margin-bottom: 20px">El esquema estándar · RFC 3161</div>
+      <div data-anim="stagger" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px">
+        <div class="blueprint" style="padding: 22px 20px; display: grid; gap: 10px; align-content: start">
+          <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+          <span class="mono" style="font-size: 22px; color: var(--color-accent)">1</span>
+          <div style="font-family: var(--font-heading); font-size: 22px; line-height: 1.1">Usted calcula el hash</div>
+          <p style="margin: 0; font-size: 15.5px; line-height: 1.5; color: var(--color-neutral-700)">En su propia máquina. El documento se queda donde está.</p>
+        </div>
+        <div class="blueprint" style="padding: 22px 20px; display: grid; gap: 10px; align-content: start">
+          <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+          <span class="mono" style="font-size: 22px; color: var(--color-accent)">2</span>
+          <div style="font-family: var(--font-heading); font-size: 22px; line-height: 1.1">Envía solo ese hash</div>
+          <p style="margin: 0; font-size: 15.5px; line-height: 1.5; color: var(--color-neutral-700)">Junto con el nombre del algoritmo usado, a la autoridad de sellado (TSA).</p>
+        </div>
+        <div class="blueprint" style="padding: 22px 20px; display: grid; gap: 10px; align-content: start">
+          <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+          <span class="mono" style="font-size: 22px; color: var(--color-accent)">3</span>
+          <div style="font-family: var(--font-heading); font-size: 22px; line-height: 1.1">La TSA firma hash + hora</div>
+          <p style="margin: 0; font-size: 15.5px; line-height: 1.5; color: var(--color-neutral-700)">Con la hora de un reloj confiable, sincronizado por NTP o GPS con trazabilidad a un patrón oficial.</p>
+        </div>
+        <div class="blueprint" style="padding: 22px 20px; display: grid; gap: 10px; align-content: start">
+          <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+          <span class="mono" style="font-size: 22px; color: var(--color-accent)">4</span>
+          <div style="font-family: var(--font-heading); font-size: 22px; line-height: 1.1">Recibe el token de tiempo</div>
+          <p style="margin: 0; font-size: 15.5px; line-height: 1.5; color: var(--color-neutral-700)">Un objeto pequeño que guarda con el documento.</p>
+        </div>
+        <div class="blueprint" style="padding: 22px 20px; display: grid; gap: 10px; align-content: start; background: var(--color-accent-100); border-color: var(--color-accent)">
+          <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+          <span class="mono" style="font-size: 22px; color: var(--color-accent-800)">5</span>
+          <div style="font-family: var(--font-heading); font-size: 22px; line-height: 1.1; color: var(--color-accent-900)">Cualquiera verifica</div>
+          <p style="margin: 0; font-size: 15.5px; line-height: 1.5; color: var(--color-accent-800)">Comprueba la firma con la clave pública de la TSA y recalcula el hash del documento. Si coinciden, la fecha se sostiene.</p>
+        </div>
+      </div>
+
+      <div style="margin-top: 26px">
+        <button class="btn btn-secondary" onClick="{{ toggle.tsa }}" style="border-color: var(--color-accent); color: var(--color-accent-700); padding: 12px 20px; font-size: 11.5px; letter-spacing: 0.1em; text-transform: uppercase; border-radius: 0" style-hover="background: var(--color-accent-100)">
+          <span style="font-size: 15px">{{ sign.tsa }}</span><span>Ver el detalle técnico</span>
+        </button>
+        <sc-if value="{{ panels.tsa }}" hint-placeholder-val="{{ false }}">
+          <div style="margin-top: 16px; background: var(--color-surface); border-top: 3px solid var(--color-accent); padding: 26px; display: grid; gap: 16px; max-width: 880px">
+            <p style="margin: 0; font-size: 17px; line-height: 1.6">La TSA construye y firma la estructura <span class="mono" style="font-size: 15px; background: var(--color-bg); padding: 2px 6px">TS = Sign<sub>TSA</sub>(h ‖ t ‖ nonce ‖ policy_id)</span>, donde <span class="mono">h = H(documento)</span> y <span class="mono">t</span> es la hora del reloj confiable. La verificación es <span class="mono" style="font-size: 15px; background: var(--color-bg); padding: 2px 6px">Verify<sub>TSA</sub>(TS)</span> más el recálculo de <span class="mono">H(documento)</span>.</p>
+            <p style="margin: 0; font-size: 17px; line-height: 1.6; color: var(--color-neutral-700)">La seguridad depende de dos cosas: la resistencia a colisiones del hash —que nadie pueda encontrar otro documento con el mismo <span class="mono">h</span>— y la confianza en la TSA, es decir en su clave privada y en su reloj.</p>
+          </div>
+        </sc-if>
+      </div>
+    </div>
+
+    <div data-anim="up" style="margin-top: 52px; display: grid; grid-template-columns: repeat(auto-fit, minmax(330px, 1fr)); gap: 24px">
+      <div style="background: var(--color-accent-900); color: var(--color-bg); padding: 30px 28px; display: grid; gap: 14px; align-content: start">
+        <div class="mono" style="font-size: 10.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-accent-400)">Sin confiar en la autoridad</div>
+        <div style="font-family: var(--font-heading); font-size: 32px; line-height: 1.05">El esquema Haber–Stornetta</div>
+        <p style="margin: 0; font-size: 17px; line-height: 1.58; color: var(--color-accent-200); text-wrap: pretty">Cada sello nuevo incorpora el hash del sello anterior: <span class="mono" style="font-size: 15px; color: var(--color-bg)">h<sub>n</sub> = H(documento<sub>n</sub> ‖ h<sub>n−1</sub>)</span>. Falsificar una fecha obliga a recalcular todos los sellos posteriores, lo que es inviable si la cadena es pública. En su versión original se publicaba en el periódico.</p>
+        <p style="margin: 0; font-size: 16px; line-height: 1.55; color: var(--color-accent-300)">Esta es, literalmente, la idea que precede a las cadenas de bloques.</p>
+      </div>
+      <div class="blueprint" style="padding: 30px 28px; display: grid; gap: 14px; align-content: start">
+        <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+        <div class="mono" style="font-size: 10.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-accent-700)">Para sellar miles a la vez</div>
+        <div style="font-family: var(--font-heading); font-size: 32px; line-height: 1.05">Un árbol de Merkle, una sola firma</div>
+        <p style="margin: 0; font-size: 17px; line-height: 1.58; color: var(--color-neutral-800); text-wrap: pretty">Se agrupan N hashes de documentos como hojas de un árbol, se calcula la raíz y solo esa raíz se firma o se ancla. Cada usuario recibe su prueba de inclusión —el camino de hashes hermanos hasta la raíz— de tamaño logarítmico.</p>
+        <p style="margin: 0; font-size: 16px; line-height: 1.55; color: var(--color-neutral-700)">Es lo que hace OpenTimestamps: agrega miles de hashes y ancla una sola raíz en la blockchain de Bitcoin, abaratando el costo por documento.</p>
+      </div>
+    </div>
+  </section>
+
+  <section style="margin-top: 84px; background: var(--color-surface); padding: 62px 0 68px">
+    <div style="max-width: 1180px; margin: 0 auto; padding: 0 40px; display: grid; gap: 30px">
+      <div data-anim="up" style="display: grid; gap: 10px; max-width: 700px">
+        <div class="mono" style="font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-accent-700)">Demostración 3 · árbol de Merkle</div>
+        <h3 style="margin: 0; font-size: 42px; line-height: 1.02">Elija un documento y siga su camino</h3>
+        <p style="margin: 0; font-size: 18px; line-height: 1.55; color: var(--color-neutral-700); text-wrap: pretty">Ocho documentos sellados juntos. Para demostrar que el suyo estaba ahí no hace falta enseñar los otros siete: bastan tres hashes.</p>
+      </div>
+
+      <div data-anim="up" style="display: flex; flex-wrap: wrap; gap: 8px">
+        <sc-for list="{{ mkPicker }}" as="p" hint-placeholder-count="8">
+          <button onClick="{{ p.onClick }}" style="background: {{ p.bg }}; color: {{ p.fg }}; border: 1px solid {{ p.bd }}; padding: 9px 14px; cursor: pointer; font-size: 14px; display: flex; align-items: center; gap: 8px" style-hover="border-color: var(--color-accent)">
+            <span class="mono" style="font-size: 10.5px; opacity: 0.7">{{ p.n }}</span><span>{{ p.label }}</span>
+          </button>
+        </sc-for>
+      </div>
+
+      <div class="blueprint" style="background: var(--color-bg); padding: 30px 26px; display: grid; gap: 20px">
+        <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+        <sc-for list="{{ mkRows }}" as="r" hint-placeholder-count="4">
+          <div style="display: grid; gap: 8px">
+            <div class="mono" style="font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-neutral-600)">{{ r.label }}</div>
+            <div style="display: grid; gap: 6px; grid-template-columns: {{ r.cols }}">
+              <sc-for list="{{ r.nodes }}" as="n" hint-placeholder-count="8">
+                <div style="background: {{ n.bg }}; color: {{ n.fg }}; border: 1px solid {{ n.bd }}; padding: 9px 8px; display: grid; gap: 3px; min-width: 0; overflow: hidden">
+                  <span class="mono" style="font-size: 12.5px; letter-spacing: 0.02em">{{ n.hex }}</span>
+                  <span style="font-size: 11px; line-height: 1.2; opacity: 0.75; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">{{ n.doc }}</span>
+                </div>
+              </sc-for>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 22px">
+        <div style="background: var(--color-accent-900); color: var(--color-bg); padding: 26px 24px; display: grid; gap: 12px; align-content: start">
+          <div class="mono" style="font-size: 10.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-accent-400)">Prueba de inclusión de «{{ mkSelName }}»</div>
+          <sc-for list="{{ mkProof }}" as="p" hint-placeholder-count="3">
+            <div style="display: grid; grid-template-columns: 26px minmax(0, 1fr); gap: 12px; align-items: baseline; padding: 9px 0; border-bottom: 1px solid var(--color-accent-800)">
+              <span class="mono" style="font-size: 12px; color: var(--color-accent-400)">{{ p.paso }}</span>
+              <span style="font-size: 15.5px; line-height: 1.4">Hermano por la <strong style="color: var(--color-accent-300)">{{ p.lado }}</strong>: <span class="mono" style="font-size: 13px">{{ p.hex }}</span></span>
+            </div>
+          </sc-for>
+          <p style="margin: 6px 0 0; font-size: 15.5px; line-height: 1.55; color: var(--color-accent-200)">Con estos tres hashes y el suyo, cualquiera reconstruye la raíz y comprueba que su documento estaba en el lote. Los otros siete documentos nunca se muestran.</p>
+        </div>
+        <div class="blueprint" style="padding: 26px 24px; display: grid; gap: 12px; align-content: start; background: var(--color-bg)">
+          <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+          <div class="mono" style="font-size: 10.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-accent-700)">La raíz · lo único firmado o anclado</div>
+          <div class="mono" style="font-size: 15px; line-height: 1.5; color: var(--color-accent-900); word-break: break-all">{{ mkRoot }}</div>
+          <p style="margin: 0; font-size: 16px; line-height: 1.55; color: var(--color-neutral-700)">Ocho documentos, una firma. Con mil documentos la prueba crece a diez hashes; con un millón, a veinte. Ahí está la gracia del árbol.</p>
+        </div>
+      </div>
+
+      <div data-anim="up" style="margin-top: 12px">
+        <div class="mono" style="font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-accent-700); margin-bottom: 14px">Los cuatro métodos, comparados</div>
+        <table class="table" style="background: var(--color-bg)">
+          <thead><tr><th>Método</th><th>Confía en</th><th>Ventaja</th><th>Desventaja</th></tr></thead>
+          <tbody>
+            <tr><td style="font-family: var(--font-heading); font-size: 17px">TSA (RFC 3161)</td><td>Una autoridad central</td><td>Simple, estándar y legalmente reconocido</td><td>Punto único de fallo y de confianza</td></tr>
+            <tr><td style="font-family: var(--font-heading); font-size: 17px">Haber–Stornetta</td><td>Una cadena pública y sus testigos</td><td>Resistente a la manipulación retroactiva</td><td>Exige publicación continua</td></tr>
+            <tr><td style="font-family: var(--font-heading); font-size: 17px">Merkle + TSA o blockchain</td><td>Una combinación de ambos</td><td>Eficiente para volúmenes altos</td><td>Más complejo de implementar</td></tr>
+            <tr><td style="font-family: var(--font-heading); font-size: 17px">Blockchain puro</td><td>Una red descentralizada</td><td>Sin autoridad central</td><td>Costos, latencia y tamaño de la prueba</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section id="s04" style="max-width: 1180px; margin: 0 auto; padding: 100px 40px 0">
+    <div data-anim="up" style="display: flex; align-items: center; gap: 18px; margin-bottom: 36px">
+      <span style="width: 62px; height: 62px; background: var(--color-accent); color: var(--color-bg); display: grid; place-items: center; font-family: var(--font-heading); font-size: 32px; line-height: 1; flex: none">04</span>
+      <div style="display: grid; gap: 2px">
+        <div class="mono" style="font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-accent-700)">Blockchain artesanal</div>
+        <h2 style="margin: 0; font-size: 52px; line-height: 1; letter-spacing: -0.01em">Una cadena con cuatro piezas</h2>
+      </div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 44px; align-items: start">
+      <div data-anim="up" style="display: grid; gap: 20px">
+        <p style="margin: 0; font-size: 20px; line-height: 1.6; color: var(--color-neutral-900); text-wrap: pretty">Sin minería, sin red, sin consenso: solo el esqueleto criptográfico. Con cuatro ingredientes se construye una cadena capaz de registrar «Bob envía 50 pesos a Alice, firmado por Bob» de forma que nadie pueda cambiarlo después sin que se note.</p>
+        <p style="margin: 0; font-size: 18px; line-height: 1.6; color: var(--color-neutral-700); text-wrap: pretty">Es el mejor lugar para ver de golpe todo lo anterior funcionando junto: el hash, la firma, el sello de tiempo y el encadenamiento.</p>
+      </div>
+      <div data-anim="up" style="background: var(--color-accent-100); border-left: 3px solid var(--color-accent); padding: 26px 26px 28px; display: grid; gap: 12px">
+        <div class="mono" style="font-size: 10.5px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-accent-700)">La analogía</div>
+        <div style="font-family: var(--font-heading); font-size: 34px; line-height: 1.04; color: var(--color-accent-900)">Un cuaderno cosido y foliado</div>
+        <p style="margin: 0; font-size: 17px; line-height: 1.58; color: var(--color-accent-800); text-wrap: pretty">En un cuaderno cosido no se arranca una hoja sin que se note, y cada página remite a la anterior. Si alguien reescribe la página 12, hay que reescribir todas las siguientes. Eso es una cadena de bloques.</p>
+      </div>
+    </div>
+
+    <div data-anim="stagger" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 22px; margin-top: 46px">
+      <div class="blueprint" style="padding: 24px 22px; display: grid; gap: 10px; align-content: start">
+        <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+        <span class="mono" style="font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-accent-700)">Pieza 1</span>
+        <div style="font-family: var(--font-heading); font-size: 27px; line-height: 1.06">Función hash</div>
+        <p style="margin: 0; font-size: 16px; line-height: 1.55; color: var(--color-neutral-700)">Comprime cualquier dato a una huella fija. Cualquier cambio mínimo altera por completo la salida.</p>
+      </div>
+      <div class="blueprint" style="padding: 24px 22px; display: grid; gap: 10px; align-content: start">
+        <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+        <span class="mono" style="font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-accent-700)">Pieza 2</span>
+        <div style="font-family: var(--font-heading); font-size: 27px; line-height: 1.06">Firma digital</div>
+        <p style="margin: 0; font-size: 16px; line-height: 1.55; color: var(--color-neutral-700)">Bob firma con su clave privada; cualquiera verifica con la pública. Prueba autoría y le impide negar la transacción.</p>
+      </div>
+      <div class="blueprint" style="padding: 24px 22px; display: grid; gap: 10px; align-content: start">
+        <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+        <span class="mono" style="font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-accent-700)">Pieza 3</span>
+        <div style="font-family: var(--font-heading); font-size: 27px; line-height: 1.06">Encadenamiento</div>
+        <p style="margin: 0; font-size: 16px; line-height: 1.55; color: var(--color-neutral-700)">Cada bloque incluye el hash del anterior. Alterar uno rompe todos los hashes posteriores.</p>
+      </div>
+      <div class="blueprint" style="padding: 24px 22px; display: grid; gap: 10px; align-content: start">
+        <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+        <span class="mono" style="font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-accent-700)">Pieza 4</span>
+        <div style="font-family: var(--font-heading); font-size: 27px; line-height: 1.06">Sello de tiempo</div>
+        <p style="margin: 0; font-size: 16px; line-height: 1.55; color: var(--color-neutral-700)">Una marca de tiempo por bloque, que fija su orden temporal de forma verificable.</p>
+      </div>
+    </div>
+  </section>
+
+  <section style="margin-top: 84px; background: var(--color-surface); padding: 62px 0 68px">
+    <div style="max-width: 1180px; margin: 0 auto; padding: 0 40px; display: grid; gap: 28px">
+      <div data-anim="up" style="display: grid; gap: 10px; max-width: 720px">
+        <div class="mono" style="font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-accent-700)">Demostración 4 · rompa la cadena</div>
+        <h3 style="margin: 0; font-size: 42px; line-height: 1.02">Cambie un 50 por un 500</h3>
+        <p style="margin: 0; font-size: 18px; line-height: 1.55; color: var(--color-neutral-700); text-wrap: pretty">Tres bloques reales, con hashes calculados en su navegador. Edite la transacción de cualquiera y vea qué se cae. Es el argumento entero de la tecnología, en una interacción.</p>
+      </div>
+
+      <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 16px">
+        <span style="background: {{ chainVerdictBg }}; color: var(--color-bg); padding: 9px 16px; font-family: var(--font-heading); font-size: 20px; letter-spacing: 0.02em">{{ chainVerdict }}</span>
+        <button class="btn btn-secondary" onClick="{{ onChainReset }}" style="border-radius: 0; font-size: 11.5px; letter-spacing: 0.1em; text-transform: uppercase; padding: 10px 16px">Restaurar la cadena</button>
+      </div>
+      <p style="margin: -8px 0 0; font-size: 17px; line-height: 1.55; color: var(--color-neutral-700); max-width: 78ch; text-wrap: pretty">{{ chainNote }}</p>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 22px">
+        <sc-for list="{{ chainRows }}" as="b" hint-placeholder-count="3">
+          <div style="background: var(--color-bg); border: 1px solid {{ b.bd }}; padding: 22px 20px; display: grid; gap: 12px; align-content: start">
+            <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap">
+              <span style="font-family: var(--font-heading); font-size: 26px; line-height: 1">Bloque {{ b.idx }}</span>
+              <span class="mono" style="background: {{ b.badgeBg }}; color: var(--color-bg); padding: 4px 9px; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase">{{ b.badge }}</span>
+            </div>
+            <div class="mono" style="font-size: 11px; letter-spacing: 0.08em; color: var(--color-neutral-600)">t = {{ b.t }}</div>
+            <div style="display: grid; gap: 5px">
+              <span class="mono" style="font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-neutral-600)">Transacción</span>
+              <input class="input" type="text" value="{{ b.tx }}" onInput="{{ b.onEdit }}" style="border-radius: 0; font-size: 15.5px; padding: 10px 12px; background: var(--color-neutral-100)">
+            </div>
+            <div style="display: grid; gap: 5px">
+              <span class="mono" style="font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-neutral-600)">Hash heredado del bloque anterior</span>
+              <span class="mono" style="font-size: 12.5px; color: var(--color-neutral-700); word-break: break-all">{{ b.prev }}</span>
+            </div>
+            <div style="display: grid; gap: 5px">
+              <span class="mono" style="font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-accent-700)">Hash propio</span>
+              <span class="mono" style="font-size: 12.5px; color: var(--color-accent-900); word-break: break-all">{{ b.h }}</span>
+            </div>
+            <div style="display: grid; gap: 4px; padding-top: 10px; border-top: 1px solid var(--color-neutral-300); font-size: 14.5px; line-height: 1.45; color: var(--color-neutral-700)">
+              <span>{{ b.sigText }}</span>
+              <span>{{ b.linkText }}</span>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+
+      <div data-anim="up" style="margin-top: 14px">
+        <div class="mono" style="font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-accent-700); margin-bottom: 14px">El pipeline, etapa por etapa</div>
+        <table class="table" style="background: var(--color-bg)">
+          <thead><tr><th>Etapa</th><th>Entrada</th><th>Operación</th><th>Salida</th></tr></thead>
+          <tbody>
+            <tr><td style="font-family: var(--font-heading); font-size: 17px">Transacción</td><td>Bob, Alice, monto</td><td>Dar formato</td><td class="mono">tx<sub>n</sub></td></tr>
+            <tr><td style="font-family: var(--font-heading); font-size: 17px">Hash</td><td class="mono">tx<sub>n</sub>, h<sub>n−1</sub>, t<sub>n</sub></td><td>SHA-256</td><td class="mono">h<sub>n</sub></td></tr>
+            <tr><td style="font-family: var(--font-heading); font-size: 17px">Firma</td><td class="mono">h<sub>n</sub>, sk<sub>Bob</sub></td><td>ECDSA</td><td class="mono">σ<sub>n</sub></td></tr>
+            <tr><td style="font-family: var(--font-heading); font-size: 17px">Encadenamiento</td><td class="mono">h<sub>n−1</sub></td><td>Referencia al bloque previo</td><td>Enlace</td></tr>
+            <tr><td style="font-family: var(--font-heading); font-size: 17px">Sello de tiempo</td><td>Reloj local o NTP</td><td>Captura de la hora</td><td class="mono">t<sub>n</sub></td></tr>
+            <tr><td style="font-family: var(--font-heading); font-size: 17px">Bloque final</td><td class="mono">idx, t<sub>n</sub>, tx, h<sub>n−1</sub>, σ<sub>n</sub>, h<sub>n</sub></td><td>Ensamblar y publicar</td><td class="mono">B<sub>n</sub></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div data-anim="up" style="background: var(--color-accent-900); color: var(--color-bg); padding: 28px 26px; display: grid; gap: 12px; margin-top: 14px">
+        <div class="mono" style="font-size: 10.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-accent-400)">Lo que falta para una cadena real</div>
+        <p style="margin: 0; font-size: 18px; line-height: 1.55; color: var(--color-accent-100); max-width: 82ch; text-wrap: pretty">Este pipeline registra una transacción por bloque y confía en que Bob controla su propia cadena. Para pasar a una blockchain real harían falta tres cosas más: un mecanismo de consenso entre varios nodos, una red que propague los bloques, y una regla para resolver el conflicto cuando dos nodos publican a la vez.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="s05" style="max-width: 1180px; margin: 0 auto; padding: 100px 40px 0">
+    <div data-anim="up" style="display: flex; align-items: center; gap: 18px; margin-bottom: 36px">
+      <span style="width: 62px; height: 62px; background: var(--color-accent); color: var(--color-bg); display: grid; place-items: center; font-family: var(--font-heading); font-size: 32px; line-height: 1; flex: none">05</span>
+      <div style="display: grid; gap: 2px">
+        <div class="mono" style="font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-accent-700)">Esquemas de compromiso</div>
+        <h2 style="margin: 0; font-size: 52px; line-height: 1; letter-spacing: -0.01em">El sobre sellado</h2>
+      </div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 44px; align-items: start">
+      <div data-anim="up" style="display: grid; gap: 20px">
+        <p style="margin: 0; font-size: 20px; line-height: 1.6; color: var(--color-neutral-900); text-wrap: pretty">Un compromiso permite fijar un valor ante otra persona sin revelarlo, de modo que más tarde no pueda cambiarlo. Nada más. Y sobre eso se construyen las pruebas de conocimiento cero, las transacciones confidenciales y los sistemas de votación verificable.</p>
+        <p style="margin: 0; font-size: 18px; line-height: 1.6; color: var(--color-neutral-700); text-wrap: pretty">Un compromiso rara vez es el producto final: es la pieza que hace posible una propiedad que sin él sería contradictoria. Ocultar y a la vez verificar. Fijar antes de revelar. Publicar sin exponer, y auditar después.</p>
+      </div>
+      <div data-anim="up" style="background: var(--color-accent-100); border-left: 3px solid var(--color-accent); padding: 26px 26px 28px; display: grid; gap: 12px">
+        <div class="mono" style="font-size: 10.5px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-accent-700)">La analogía</div>
+        <div style="font-family: var(--font-heading); font-size: 34px; line-height: 1.04; color: var(--color-accent-900)">La subasta de sobre cerrado</div>
+        <p style="margin: 0; font-size: 17px; line-height: 1.58; color: var(--color-accent-800); text-wrap: pretty">Todos entregan su oferta en un sobre cerrado. Nadie ve las demás antes de decidir, y cuando se abren, nadie puede alegar que había escrito otra cifra. Ocultamiento y vinculación: las dos propiedades, en un solo objeto de papelería.</p>
+      </div>
+    </div>
+
+    <div data-anim="stagger" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 22px; margin-top: 46px">
+      <div class="blueprint" style="padding: 28px 26px; display: grid; gap: 12px; align-content: start">
+        <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+        <div class="mono" style="font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-accent-700)">Propiedad 1 · hiding</div>
+        <div style="font-family: var(--font-heading); font-size: 30px; line-height: 1.06">Ocultamiento</div>
+        <p style="margin: 0; font-size: 16.5px; line-height: 1.55; color: var(--color-neutral-800)">El sobre no deja ver nada. Quien lo recibe no puede distinguir si dentro va un valor u otro. Protege a quien se compromete.</p>
+      </div>
+      <div class="blueprint" style="padding: 28px 26px; display: grid; gap: 12px; align-content: start">
+        <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+        <div class="mono" style="font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-accent-700)">Propiedad 2 · binding</div>
+        <div style="font-family: var(--font-heading); font-size: 30px; line-height: 1.06">Vinculación</div>
+        <p style="margin: 0; font-size: 16.5px; line-height: 1.55; color: var(--color-neutral-800)">El sobre solo abre a una cosa. Nadie puede exhibir dos aperturas distintas del mismo compromiso. Protege a quien lo recibe.</p>
+      </div>
+      <div style="background: var(--color-accent-900); color: var(--color-bg); padding: 28px 26px; display: grid; gap: 12px; align-content: start">
+        <div class="mono" style="font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-accent-400)">El teorema incómodo</div>
+        <div style="font-family: var(--font-heading); font-size: 30px; line-height: 1.06">No se puede tener las dos perfectas</div>
+        <p style="margin: 0; font-size: 16.5px; line-height: 1.55; color: var(--color-accent-200)">Es un resultado demostrado, no una limitación de ingeniería. Toda construcción elige qué propiedad sacrificar, y esa elección decide a quién se protege a largo plazo.</p>
+      </div>
+    </div>
+
+    <div style="margin-top: 26px">
+      <button class="btn btn-secondary" onClick="{{ toggle.imposs }}" style="border-color: var(--color-accent); color: var(--color-accent-700); padding: 12px 20px; font-size: 11.5px; letter-spacing: 0.1em; text-transform: uppercase; border-radius: 0" style-hover="background: var(--color-accent-100)">
+        <span style="font-size: 15px">{{ sign.imposs }}</span><span>Ver el detalle técnico</span>
+      </button>
+      <sc-if value="{{ panels.imposs }}" hint-placeholder-val="{{ false }}">
+        <div style="margin-top: 16px; background: var(--color-surface); border-top: 3px solid var(--color-accent); padding: 26px; display: grid; gap: 16px; max-width: 900px">
+          <p style="margin: 0; font-size: 17px; line-height: 1.6">Un esquema de compromiso es una terna <span class="mono" style="background: var(--color-bg); padding: 2px 6px">(Setup, Com, Ver)</span>: <span class="mono">Setup(1<sup>λ</sup>) → pp</span> genera los parámetros públicos, <span class="mono">Com<sub>pp</sub>(m; r) → c</span> produce el compromiso con aleatoriedad <span class="mono">r</span>, y <span class="mono">Ver<sub>pp</sub>(c, m, r) → {0,1}</span> verifica la apertura.</p>
+          <p style="margin: 0; font-size: 17px; line-height: 1.6; color: var(--color-neutral-700)">Si el esquema es perfectamente ocultante, para todo <span class="mono">c</span> y todo <span class="mono">m₁</span> existe un <span class="mono">r₁</span> con <span class="mono">Com(m₁; r₁) = c</span> —si no, la distribución de <span class="mono">c</span> dependería de <span class="mono">m</span>—. Un adversario sin límite de cómputo enumera el espacio de aleatoriedad, encuentra ese <span class="mono">r₁</span> y rompe la vinculación. El recíproco es simétrico.</p>
+          <p style="margin: 0; font-size: 17px; line-height: 1.6; color: var(--color-neutral-700)">La consecuencia práctica: Pedersen, perfectamente ocultante, protege al emisor —ni una computadora cuántica futura recuperará el mensaje—. Un compromiso tipo ElGamal, perfectamente vinculante, protege al receptor: el valor queda fijado de forma absoluta, pero un adversario futuro podría descifrarlo. En transacciones confidenciales se prefiere lo primero, porque la privacidad debe durar décadas.</p>
+        </div>
+      </sc-if>
+    </div>
+
+    <div data-anim="up" style="margin-top: 48px">
+      <div class="mono" style="font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-accent-700); margin-bottom: 18px">Las propiedades que se piden además</div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1px; background: var(--color-neutral-300); border: 1px solid var(--color-neutral-300)">
+        <div style="background: var(--color-bg); padding: 20px 18px; display: grid; gap: 7px; align-content: start">
+          <div style="font-family: var(--font-heading); font-size: 22px">Homomorfía</div>
+          <p style="margin: 0; font-size: 15px; line-height: 1.5; color: var(--color-neutral-700)">Sumar dos sobres cerrados da el sobre de la suma. Permite operar sin abrir nada.</p>
+        </div>
+        <div style="background: var(--color-bg); padding: 20px 18px; display: grid; gap: 7px; align-content: start">
+          <div style="font-family: var(--font-heading); font-size: 22px">Sucintitud</div>
+          <p style="margin: 0; font-size: 15px; line-height: 1.5; color: var(--color-neutral-700)">El compromiso ocupa lo mismo comprometa un número o un millón.</p>
+        </div>
+        <div style="background: var(--color-bg); padding: 20px 18px; display: grid; gap: 7px; align-content: start">
+          <div style="font-family: var(--font-heading); font-size: 22px">Extractabilidad</div>
+          <p style="margin: 0; font-size: 15px; line-height: 1.5; color: var(--color-neutral-700)">Con una trampa se recupera el mensaje. Esencial en los SNARKs.</p>
+        </div>
+        <div style="background: var(--color-bg); padding: 20px 18px; display: grid; gap: 7px; align-content: start">
+          <div style="font-family: var(--font-heading); font-size: 22px">Equivocabilidad</div>
+          <p style="margin: 0; font-size: 15px; line-height: 1.5; color: var(--color-neutral-700)">Con una trampa, el sobre abre a cualquier valor. Base de los simuladores en conocimiento cero.</p>
+        </div>
+        <div style="background: var(--color-bg); padding: 20px 18px; display: grid; gap: 7px; align-content: start">
+          <div style="font-family: var(--font-heading); font-size: 22px">Setup transparente</div>
+          <p style="margin: 0; font-size: 15px; line-height: 1.5; color: var(--color-neutral-700)">No hace falta una ceremonia de confianza para generar los parámetros.</p>
+        </div>
+        <div style="background: var(--color-bg); padding: 20px 18px; display: grid; gap: 7px; align-content: start">
+          <div style="font-family: var(--font-heading); font-size: 22px">Apertura parcial</div>
+          <p style="margin: 0; font-size: 15px; line-height: 1.5; color: var(--color-neutral-700)">Se abre una sola posición del vector sin revelar el resto.</p>
+        </div>
+        <div style="background: var(--color-bg); padding: 20px 18px; display: grid; gap: 7px; align-content: start">
+          <div style="font-family: var(--font-heading); font-size: 22px">Post-cuántico</div>
+          <p style="margin: 0; font-size: 15px; line-height: 1.5; color: var(--color-neutral-700)">La vinculación no depende del logaritmo discreto ni de la factorización.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="margin-top: 84px; background: var(--color-surface); padding: 62px 0 68px">
+    <div style="max-width: 1180px; margin: 0 auto; padding: 0 40px; display: grid; gap: 28px">
+      <div data-anim="up" style="display: grid; gap: 10px; max-width: 720px">
+        <div class="mono" style="font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-accent-700)">Demostración 5 · commit y reveal</div>
+        <h3 style="margin: 0; font-size: 42px; line-height: 1.02">Lanzar una moneda por teléfono</h3>
+        <p style="margin: 0; font-size: 18px; line-height: 1.55; color: var(--color-neutral-700); text-wrap: pretty">El problema que Blum planteó en 1981 y que fundó toda esta área: dos personas que no se fían deben acordar un resultado al azar sin verse. Usted elige, sella el sobre, el rival anuncia lo suyo, y solo entonces se abre.</p>
+      </div>
+
+      <div class="blueprint" style="background: var(--color-bg); padding: 30px 28px; display: grid; gap: 22px">
+        <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+
+        <sc-if value="{{ crStage0 }}" hint-placeholder-val="{{ true }}">
+          <div style="display: grid; gap: 16px; max-width: 620px">
+            <div class="mono" style="font-size: 10.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-neutral-600)">Paso 1 · elija su cara en secreto</div>
+            <div style="display: flex; gap: 12px; flex-wrap: wrap">
+              <button class="btn btn-primary" onClick="{{ crPickCara }}" style="border-radius: 0; padding: 14px 28px; font-family: var(--font-heading); font-size: 22px">Cara</button>
+              <button class="btn btn-primary" onClick="{{ crPickCruz }}" style="border-radius: 0; padding: 14px 28px; font-family: var(--font-heading); font-size: 22px">Cruz</button>
+            </div>
+            <p style="margin: 0; font-size: 16px; line-height: 1.55; color: var(--color-neutral-700)">Al elegir, su navegador genera una aleatoriedad <span class="mono">r</span> y calcula el compromiso <span class="mono">c = H(elección ‖ r)</span>. Eso es lo único que verá el rival.</p>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{ crStage1 }}" hint-placeholder-val="{{ false }}">
+          <div style="display: grid; gap: 16px">
+            <div class="mono" style="font-size: 10.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-accent-700)">Paso 2 · el sobre está sellado</div>
+            <div style="background: var(--color-accent-900); color: var(--color-bg); padding: 20px 18px; display: grid; gap: 8px">
+              <span class="mono" style="font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-accent-400)">Lo que ve el rival · c = H(m ‖ r)</span>
+              <span class="mono" style="font-size: 16px; word-break: break-all">{{ crCommitHex }}</span>
+              <span style="font-size: 15px; color: var(--color-accent-200)">No hay nada aquí que revele si eligió cara o cruz. Y usted ya no puede cambiar de opinión: solo conoce una apertura válida de este compromiso.</span>
+            </div>
+            <button class="btn btn-primary" onClick="{{ crRivalTurn }}" style="border-radius: 0; padding: 13px 22px; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; justify-self: start">Que el rival anuncie lo suyo</button>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{ crStage2 }}" hint-placeholder-val="{{ false }}">
+          <div style="display: grid; gap: 16px">
+            <div class="mono" style="font-size: 10.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-accent-700)">Paso 3 · el rival ya se pronunció</div>
+            <div style="display: flex; flex-wrap: wrap; gap: 14px; align-items: center">
+              <span style="background: var(--color-accent-200); color: var(--color-accent-900); padding: 12px 20px; font-family: var(--font-heading); font-size: 24px">El rival dice: {{ crRival }}</span>
+              <span style="font-size: 16px; color: var(--color-neutral-700); max-width: 42ch">Lo dijo sin saber su elección. Ahora le toca abrir el sobre.</span>
+            </div>
+            <div style="display: flex; gap: 12px; flex-wrap: wrap">
+              <button class="btn btn-primary" onClick="{{ crReveal }}" style="border-radius: 0; padding: 13px 22px; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase">Abrir el sobre honestamente</button>
+              <button class="btn btn-secondary" onClick="{{ crTryCheat }}" style="border-radius: 0; padding: 13px 22px; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase">Intentar hacer trampa</button>
+            </div>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{ crStage3 }}" hint-placeholder-val="{{ false }}">
+          <div style="display: grid; gap: 18px">
+            <div class="mono" style="font-size: 10.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-accent-700)">Paso 4 · verificación</div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px">
+              <div style="border: 1px solid var(--color-divider); padding: 18px; display: grid; gap: 7px">
+                <span class="mono" style="font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-neutral-600)">Apertura presentada</span>
+                <span style="font-family: var(--font-heading); font-size: 26px">{{ crOpenedAs }}</span>
+                <span class="mono" style="font-size: 12px; color: var(--color-neutral-600); word-break: break-all">r = {{ crNonce }}</span>
+              </div>
+              <div style="border: 1px solid var(--color-divider); padding: 18px; display: grid; gap: 7px">
+                <span class="mono" style="font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-neutral-600)">Resultado del lanzamiento</span>
+                <span style="font-family: var(--font-heading); font-size: 26px">{{ crResult }}</span>
+                <span style="font-size: 14.5px; color: var(--color-neutral-700)">Su elección XOR la del rival. Ninguno de los dos la controló.</span>
+              </div>
+            </div>
+            <div style="background: {{ crVerifyBg }}; color: var(--color-bg); padding: 18px 20px; display: grid; gap: 6px">
+              <span class="mono" style="font-size: 15px">{{ crVerifyText }}</span>
+              <span style="font-size: 16px; line-height: 1.5">{{ crVerifyNote }}</span>
+            </div>
+            <button class="btn btn-secondary" onClick="{{ crReset }}" style="border-radius: 0; padding: 12px 20px; font-size: 11.5px; letter-spacing: 0.1em; text-transform: uppercase; justify-self: start">Jugar otra vez</button>
+          </div>
+        </sc-if>
+      </div>
+    </div>
+  </section>
+
+  <section id="s06" style="max-width: 1180px; margin: 0 auto; padding: 100px 40px 0">
+    <div data-anim="up" style="display: flex; align-items: center; gap: 18px; margin-bottom: 36px">
+      <span style="width: 62px; height: 62px; background: var(--color-accent); color: var(--color-bg); display: grid; place-items: center; font-family: var(--font-heading); font-size: 32px; line-height: 1; flex: none">06</span>
+      <div style="display: grid; gap: 2px">
+        <div class="mono" style="font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-accent-700)">Catálogo</div>
+        <h2 style="margin: 0; font-size: 52px; line-height: 1; letter-spacing: -0.01em">Catorce esquemas, filtrables</h2>
+      </div>
+    </div>
+
+    <p data-anim="up" style="margin: 0 0 26px; font-size: 19px; line-height: 1.6; color: var(--color-neutral-700); max-width: 72ch; text-wrap: pretty">La jerarquía es inclusiva: un compromiso polinomial induce uno vectorial, y éste uno escalar. Filtre por la propiedad que necesite y quedan solo los candidatos posibles.</p>
+
+    <div data-anim="up" style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px">
+      <sc-for list="{{ cmpFilters }}" as="f" hint-placeholder-count="6">
+        <button onClick="{{ f.onClick }}" style="background: {{ f.bg }}; color: {{ f.fg }}; border: 1px solid {{ f.bd }}; padding: 9px 16px; cursor: pointer; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase" style-hover="border-color: var(--color-accent)">{{ f.label }}</button>
+      </sc-for>
+      <span class="mono" style="align-self: center; font-size: 11px; letter-spacing: 0.08em; color: var(--color-neutral-600); padding-left: 8px">{{ cmpCount }} esquemas</span>
+    </div>
+
+    <div style="overflow-x: auto">
+      <table class="table" style="min-width: 900px">
+        <thead><tr><th>Esquema</th><th>Tipo</th><th>Oculta</th><th>Vincula</th><th>Propiedades</th><th>Dónde se usa</th></tr></thead>
+        <tbody>
+          <sc-for list="{{ cmpRows }}" as="r" hint-placeholder-count="8">
+            <tr>
+              <td style="font-family: var(--font-heading); font-size: 18px; line-height: 1.15">{{ r.name }}</td>
+              <td class="mono" style="font-size: 11.5px; color: var(--color-neutral-700)">{{ r.tipo }}</td>
+              <td style="font-size: 13.5px">{{ r.oculta }}</td>
+              <td style="font-size: 13.5px">{{ r.vincula }}</td>
+              <td class="mono" style="font-size: 11px; color: var(--color-accent-700); line-height: 1.5">{{ r.props }}</td>
+              <td style="font-size: 14.5px; line-height: 1.45; color: var(--color-neutral-800)">{{ r.uso }}</td>
+            </tr>
+          </sc-for>
+        </tbody>
+      </table>
+    </div>
+
+    <div data-anim="up" style="margin-top: 34px; background: var(--color-accent-100); border-left: 3px solid var(--color-accent); padding: 26px 26px 28px; display: grid; gap: 12px; max-width: 900px">
+      <div class="mono" style="font-size: 10.5px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-accent-700)">Regla práctica al leer una arquitectura</div>
+      <p style="margin: 0; font-size: 18px; line-height: 1.6; color: var(--color-accent-800); text-wrap: pretty">Si el diseño exige operar sobre valores ocultos, casi seguro hay un compromiso de Pedersen detrás. Si solo exige demostrar inclusión en un conjunto grande, hay un árbol de Merkle. Si exige ambas cosas a escala, hay un compromiso polinomial: KZG o FRI.</p>
+    </div>
+  </section>
+
+  <section id="s07" style="margin-top: 100px; background: var(--color-accent-900); color: var(--color-bg); padding: 78px 0 84px">
+    <div style="max-width: 1180px; margin: 0 auto; padding: 0 40px">
+      <div data-anim="up" style="display: flex; align-items: center; gap: 18px; margin-bottom: 36px">
+        <span style="width: 62px; height: 62px; background: var(--color-accent); color: var(--color-bg); display: grid; place-items: center; font-family: var(--font-heading); font-size: 32px; line-height: 1; flex: none">07</span>
+        <div style="display: grid; gap: 2px">
+          <div class="mono" style="font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-accent-400)">Sistemas desplegados</div>
+          <h2 style="margin: 0; font-size: 52px; line-height: 1; letter-spacing: -0.01em">Dónde ya funciona esto</h2>
+        </div>
+      </div>
+
+      <p data-anim="up" style="margin: 0 0 46px; font-size: 19px; line-height: 1.6; color: var(--color-accent-200); max-width: 74ch; text-wrap: pretty">Del resultado teórico al despliegue masivo pasaron, en el caso de Pedersen, veinticinco años. Esta es la cronología y los sistemas concretos que hoy dependen de estas piezas.</p>
+
+      <div data-anim="up" style="position: relative; margin-bottom: 52px">
+        <div style="position: absolute; top: 13px; left: 0; right: 0; height: 1px; background: var(--color-accent-800)"></div>
+        <div data-anim="line" style="position: absolute; top: 13px; left: 0; right: 0; height: 1px; background: var(--color-accent)"></div>
+        <div style="position: relative; display: grid; grid-template-columns: repeat(auto-fit, minmax(126px, 1fr)); gap: 12px">
+          <div style="display: grid; gap: 10px; align-content: start">
+            <span style="width: 9px; height: 9px; background: var(--color-accent); margin-top: 9px"></span>
+            <span class="mono" style="font-size: 12px; color: var(--color-accent-300)">1979</span>
+            <span style="font-family: var(--font-heading); font-size: 19px; line-height: 1.12">Merkle: árboles de hash</span>
+          </div>
+          <div style="display: grid; gap: 10px; align-content: start">
+            <span style="width: 9px; height: 9px; background: var(--color-accent); margin-top: 9px"></span>
+            <span class="mono" style="font-size: 12px; color: var(--color-accent-300)">1991</span>
+            <span style="font-family: var(--font-heading); font-size: 19px; line-height: 1.12">Pedersen: secreto verificable</span>
+          </div>
+          <div style="display: grid; gap: 10px; align-content: start">
+            <span style="width: 9px; height: 9px; background: var(--color-accent); margin-top: 9px"></span>
+            <span class="mono" style="font-size: 12px; color: var(--color-accent-300)">2013</span>
+            <span style="font-family: var(--font-heading); font-size: 19px; line-height: 1.12">Certificate Transparency</span>
+          </div>
+          <div style="display: grid; gap: 10px; align-content: start">
+            <span style="width: 9px; height: 9px; background: var(--color-accent); margin-top: 9px"></span>
+            <span class="mono" style="font-size: 12px; color: var(--color-accent-300)">2016</span>
+            <span style="font-family: var(--font-heading); font-size: 19px; line-height: 1.12">Monero RingCT y Mimblewimble</span>
+          </div>
+          <div style="display: grid; gap: 10px; align-content: start">
+            <span style="width: 9px; height: 9px; background: var(--color-accent); margin-top: 9px"></span>
+            <span class="mono" style="font-size: 12px; color: var(--color-accent-300)">2018</span>
+            <span style="font-family: var(--font-heading); font-size: 19px; line-height: 1.12">Bulletproofs y Zcash Sapling</span>
+          </div>
+          <div style="display: grid; gap: 10px; align-content: start">
+            <span style="width: 9px; height: 9px; background: var(--color-accent); margin-top: 9px"></span>
+            <span class="mono" style="font-size: 12px; color: var(--color-accent-300)">2020</span>
+            <span style="font-family: var(--font-heading); font-size: 19px; line-height: 1.12">zk-Rollups y transparencia de claves</span>
+          </div>
+          <div style="display: grid; gap: 10px; align-content: start">
+            <span style="width: 9px; height: 9px; background: var(--color-accent); margin-top: 9px"></span>
+            <span class="mono" style="font-size: 12px; color: var(--color-accent-300)">2023</span>
+            <span style="font-family: var(--font-heading); font-size: 19px; line-height: 1.12">La ceremonia KZG de Ethereum</span>
+          </div>
+          <div style="display: grid; gap: 10px; align-content: start">
+            <span style="width: 9px; height: 9px; background: var(--color-bg); margin-top: 9px"></span>
+            <span class="mono" style="font-size: 12px; color: var(--color-bg)">2024</span>
+            <span style="font-family: var(--font-heading); font-size: 19px; line-height: 1.12">EIP-4844 activo en Ethereum</span>
+          </div>
+        </div>
+      </div>
+
+      <div data-anim="stagger" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1px; background: var(--color-accent-800); border: 1px solid var(--color-accent-800)">
+        <div style="background: var(--color-accent-900); padding: 28px 26px; display: grid; gap: 11px; align-content: start">
+          <div class="mono" style="font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-accent-400)">Dinero confidencial</div>
+          <div style="font-family: var(--font-heading); font-size: 29px; line-height: 1.06">Monero · RingCT</div>
+          <p style="margin: 0; font-size: 16.5px; line-height: 1.56; color: var(--color-accent-100)">Cada monto se sustituye por un compromiso de Pedersen, y la validez de la transacción se reduce a comprobar que la diferencia entre salidas y entradas es un compromiso a cero. Obligatorio desde septiembre de 2017. En 2018 migró sus pruebas de rango a Bulletproofs, con una reducción de cerca del 80 % en el tamaño de transacción.</p>
+        </div>
+        <div style="background: var(--color-accent-900); padding: 28px 26px; display: grid; gap: 11px; align-content: start">
+          <div class="mono" style="font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-accent-400)">Cuando el álgebra decide la arquitectura</div>
+          <div style="font-family: var(--font-heading); font-size: 29px; line-height: 1.06">Mimblewimble · Grin y Beam</div>
+          <p style="margin: 0; font-size: 16.5px; line-height: 1.56; color: var(--color-accent-100)">Si toda salida es un compromiso y las sumas se cancelan, las transacciones intermedias pueden borrarse de la cadena: creada y luego gastada, ambos compromisos se anulan y desaparecen del histórico. El resultado es una cadena que crece con el estado actual, no con la historia. No es «Bitcoin con privacidad»: solo existe porque Pedersen es homomórfico.</p>
+        </div>
+        <div style="background: var(--color-accent-900); padding: 28px 26px; display: grid; gap: 11px; align-content: start">
+          <div class="mono" style="font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-accent-400)">Compromisos en un árbol</div>
+          <div style="font-family: var(--font-heading); font-size: 29px; line-height: 1.06">Zcash</div>
+          <p style="margin: 0; font-size: 16.5px; line-height: 1.56; color: var(--color-accent-100)">Cada nota se representa por un compromiso publicado en un árbol de Merkle incremental. Gastarla consiste en demostrar, en conocimiento cero, que se conoce la apertura de alguna hoja, sin revelar cuál.</p>
+          <div style="display: grid; gap: 1px; background: var(--color-accent-800); margin-top: 6px">
+            <div style="background: var(--color-accent-900); display: grid; grid-template-columns: 92px minmax(0, 1fr); gap: 12px; padding: 7px 0; font-size: 14.5px"><span class="mono" style="font-size: 11.5px; color: var(--color-accent-400)">Sprout 2016</span><span>SHA-256 · simple pero caro en el circuito</span></div>
+            <div style="background: var(--color-accent-900); display: grid; grid-template-columns: 92px minmax(0, 1fr); gap: 12px; padding: 7px 0; font-size: 14.5px"><span class="mono" style="font-size: 11.5px; color: var(--color-accent-400)">Sapling 2018</span><span>Hash de Pedersen · mucho más barato</span></div>
+            <div style="background: var(--color-accent-900); display: grid; grid-template-columns: 92px minmax(0, 1fr); gap: 12px; padding: 7px 0; font-size: 14.5px"><span class="mono" style="font-size: 11.5px; color: var(--color-accent-400)">Orchard 2022</span><span>Sinsemilla · para Halo 2, sin setup</span></div>
+          </div>
+        </div>
+        <div style="background: var(--color-accent-900); padding: 28px 26px; display: grid; gap: 11px; align-content: start">
+          <div class="mono" style="font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-accent-400)">El despliegue más grande</div>
+          <div style="font-family: var(--font-heading); font-size: 29px; line-height: 1.06">EIP-4844 · KZG en producción</div>
+          <p style="margin: 0; font-size: 16.5px; line-height: 1.56; color: var(--color-accent-100)">Activado en marzo de 2024. Cada transacción puede llevar «blobs» de unos 128 KB que no se guardan en el estado: el bloque conserva únicamente un compromiso KZG de 48 bytes al polinomio que interpola el blob.</p>
+          <p style="margin: 0; font-size: 16px; line-height: 1.55; color: var(--color-accent-300)">Su ceremonia de configuración reunió más de 140 000 contribuciones. Basta que una sola persona haya destruido honestamente su aportación para que el secreto siga siendo secreto: la confianza requerida no es en la mayoría, sino en la existencia de al menos un participante honesto.</p>
+        </div>
+        <div style="background: var(--color-accent-900); padding: 28px 26px; display: grid; gap: 11px; align-content: start">
+          <div class="mono" style="font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-accent-400)">Auditar sin exponer</div>
+          <div style="font-family: var(--font-heading); font-size: 29px; line-height: 1.06">Certificate Transparency</div>
+          <p style="margin: 0; font-size: 16.5px; line-height: 1.56; color: var(--color-accent-100)">Árboles de Merkle sobre certificados X.509 forman registros públicos que solo crecen. Cualquiera puede exigir después la prueba de que un certificado estaba incluido, lo que permite detectar emisiones fraudulentas de autoridades comprometidas. En operación desde 2013.</p>
+        </div>
+        <div style="background: var(--color-accent-900); padding: 28px 26px; display: grid; gap: 11px; align-content: start">
+          <div class="mono" style="font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-accent-400)">Verificar sin descargar</div>
+          <div style="font-family: var(--font-heading); font-size: 29px; line-height: 1.06">Muestreo de disponibilidad</div>
+          <p style="margin: 0; font-size: 16.5px; line-height: 1.56; color: var(--color-accent-100)">Un nodo ligero necesita convencerse de que los datos de un bloque se publicaron, sin bajarlos. Se compromete la extensión codificada y se piden muestras al azar: si el productor ocultó más de la mitad, unas decenas de muestras lo detectan con probabilidad abrumadora. Es la base de Celestia.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="max-width: 1180px; margin: 0 auto; padding: 92px 40px 0">
+    <div data-anim="up" style="display: grid; gap: 12px; max-width: 760px; margin-bottom: 34px">
+      <div class="mono" style="font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-accent-700)">El panorama sectorial</div>
+      <h3 style="margin: 0; font-size: 42px; line-height: 1.02">Lo que opera de verdad y lo que sigue siendo comunicado de prensa</h3>
+      <p style="margin: 0; font-size: 18px; line-height: 1.55; color: var(--color-neutral-700); text-wrap: pretty">En blockchain, listar aplicaciones sin distinguir equivale a listar anuncios. Aquí la marca ★ significa una sola cosa: en operación real verificable u obligatoria por regulación vigente.</p>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(330px, 1fr)); gap: 26px">
+      <div>
+        <div class="mono" style="display: flex; align-items: center; gap: 9px; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-accent-700); margin-bottom: 14px"><span style="color: var(--color-accent)">★</span><span>En operación real</span></div>
+        <div style="display: grid; gap: 1px; background: var(--color-neutral-300); border-top: 1px solid var(--color-neutral-300); border-bottom: 1px solid var(--color-neutral-300)">
+          <div style="background: var(--color-bg); padding: 15px 0; display: grid; gap: 4px"><span style="font-family: var(--font-heading); font-size: 21px">Sellado de tiempo y anclaje de resúmenes</span><span style="font-size: 15.5px; line-height: 1.5; color: var(--color-neutral-700)">La aplicación más sólida y la menos vistosa. El documento nunca sale de su repositorio.</span></div>
+          <div style="background: var(--color-bg); padding: 15px 0; display: grid; gap: 4px"><span style="font-family: var(--font-heading); font-size: 21px">Bonos del Tesoro tokenizados</span><span style="font-size: 15.5px; line-height: 1.5; color: var(--color-neutral-700)">La categoría más grande del mercado: unos quince mil millones de dólares a mediados de 2026. Su atractivo es prosaico: colateral de alta calidad disponible a toda hora.</span></div>
+          <div style="background: var(--color-bg); padding: 15px 0; display: grid; gap: 4px"><span style="font-family: var(--font-heading); font-size: 21px">Fondos del mercado monetario</span><span style="font-size: 15.5px; line-height: 1.5; color: var(--color-neutral-700)">El fondo BUIDL de BlackRock opera en varias redes con custodia bancaria y auditoría externa, y se acepta como colateral.</span></div>
+          <div style="background: var(--color-bg); padding: 15px 0; display: grid; gap: 4px"><span style="font-family: var(--font-heading); font-size: 21px">Pagos transfronterizos con monedas estables</span><span style="font-size: 15.5px; line-height: 1.5; color: var(--color-neutral-700)">Liquidación en minutos frente a la cadena de bancos corresponsales, sobre todo donde la banca es débil.</span></div>
+          <div style="background: var(--color-bg); padding: 15px 0; display: grid; gap: 4px"><span style="font-family: var(--font-heading); font-size: 21px">Liquidación atómica entrega contra pago</span><span style="font-size: 15.5px; line-height: 1.5; color: var(--color-neutral-700)">El activo y el pago se mueven en la misma operación o no se mueven. Elimina el riesgo de contraparte, el beneficio más citado por la banca mayorista.</span></div>
+          <div style="background: var(--color-bg); padding: 15px 0; display: grid; gap: 4px"><span style="font-family: var(--font-heading); font-size: 21px">Pruebas de conocimiento cero</span><span style="font-size: 15.5px; line-height: 1.5; color: var(--color-neutral-700)">La vía que reconcilia auditabilidad con confidencialidad comercial. Hoy es el área de mayor progreso real.</span></div>
+        </div>
+      </div>
+      <div>
+        <div class="mono" style="display: flex; align-items: center; gap: 9px; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-neutral-600); margin-bottom: 14px"><span>[!]</span><span>Con advertencia</span></div>
+        <div style="display: grid; gap: 1px; background: var(--color-neutral-300); border-top: 1px solid var(--color-neutral-300); border-bottom: 1px solid var(--color-neutral-300)">
+          <div style="background: var(--color-bg); padding: 15px 0; display: grid; gap: 4px"><span style="font-family: var(--font-heading); font-size: 21px">Trazabilidad alimentaria y logística</span><span style="font-size: 15.5px; line-height: 1.5; color: var(--color-neutral-700)">Sigue dominada por pilotos que no escalan. TradeLens, de Maersk e IBM, cerró en 2023 tras cuatro años pese a alcanzar más de 175 organizaciones y 600 puertos y terminales: no falló la tecnología, fallaron los incentivos: los competidores de Maersk no quisieron poner sus datos en una plataforma copropiedad de su rival.</span></div>
+          <div style="background: var(--color-bg); padding: 15px 0; display: grid; gap: 4px"><span style="font-family: var(--font-heading); font-size: 21px">Bienes raíces fraccionados</span><span style="font-size: 15.5px; line-height: 1.5; color: var(--color-neutral-700)">Dubái abrió en febrero de 2026 la segunda fase de su programa, con reventa de unidades tokenizadas. Aun así, el valor inmobiliario en cadena era de apenas doscientos millones de dólares: el entusiasmo excede por mucho al volumen.</span></div>
+          <div style="background: var(--color-bg); padding: 15px 0; display: grid; gap: 4px"><span style="font-family: var(--font-heading); font-size: 21px">Oráculos</span><span style="font-size: 15.5px; line-height: 1.5; color: var(--color-neutral-700)">El mecanismo que introduce datos del mundo físico. Es el eslabón débil de casi toda aplicación de trazabilidad.</span></div>
+          <div style="background: var(--color-bg); padding: 15px 0; display: grid; gap: 4px"><span style="font-family: var(--font-heading); font-size: 21px">Contratos inteligentes</span><span style="font-size: 15.5px; line-height: 1.5; color: var(--color-neutral-700)">Su alcance real es angosto: funcionan bien con dinero y tokens, y mal con hechos del mundo físico.</span></div>
+          <div style="background: var(--color-bg); padding: 15px 0; display: grid; gap: 4px"><span style="font-family: var(--font-heading); font-size: 21px">Gobernanza de consorcio</span><span style="font-size: 15.5px; line-height: 1.5; color: var(--color-neutral-700)">Determina el éxito o el fracaso con más frecuencia que la arquitectura técnica.</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div data-anim="up" style="margin-top: 44px; background: var(--color-surface); padding: 34px 32px; display: grid; gap: 20px">
+      <div style="display: grid; gap: 8px; max-width: 640px">
+        <div class="mono" style="font-size: 10.5px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-accent-700)">Prueba previa</div>
+        <h4 style="margin: 0; font-size: 32px; line-height: 1.05">¿Este problema necesita una blockchain?</h4>
+        <p style="margin: 0; font-size: 17px; line-height: 1.55; color: var(--color-neutral-700)">Si alguna de las cuatro se responde que no, casi siempre una base de datos con firmas digitales resuelve mejor y más barato.</p>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 20px">
+        <div class="blueprint" style="background: var(--color-bg); padding: 20px 18px; display: grid; gap: 8px; align-content: start">
+          <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+          <span class="mono" style="font-size: 18px; color: var(--color-accent)">1</span>
+          <span style="font-size: 16.5px; line-height: 1.45">¿Participan varias organizaciones que necesiten escribir en el mismo registro?</span>
+        </div>
+        <div class="blueprint" style="background: var(--color-bg); padding: 20px 18px; display: grid; gap: 8px; align-content: start">
+          <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+          <span class="mono" style="font-size: 18px; color: var(--color-accent)">2</span>
+          <span style="font-size: 16.5px; line-height: 1.45">¿Existe desconfianza real entre ellas, o intereses en conflicto?</span>
+        </div>
+        <div class="blueprint" style="background: var(--color-bg); padding: 20px 18px; display: grid; gap: 8px; align-content: start">
+          <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+          <span class="mono" style="font-size: 18px; color: var(--color-accent)">3</span>
+          <span style="font-size: 16.5px; line-height: 1.45">¿Falta un intermediario neutral que todas acepten, o el existente es costoso o lento?</span>
+        </div>
+        <div class="blueprint" style="background: var(--color-bg); padding: 20px 18px; display: grid; gap: 8px; align-content: start">
+          <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+          <span class="mono" style="font-size: 18px; color: var(--color-accent)">4</span>
+          <span style="font-size: 16.5px; line-height: 1.45">¿Importa que el registro sea auditable por terceros y resistente a modificación retroactiva?</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="s08" style="margin-top: 100px; background: var(--color-surface); padding: 74px 0 80px">
+    <div style="max-width: 1180px; margin: 0 auto; padding: 0 40px">
+      <div data-anim="up" style="display: flex; align-items: center; gap: 18px; margin-bottom: 30px">
+        <span style="width: 62px; height: 62px; background: var(--color-accent); color: var(--color-bg); display: grid; place-items: center; font-family: var(--font-heading); font-size: 32px; line-height: 1; flex: none">08</span>
+        <div style="display: grid; gap: 2px">
+          <div class="mono" style="font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-accent-700)">Autoevaluación</div>
+          <h2 style="margin: 0; font-size: 52px; line-height: 1; letter-spacing: -0.01em">Diez preguntas</h2>
+        </div>
+      </div>
+
+      <div data-anim="up" style="display: flex; flex-wrap: wrap; align-items: center; gap: 18px; margin-bottom: 30px">
+        <span style="background: var(--color-accent); color: var(--color-bg); padding: 10px 18px; font-family: var(--font-heading); font-size: 22px">{{ quizScore }} correctas</span>
+        <span style="font-size: 17px; color: var(--color-neutral-700)">Cada pregunta se corrige al instante y explica por qué.</span>
+        <button class="btn btn-secondary" onClick="{{ onQuizReset }}" style="border-radius: 0; font-size: 11.5px; letter-spacing: 0.1em; text-transform: uppercase; padding: 10px 16px">Reiniciar</button>
+      </div>
+
+      <div style="display: grid; gap: 18px">
+        <sc-for list="{{ quiz }}" as="q" hint-placeholder-count="10">
+          <div style="background: var(--color-bg); border: 1px solid var(--color-divider); padding: 26px 24px; display: grid; gap: 16px">
+            <div style="display: grid; grid-template-columns: 40px minmax(0, 1fr); gap: 14px; align-items: baseline">
+              <span class="mono" style="font-size: 12px; color: var(--color-accent)">{{ q.n }}</span>
+              <span style="font-family: var(--font-heading); font-size: 26px; line-height: 1.14">{{ q.q }}</span>
+            </div>
+            <div style="display: grid; gap: 8px; padding-left: 54px">
+              <sc-for list="{{ q.opts }}" as="o" hint-placeholder-count="3">
+                <button onClick="{{ o.onClick }}" style="background: {{ o.bg }}; border: 1px solid {{ o.bd }}; color: {{ o.fg }}; padding: 13px 16px; cursor: pointer; text-align: left; font-size: 16.5px; line-height: 1.4; display: flex; align-items: baseline; gap: 12px" style-hover="border-color: var(--color-accent)">
+                  <span class="mono" style="font-size: 14px; width: 12px; flex: none">{{ o.mark }}</span>
+                  <span>{{ o.label }}</span>
+                </button>
+              </sc-for>
+            </div>
+            <sc-if value="{{ q.answered }}" hint-placeholder-val="{{ false }}">
+              <div style="margin-left: 54px; display: grid; gap: 10px">
+                <span style="background: {{ q.verdictBg }}; color: var(--color-bg); padding: 5px 12px; font-family: var(--font-heading); font-size: 17px; justify-self: start">{{ q.verdict }}</span>
+                <p style="margin: 0; font-size: 16.5px; line-height: 1.56; color: var(--color-neutral-800); max-width: 76ch; text-wrap: pretty">{{ q.why }}</p>
+              </div>
+            </sc-if>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section id="s09" style="max-width: 1180px; margin: 0 auto; padding: 92px 40px 0">
+    <div data-anim="up" style="display: flex; align-items: center; gap: 18px; margin-bottom: 34px">
+      <span style="width: 62px; height: 62px; background: var(--color-accent); color: var(--color-bg); display: grid; place-items: center; font-family: var(--font-heading); font-size: 32px; line-height: 1; flex: none">09</span>
+      <div style="display: grid; gap: 2px">
+        <div class="mono" style="font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-accent-700)">Fuentes</div>
+        <h2 style="margin: 0; font-size: 52px; line-height: 1; letter-spacing: -0.01em">De dónde viene todo esto</h2>
+      </div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1px; background: var(--color-neutral-300); border: 1px solid var(--color-neutral-300)">
+      <div style="background: var(--color-bg); padding: 24px 22px; display: grid; gap: 8px; align-content: start">
+        <div class="mono" style="font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-accent-700)">Secciones 01–02</div>
+        <div style="font-family: var(--font-heading); font-size: 23px; line-height: 1.1">Aplicaciones reales de las funciones hash criptográficas</div>
+        <p style="margin: 0; font-size: 15.5px; line-height: 1.5; color: var(--color-neutral-700)">Referencias: NIST FIPS 180-4 y 202; FIPS 186-5; RFC 8017, 2898, 2104, 8446, 5869, 6962; Nakamoto (2008); Merkle (1988); Stevens et al., SHAttered (2017); Benet, IPFS (2014); NSRL del NIST.</p>
+      </div>
+      <div style="background: var(--color-bg); padding: 24px 22px; display: grid; gap: 8px; align-content: start">
+        <div class="mono" style="font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-accent-700)">Sección 03</div>
+        <div style="font-family: var(--font-heading); font-size: 23px; line-height: 1.1">Sellado de tiempo (Time Stamping)</div>
+        <p style="margin: 0; font-size: 15.5px; line-height: 1.5; color: var(--color-neutral-700)">Estándar RFC 3161 para autoridades de sellado; esquema de encadenamiento de Haber y Stornetta; variante con árboles de Merkle y anclaje en blockchain, como en OpenTimestamps.</p>
+      </div>
+      <div style="background: var(--color-bg); padding: 24px 22px; display: grid; gap: 8px; align-content: start">
+        <div class="mono" style="font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-accent-700)">Sección 04</div>
+        <div style="font-family: var(--font-heading); font-size: 23px; line-height: 1.1">Pipeline para un blockchain artesanal</div>
+        <p style="margin: 0; font-size: 15.5px; line-height: 1.5; color: var(--color-neutral-700)">Hash, firma digital, encadenamiento y sellado de tiempo, con la estructura de bloque, el pseudocódigo de construcción y verificación, y el alcance declarado del ejercicio.</p>
+      </div>
+      <div style="background: var(--color-bg); padding: 24px 22px; display: grid; gap: 8px; align-content: start">
+        <div class="mono" style="font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-accent-700)">Secciones 05–06</div>
+        <div style="font-family: var(--font-heading); font-size: 23px; line-height: 1.1">Esquemas de compromiso criptográfico</div>
+        <p style="margin: 0; font-size: 15.5px; line-height: 1.5; color: var(--color-neutral-700)">Catálogo comparativo con el marco formal y el teorema de imposibilidad. Referencias: Blum (1981); Naor (1991); Halevi y Micali (1996); Pedersen (1991); Goldreich y Levin; Kate, Zaverucha y Goldberg; Kuszmaul (2019).</p>
+      </div>
+      <div style="background: var(--color-bg); padding: 24px 22px; display: grid; gap: 8px; align-content: start">
+        <div class="mono" style="font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-accent-700)">Sección 07</div>
+        <div style="font-family: var(--font-heading); font-size: 23px; line-height: 1.1">Aplicaciones reales de los esquemas de compromiso</div>
+        <p style="margin: 0; font-size: 15.5px; line-height: 1.5; color: var(--color-neutral-700)">Nueve dominios de despliegue. Referencias: Maxwell (2015); Poelstra et al. (2018); Noether et al. (2016); Jedusor (2016); Ben-Sasson et al. (2014); Buterin et al. (2022); Al-Bassam et al. (2021).</p>
+      </div>
+      <div style="background: var(--color-bg); padding: 24px 22px; display: grid; gap: 8px; align-content: start">
+        <div class="mono" style="font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-accent-700)">Sección 07</div>
+        <div style="font-family: var(--font-heading); font-size: 23px; line-height: 1.1">Aplicaciones de blockchain por sector</div>
+        <p style="margin: 0; font-size: 15.5px; line-height: 1.5; color: var(--color-neutral-700)">Catálogo sectorial con distinción explícita entre operación real, obligación regulatoria y propuesta, y las notas finales sobre oráculos, redes permisionadas y gobernanza de consorcio.</p>
+      </div>
+    </div>
+
+    <div style="margin-top: 40px; padding: 28px 0 0; border-top: 1px solid var(--color-divider); display: flex; flex-wrap: wrap; gap: 10px 30px; align-items: baseline">
+      <span style="font-family: var(--font-heading); font-size: 24px">Dr. José de Jesús Ángel Ángel</span>
+      <span class="mono" style="font-size: 11.5px; letter-spacing: 0.08em; color: var(--color-neutral-600)">Lab-IA · Facultad de Ingeniería y Ciencias Aplicadas</span>
+      <span class="mono" style="font-size: 11.5px; letter-spacing: 0.08em; color: var(--color-neutral-600)">Universidad Anáhuac México</span>
+    </div>
+  </section>
+
+  <footer style="margin-top: 90px; background: var(--color-accent-900); color: var(--color-accent-300); padding: 40px 0">
+    <div class="mono" style="max-width: 1180px; margin: 0 auto; padding: 0 40px; display: flex; flex-wrap: wrap; gap: 10px 28px; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase">
+      <span>Portafolio de funciones hash criptográficas</span>
+      <span>Siete temas · seis demostraciones</span>
+      <span>Todos los hashes se calculan en su navegador</span>
+    </div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{}">
+class Component extends DCLogic {
+  state = {
+    panels: { formal: false, tsa: false, hs: false, comDef: false, imposs: false, extra: false },
+    calcText: "Bob envía 50 a Alice", calcHash: "",
+    avaA: "Bob envía 50 a Alice", avaB: "Bob envía 500 a Alice", hashA: "", hashB: "",
+    mkSel: 3, mkLevels: [], mkProof: [],
+    chainTx: ["GÉNESIS", "Bob envía 50 a Alice", "Bob envía 20 a Alice"],
+    frozen: null, chain: [],
+    crStage: 0, crChoice: null, crNonce: "", crCommit: "", crRival: null, crCheat: false,
+    cmpFilter: "Todos",
+    qAns: {}
+  };
+
+  ZERO = "0".repeat(64);
+  TIMES = ["10:00:00", "10:05:12", "10:11:47"];
+  MK_DOCS = ["Contrato Alice", "Factura 4471", "Acta 08-09", "Poder notarial", "Recibo Bob", "Plano rev. C", "Nómina Q3", "Escritura 12"];
+
+  async sha(s) {
+    const buf = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(s));
+    return [...new Uint8Array(buf)].map(b => b.toString(16).padStart(2, "0")).join("");
+  }
+
+  componentDidMount() {
+    this.recalc(this.state.calcText);
+    this.recompare(this.state.avaA, this.state.avaB);
+    this.buildMerkle(this.state.mkSel);
+    this.initChain();
+    this.waitMotion();
+  }
+
+  componentWillUnmount() {
+    if (this.lenis) { try { this.lenis.destroy(); } catch (e) {} }
+    if (window.ScrollTrigger) { try { window.ScrollTrigger.getAll().forEach(t => t.kill()); } catch (e) {} }
+  }
+
+  /* ---------- motion ---------- */
+  waitMotion(n) {
+    n = n || 0;
+    if (this.setupMotion()) return;
+    if (n < 80) setTimeout(() => this.waitMotion(n + 1), 100);
+  }
+
+  setupMotion() {
+    const gsap = window.gsap, ST = window.ScrollTrigger;
+    if (!gsap || !ST || this.motionReady) return !!this.motionReady;
+    this.motionReady = true;
+    gsap.registerPlugin(ST);
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    if (!reduce && window.Lenis) {
+      try {
+        const lenis = new window.Lenis({ duration: 1.05, anchors: { offset: -20 }, wheelMultiplier: 1 });
+        this.lenis = lenis;
+        lenis.on("scroll", ST.update);
+        gsap.ticker.add(t => lenis.raf(t * 1000));
+        gsap.ticker.lagSmoothing(0);
+      } catch (e) {}
+    }
+
+    const bar = document.querySelector("[data-progress]");
+    if (bar) gsap.to(bar, { width: "100%", ease: "none", scrollTrigger: { trigger: document.body, start: "top top", end: "bottom bottom", scrub: 0.25 } });
+
+    const links = gsap.utils.toArray("[data-nav]");
+    gsap.utils.toArray("section[id], header[id]").forEach(sec => {
+      ST.create({
+        trigger: sec, start: "top 45%", end: "bottom 45%",
+        onToggle: self => {
+          if (!self.isActive) return;
+          links.forEach(a => a.removeAttribute("data-active"));
+          const a = links.find(l => l.getAttribute("href") === "#" + sec.id);
+          if (a) a.setAttribute("data-active", "1");
+        }
+      });
+    });
+
+    if (reduce) return true;
+
+    const hero = document.querySelector('[data-anim="hero"]');
+    if (hero) gsap.from(hero.children, { y: 28, opacity: 0, duration: 0.85, stagger: 0.08, ease: "power3.out" });
+
+    gsap.utils.toArray('[data-anim="up"]').forEach(el =>
+      gsap.from(el, { y: 36, opacity: 0, duration: 0.7, ease: "power2.out", scrollTrigger: { trigger: el, start: "top 90%" } }));
+
+    gsap.utils.toArray('[data-anim="stagger"]').forEach(g =>
+      gsap.from(g.children, { y: 30, opacity: 0, duration: 0.6, stagger: 0.07, ease: "power2.out", scrollTrigger: { trigger: g, start: "top 88%" } }));
+
+    gsap.utils.toArray('[data-anim="grow"]').forEach(el =>
+      gsap.from(el, { scaleX: 0, transformOrigin: "left center", duration: 1, ease: "power3.out", scrollTrigger: { trigger: el, start: "top 92%" } }));
+
+    gsap.utils.toArray('[data-anim="line"]').forEach(el =>
+      gsap.fromTo(el, { scaleX: 0 }, { scaleX: 1, transformOrigin: "left center", ease: "none", scrollTrigger: { trigger: el.parentElement, start: "top 80%", end: "bottom 60%", scrub: 0.4 } }));
+
+    gsap.utils.toArray('[data-anim="arrow"]').forEach(el =>
+      gsap.to(el, { x: 7, repeat: -1, yoyo: true, duration: 1.1, ease: "sine.inOut" }));
+
+    setTimeout(() => ST.refresh(), 900);
+    return true;
+  }
+
+  pulseBits() {
+    const g = window.gsap;
+    if (!g || !this.motionReady) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const grid = document.querySelector("[data-bits]");
+    if (grid) g.fromTo(grid.children, { scale: 0.2 }, { scale: 1, duration: 0.45, stagger: { each: 0.0015, from: "random" }, ease: "back.out(2)" });
+    const n = document.querySelector("[data-diff]");
+    if (n) g.fromTo(n, { opacity: 0.3, y: -6 }, { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" });
+  }
+
+  /* ---------- hashing demos ---------- */
+  async recalc(t) { this.setState({ calcHash: await this.sha(t) }); }
+
+  async recompare(a, b) {
+    const [ha, hb] = await Promise.all([this.sha(a), this.sha(b)]);
+    this.setState({ hashA: ha, hashB: hb }, () => this.pulseBits());
+  }
+
+  bits(hex) {
+    const out = [];
+    for (const ch of hex) { const v = parseInt(ch, 16); for (let i = 3; i >= 0; i--) out.push((v >> i) & 1); }
+    return out;
+  }
+
+  /* ---------- merkle ---------- */
+  async buildMerkle(sel) {
+    let level = await Promise.all(this.MK_DOCS.map(d => this.sha(d)));
+    const levels = [level];
+    while (level.length > 1) {
+      const next = [];
+      for (let i = 0; i < level.length; i += 2) next.push(await this.sha(level[i] + level[i + 1]));
+      levels.push(next); level = next;
+    }
+    const proof = [];
+    let idx = sel;
+    for (let L = 0; L < levels.length - 1; L++) {
+      const sib = idx ^ 1;
+      proof.push({ paso: L + 1, lado: idx % 2 === 0 ? "derecha" : "izquierda", hex: levels[L][sib].slice(0, 16) + "…" });
+      idx = idx >> 1;
+    }
+    this.setState({ mkLevels: levels, mkProof: proof, mkSel: sel });
+  }
+
+  /* ---------- chain ---------- */
+  async initChain() {
+    const tx = this.state.chainTx, prev = [this.ZERO], sig = [];
+    for (let i = 0; i < 3; i++) {
+      const h = await this.sha(i + this.TIMES[i] + tx[i] + prev[i]);
+      sig.push(h);
+      if (i < 2) prev.push(h);
+    }
+    this.setState({ frozen: { prev, sig } }, () => this.recomputeChain(this.state.chainTx));
+  }
+
+  async recomputeChain(tx) {
+    const f = this.state.frozen;
+    if (!f) return;
+    const rows = [];
+    for (let i = 0; i < 3; i++) {
+      const h = await this.sha(i + this.TIMES[i] + tx[i] + f.prev[i]);
+      rows.push({
+        idx: i, t: this.TIMES[i], tx: tx[i], prev: f.prev[i], h: h, sig: f.sig[i],
+        sigOk: h === f.sig[i],
+        linkOk: i === 0 ? true : f.prev[i] === rows[i - 1].h
+      });
+    }
+    this.setState({ chain: rows });
+  }
+
+  /* ---------- commit–reveal ---------- */
+  async crCommit_(choice) {
+    const nonce = [...crypto.getRandomValues(new Uint8Array(8))].map(b => b.toString(16).padStart(2, "0")).join("");
+    const commit = await this.sha(choice + "|" + nonce);
+    this.setState({ crChoice: choice, crNonce: nonce, crCommit: commit, crStage: 1, crCheat: false });
+  }
+
+  renderVals() {
+    const S = this.state;
+    const chunks = [];
+    for (let i = 0; i < S.calcHash.length; i += 8) chunks.push(S.calcHash.slice(i, i + 8));
+
+    let cells = [], diff = 0;
+    if (S.hashA && S.hashB) {
+      const ba = this.bits(S.hashA), bb = this.bits(S.hashB);
+      cells = ba.map((v, i) => {
+        const changed = v !== bb[i];
+        if (changed) diff++;
+        return { bg: changed ? "var(--color-accent)" : "var(--color-neutral-200)" };
+      });
+    }
+
+    const toggle = {}, sign = {};
+    Object.keys(S.panels).forEach(k => {
+      toggle[k] = () => this.setState(s => ({ panels: Object.assign({}, s.panels, { [k]: !s.panels[k] }) }));
+      sign[k] = S.panels[k] ? "−" : "+";
+    });
+
+    /* merkle view model */
+    const mkRows = S.mkLevels.map((lvl, L) => {
+      const anc = S.mkSel >> L;
+      return {
+        cols: "repeat(" + lvl.length + ", minmax(0, 1fr))",
+        label: L === 0 ? "Hojas · H(documento)" : (L === S.mkLevels.length - 1 ? "Raíz · lo único que se firma" : "Nivel " + L),
+        nodes: lvl.map((h, i) => {
+          const onPath = i === anc;
+          const isSib = i === (anc ^ 1) && L < S.mkLevels.length - 1;
+          return {
+            hex: h.slice(0, 8),
+            doc: L === 0 ? this.MK_DOCS[i] : "",
+            bg: onPath ? "var(--color-accent)" : (isSib ? "var(--color-accent-200)" : "var(--color-neutral-200)"),
+            fg: onPath ? "var(--color-bg)" : "var(--color-accent-900)",
+            bd: onPath ? "var(--color-accent)" : (isSib ? "var(--color-accent-400)" : "var(--color-neutral-300)")
+          };
+        })
+      };
+    });
+
+    const mkPicker = this.MK_DOCS.map((d, i) => ({
+      label: d, n: "H" + i,
+      onClick: () => this.buildMerkle(i),
+      bg: i === S.mkSel ? "var(--color-accent)" : "transparent",
+      fg: i === S.mkSel ? "var(--color-bg)" : "var(--color-neutral-800)",
+      bd: i === S.mkSel ? "var(--color-accent)" : "var(--color-divider)"
+    }));
+
+    /* chain view model */
+    const chainRows = S.chain.map(b => ({
+      idx: b.idx, t: b.t, tx: b.tx,
+      prev: b.prev.slice(0, 20) + "…",
+      h: b.h.slice(0, 20) + "…",
+      hFull: b.h,
+      sigOk: b.sigOk, linkOk: b.linkOk,
+      broken: !b.sigOk || !b.linkOk,
+      bd: (!b.sigOk || !b.linkOk) ? "#8c2f2f" : "var(--color-accent-900)",
+      badge: (!b.sigOk || !b.linkOk) ? "Bloque inválido" : "Bloque válido",
+      badgeBg: (!b.sigOk || !b.linkOk) ? "#8c2f2f" : "var(--color-accent)",
+      sigText: b.sigOk ? "Firma verifica" : "Firma inválida: se hizo sobre otro hash",
+      linkText: b.idx === 0 ? "Génesis: sin bloque anterior" : (b.linkOk ? "Enlace correcto con el bloque anterior" : "Enlace roto: el hash heredado ya no coincide"),
+      editable: b.idx > 0,
+      onEdit: e => {
+        const v = e.target.value;
+        const tx = S.chainTx.slice();
+        tx[b.idx] = v;
+        this.setState({ chainTx: tx });
+        this.recomputeChain(tx);
+      }
+    }));
+
+    const chainBroken = chainRows.some(r => r.broken);
+
+    /* comparator */
+    const schemes = [
+      { name: "Blum (1981)", tipo: "Escalar", oculta: "Computacional", vincula: "Perfecta", props: ["Post-cuántico"], uso: "Lanzar una moneda por teléfono; el origen del área" },
+      { name: "Naor (1991)", tipo: "Escalar", oculta: "Computacional", vincula: "Estadística", props: ["Post-cuántico"], uso: "Resultado teórico: basta una función de un solo sentido" },
+      { name: "Hash (Halevi–Micali)", tipo: "Escalar", oculta: "Computacional", vincula: "Computacional", props: ["Post-cuántico", "Setup transparente"], uso: "La construcción más usada en la práctica: c = H(m ‖ r)" },
+      { name: "Pedersen (1991)", tipo: "Escalar / vectorial", oculta: "Perfecta", vincula: "Computacional", props: ["Homomórfico"], uso: "Transacciones confidenciales, VSS, Monero, Mimblewimble" },
+      { name: "Tipo ElGamal", tipo: "Escalar", oculta: "Computacional", vincula: "Perfecta", props: ["Homomórfico"], uso: "El dual de Pedersen: protege al receptor, no al emisor" },
+      { name: "Orden desconocido (RSA)", tipo: "Escalar", oculta: "Computacional", vincula: "Computacional", props: ["Homomórfico", "Sucinto"], uso: "Acumuladores y compromisos sin setup confiable de grupo" },
+      { name: "Reticular (SIS)", tipo: "Escalar / vectorial", oculta: "Computacional", vincula: "Computacional", props: ["Homomórfico", "Post-cuántico"], uso: "La ruta post-cuántica de los compromisos algebraicos" },
+      { name: "Árbol de Merkle (1979)", tipo: "Vectorial", oculta: "—", vincula: "Computacional", props: ["Sucinto", "Post-cuántico", "Setup transparente", "Apertura parcial"], uso: "Bitcoin, Certificate Transparency, Zcash, OpenTimestamps" },
+      { name: "Catalano–Fiore", tipo: "Vectorial", oculta: "Computacional", vincula: "Computacional", props: ["Sucinto", "Apertura parcial"], uso: "Compromisos vectoriales con apertura de tamaño constante" },
+      { name: "Árbol Verkle", tipo: "Vectorial", oculta: "—", vincula: "Computacional", props: ["Sucinto", "Apertura parcial"], uso: "Testigos de estado pequeños: clientes sin estado en Ethereum" },
+      { name: "KZG (2010)", tipo: "Polinomial", oculta: "Computacional", vincula: "Computacional", props: ["Homomórfico", "Sucinto", "Apertura parcial"], uso: "EIP-4844 en producción; requiere ceremonia de confianza" },
+      { name: "IPA / Bulletproofs", tipo: "Polinomial", oculta: "Perfecta", vincula: "Computacional", props: ["Homomórfico", "Setup transparente", "Apertura parcial"], uso: "Pruebas de rango de ~675 bytes; Monero desde 2018" },
+      { name: "FRI", tipo: "Polinomial", oculta: "—", vincula: "Computacional", props: ["Sucinto", "Post-cuántico", "Setup transparente"], uso: "STARKs: solo hash, sin curvas ni emparejamientos" },
+      { name: "Brakedown / Ligero", tipo: "Polinomial", oculta: "—", vincula: "Computacional", props: ["Post-cuántico", "Setup transparente"], uso: "Compromisos basados en códigos, muy rápidos de generar" }
+    ];
+    const filters = ["Todos", "Homomórfico", "Sucinto", "Post-cuántico", "Setup transparente", "Apertura parcial"];
+    const cmpFilters = filters.map(f => ({
+      label: f,
+      onClick: () => this.setState({ cmpFilter: f }),
+      bg: f === S.cmpFilter ? "var(--color-accent)" : "transparent",
+      fg: f === S.cmpFilter ? "var(--color-bg)" : "var(--color-accent-700)",
+      bd: f === S.cmpFilter ? "var(--color-accent)" : "var(--color-accent-300)"
+    }));
+    const cmpRows = schemes
+      .filter(s => S.cmpFilter === "Todos" || s.props.indexOf(S.cmpFilter) >= 0)
+      .map(s => ({ name: s.name, tipo: s.tipo, oculta: s.oculta, vincula: s.vincula, uso: s.uso, props: s.props.join(" · ") }));
+
+    /* quiz */
+    const QUIZ = [
+      { q: "¿Qué devuelve una función hash cuando le da un archivo de 4 GB?", opts: ["Un resumen de 4 MB", "Una cadena de longitud fija: 64 caracteres en SHA-256", "El archivo comprimido"], ok: 1, why: "La salida siempre mide lo mismo, independientemente del tamaño de la entrada. SHA-256 produce 256 bits, o 64 caracteres hexadecimales." },
+      { q: "Cambia una coma en un contrato de 300 páginas. ¿Qué le pasa a su hash?", opts: ["Cambia solo el último carácter", "No cambia: es una coma", "Cambia cerca de la mitad de los 256 bits"], ok: 2, why: "Es el efecto avalancha. Y el nuevo hash no guarda ninguna relación aparente con el anterior, así que no delata cuál fue el cambio." },
+      { q: "¿Qué guarda un sistema bien diseñado cuando usted crea una contraseña?", opts: ["La contraseña cifrada, para poder recordársela", "El hash de la contraseña con una sal, usando Argon2 o bcrypt", "La contraseña en claro, pero en un servidor seguro"], ok: 1, why: "Se guarda H(contraseña ‖ sal) con una función de derivación deliberadamente costosa. Por eso un servicio serio nunca puede decirle cuál era su contraseña: no la tiene." },
+      { q: "En el sellado de tiempo, ¿qué envía usted a la autoridad?", opts: ["El documento completo", "Solo el hash del documento", "El documento y su firma"], ok: 1, why: "Solo viaja el hash. El documento nunca sale de su poder, lo que preserva la confidencialidad y aun así permite probar después que existía." },
+      { q: "¿Para qué sirve un árbol de Merkle en el sellado de tiempo?", opts: ["Para sellar miles de documentos con una sola firma", "Para cifrar los documentos", "Para ordenar los documentos alfabéticamente"], ok: 0, why: "Se agrupan N hashes como hojas, se firma solo la raíz, y cada usuario recibe una prueba de inclusión de tamaño logarítmico. Es lo que hace OpenTimestamps anclando en Bitcoin." },
+      { q: "En una cadena de bloques artesanal, alguien cambia una transacción del bloque 1. ¿Qué se rompe?", opts: ["Nada, si lo hace rápido", "Solo la firma de ese bloque", "El hash del bloque, su firma y el enlace con el bloque 2"], ok: 2, why: "El hash cambia por avalancha, la firma ya no verifica contra el nuevo hash, y el hash heredado por el bloque 2 deja de coincidir. La cadena queda visiblemente rota." },
+      { q: "Un esquema de compromiso es el análogo digital de…", opts: ["Un sobre sellado", "Una caja fuerte", "Una firma notarial"], ok: 0, why: "Fija un valor ante otra parte sin revelarlo, de modo que después no pueda cambiarlo. Es la primitiva sobre la que se construyen las pruebas de conocimiento cero y las subastas de sobre cerrado." },
+      { q: "¿Puede un compromiso ser perfectamente ocultante y perfectamente vinculante a la vez?", opts: ["Sí, con suficiente cómputo", "No: es imposible, y toda construcción elige qué sacrificar", "Solo con computadoras cuánticas"], ok: 1, why: "Es el teorema de imposibilidad. Si oculta perfectamente, un adversario ilimitado puede reabrirlo; si vincula perfectamente, un adversario futuro puede descifrarlo." },
+      { q: "¿Qué propiedad de Pedersen permite sumar montos sin verlos?", opts: ["La sucintitud", "La extractabilidad", "La homomorfía"], ok: 2, why: "Com(m₁) · Com(m₂) = Com(m₁+m₂). Es lo que permite verificar que entradas y salidas de una transacción cuadran sin conocer un solo monto, en Monero y Mimblewimble." },
+      { q: "Antes de proponer una blockchain para un problema, ¿qué debería comprobar?", opts: ["Que varias organizaciones desconfiadas necesiten escribir en el mismo registro", "Que el sector esté de moda", "Que haya presupuesto de innovación"], ok: 0, why: "Si falta cualquiera de las cuatro condiciones —varias partes, desconfianza real, ausencia de intermediario neutral, necesidad de auditoría— una base de datos con firmas digitales resuelve mejor y más barato." }
+    ];
+    const quiz = QUIZ.map((item, qi) => {
+      const picked = S.qAns[qi];
+      const answered = picked !== undefined;
+      return {
+        n: String(qi + 1).padStart(2, "0"),
+        q: item.q,
+        answered,
+        correct: answered && picked === item.ok,
+        why: item.why,
+        verdict: answered ? (picked === item.ok ? "Correcto" : "No es esa") : "",
+        verdictBg: answered ? (picked === item.ok ? "var(--color-accent)" : "#8c2f2f") : "transparent",
+        opts: item.opts.map((label, oi) => {
+          const isPicked = picked === oi, isOk = oi === item.ok;
+          let bg = "transparent", bd = "var(--color-divider)", fg = "var(--color-neutral-800)";
+          if (answered) {
+            if (isOk) { bg = "var(--color-accent-100)"; bd = "var(--color-accent)"; fg = "var(--color-accent-900)"; }
+            if (isPicked && !isOk) { bg = "#f6e9e9"; bd = "#8c2f2f"; fg = "#6d2525"; }
+          }
+          return { label, bg, bd, fg, mark: answered && isOk ? "✓" : (answered && isPicked ? "×" : ""), onClick: () => { if (S.qAns[qi] === undefined) this.setState(s => ({ qAns: Object.assign({}, s.qAns, { [qi]: oi }) })); } };
+        })
+      };
+    });
+    const answeredCount = Object.keys(S.qAns).length;
+    const rightCount = Object.keys(S.qAns).filter(k => S.qAns[k] === QUIZ[k].ok).length;
+
+    return {
+      toggle, sign, panels: S.panels,
+
+      calcText: S.calcText, calcChunks: chunks, calcLen: S.calcText.length,
+      calcBytes: new TextEncoder().encode(S.calcText).length,
+      onCalc: e => { const v = e.target.value; this.setState({ calcText: v }); this.recalc(v); },
+
+      avaA: S.avaA, avaB: S.avaB, hashA: S.hashA, hashB: S.hashB,
+      onAvaA: e => { const v = e.target.value; this.setState({ avaA: v }); this.recompare(v, this.state.avaB); },
+      onAvaB: e => { const v = e.target.value; this.setState({ avaB: v }); this.recompare(this.state.avaA, v); },
+      bitCells: cells, diffBits: diff, diffPct: cells.length ? Math.round((diff / cells.length) * 100) : 0,
+
+      mkRows, mkPicker, mkProof: S.mkProof,
+      mkSelName: this.MK_DOCS[S.mkSel],
+      mkRoot: S.mkLevels.length ? S.mkLevels[S.mkLevels.length - 1][0].slice(0, 32) + "…" : "",
+
+      chainRows, chainBroken,
+      chainVerdict: chainBroken ? "La cadena está rota" : "La cadena verifica",
+      chainVerdictBg: chainBroken ? "#8c2f2f" : "var(--color-accent)",
+      chainNote: chainBroken
+        ? "El hash del bloque editado cambió por avalancha, su firma dejó de verificar y el hash que heredó el bloque siguiente ya no coincide. Cualquiera que recorra la cadena lo detecta."
+        : "Cada bloque contiene el hash del anterior y una firma sobre su propio hash. Edite la transacción de cualquier bloque y observe qué se cae.",
+      onChainReset: () => { const tx = ["GÉNESIS", "Bob envía 50 a Alice", "Bob envía 20 a Alice"]; this.setState({ chainTx: tx }); this.recomputeChain(tx); },
+
+      crStage: S.crStage, crChoice: S.crChoice, crNonce: S.crNonce,
+      crStage0: S.crStage === 0, crStage1: S.crStage === 1, crStage2: S.crStage === 2, crStage3: S.crStage === 3,
+      crVerifyNote: S.crCheat
+        ? "Intentó abrir el sobre a la otra cara. El verificador recalcula H(m′ ‖ r) y no obtiene el compromiso que usted publicó: la trampa se detecta de inmediato. Eso es la vinculación."
+        : "El verificador recalcula H(m ‖ r) y obtiene exactamente el compromiso publicado antes de que el rival hablara. Nadie pudo influir en el resultado.",
+      crCommitHex: S.crCommit ? S.crCommit.slice(0, 32) + "…" : "",
+      crRival: S.crRival, crCheat: S.crCheat,
+      crPickCara: () => this.crCommit_("cara"),
+      crPickCruz: () => this.crCommit_("cruz"),
+      crRivalTurn: () => this.setState({ crRival: Math.random() < 0.5 ? "cara" : "cruz", crStage: 2 }),
+      crReveal: () => this.setState({ crStage: 3 }),
+      crTryCheat: () => this.setState({ crCheat: true, crStage: 3 }),
+      crReset: () => this.setState({ crStage: 0, crChoice: null, crNonce: "", crCommit: "", crRival: null, crCheat: false }),
+      crOpenedAs: S.crCheat ? (S.crChoice === "cara" ? "cruz" : "cara") : S.crChoice,
+      crVerifyText: S.crCheat ? "Ver(c, m′, r) = 0 · el sobre no abre a ese valor" : "Ver(c, m, r) = 1 · el sobre abre correctamente",
+      crVerifyBg: S.crCheat ? "#8c2f2f" : "var(--color-accent)",
+      crResult: (!S.crCheat && S.crChoice && S.crRival) ? (S.crChoice === S.crRival ? "Cara" : "Cruz") : "—",
+
+      cmpFilters, cmpRows, cmpCount: cmpRows.length,
+
+      quiz, answeredCount, rightCount,
+      quizScore: answeredCount ? rightCount + " de " + answeredCount : "—",
+      onQuizReset: () => this.setState({ qAns: {} }),
+
+      usos: [
+        { n: "01", kicker: "Integridad de archivos", title: "El precinto de la caja", analogy: "Como el sello de una caja de mudanza", body: "El distribuidor publica el hash de su archivo; usted lo recalcula al descargarlo. Si los dos coinciden, nada se corrompió ni se alteró en el camino. Es el mecanismo estándar en kernels de Linux, imágenes ISO y paquetes de pip o npm.", ref: "NIST FIPS 180-4 · sha256sum" },
+        { n: "02", kicker: "Contraseñas", title: "La cerradura que no guarda la llave", analogy: "Como un molde del que no sale la llave original", body: "El servicio no almacena su contraseña sino H(contraseña ‖ sal), con funciones deliberadamente lentas —PBKDF2, bcrypt, Argon2— para encarecer los ataques de fuerza bruta. Por eso un servicio serio jamás puede decirle cuál era su contraseña.", ref: "RFC 2898 · NIST SP 800-63B" },
+        { n: "03", kicker: "Firmas digitales", title: "Firmar el resumen, no las 400 páginas", analogy: "Como rubricar el índice en lugar del expediente", body: "RSA-PSS y ECDSA no firman el mensaje completo: firman su hash. Abarata el cómputo y cierra la puerta a ataques de maleabilidad. El estándar del NIST especifica el paso por SHA-2 o SHA-3 antes de firmar.", ref: "NIST FIPS 186-5 · RFC 8017" },
+        { n: "04", kicker: "HMAC", title: "El sello que solo dos personas saben hacer", analogy: "Como un sello de cera con un dibujo secreto", body: "HMAC mezcla una función hash con una clave secreta y produce un código que acredita a la vez integridad y autoría. Está en las APIs REST que consulta a diario y en los tokens JWT firmados con HS256.", ref: "RFC 2104" },
+        { n: "05", kicker: "Control de versiones", title: "El historial que se delata", analogy: "Como un cuaderno cosido: no se arranca una hoja sin que se note", body: "Git identifica cada objeto —commit, árbol, archivo— por el hash de su contenido. Alterar cualquier commit antiguo cambia todos los hashes posteriores. Tras la colisión práctica de SHA-1 en 2017, Git inició su migración a SHA-256.", ref: "SHAttered, CRYPTO 2017 · Git hash transition" },
+        { n: "06", kicker: "Prueba de trabajo", title: "La lotería del nonce", analogy: "Como tirar dados hasta sacar un número por debajo de un umbral", body: "Bitcoin aplica SHA-256 dos veces, tanto para encadenar bloques como para minar: los mineros prueban nonces hasta que el hash del encabezado cae por debajo del umbral de dificultad. No hay atajo; solo intentos.", ref: "Nakamoto, 2008" }
+      ],
+      usosCortos: [
+        { n: "07", title: "TLS 1.3", body: "Todo el tráfico HTTPS deriva sus claves de sesión con HKDF sobre SHA-256 o SHA-384, y autentica el handshake con HMAC." },
+        { n: "08", title: "Árboles de Merkle", body: "Permiten probar que un dato pertenece a un conjunto enorme con una prueba logarítmica. Resumen las transacciones de un bloque en Bitcoin y Ethereum." },
+        { n: "09", title: "Firma de código", body: "Authenticode y codesign hashean el binario y firman ese hash; el sistema operativo verifica que nadie lo tocó desde su publicación." },
+        { n: "10", title: "Certificate Transparency", body: "Árboles de Merkle sobre certificados X.509 forman registros públicos que solo crecen, para detectar certificados TLS fraudulentos." },
+        { n: "11", title: "Deduplicación", body: "IPFS, Git, ZFS y Dropbox usan el hash del contenido como su identificador: dos copias idénticas se guardan una sola vez." },
+        { n: "12", title: "Cómputo forense", body: "El National Software Reference Library del NIST publica hashes de archivos conocidos para descartar de golpe los del sistema en una investigación." }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>
