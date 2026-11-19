@@ -1,0 +1,80 @@
+:root { color-scheme: light; }
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --color-bg: #111820;
+  --color-surface: #1b2632;
+  --color-text: #edf1f5;
+  --color-divider: #3c4c5d;
+  --color-accent: #94bce3;
+  --color-accent-2: #9ebbd8;
+  --color-neutral-100: #17212b;
+  --color-neutral-200: #22303d;
+  --color-neutral-300: #3c4c5d;
+  --color-neutral-400: #697b8c;
+  --color-neutral-500: #92a1b0;
+  --color-neutral-600: #a7b4c1;
+  --color-neutral-700: #bdc8d3;
+  --color-neutral-800: #d6dfe7;
+  --color-neutral-900: #edf1f5;
+  --color-accent-100: #1b2c3d;
+  --color-accent-200: #293f55;
+  --color-accent-300: #466887;
+  --color-accent-400: #7199bd;
+  --color-accent-500: #94bce3;
+  --color-accent-600: #a5c9eb;
+  --color-accent-700: #b5d9fd;
+  --color-accent-800: #cce4fc;
+  --color-accent-900: #e1efff;
+  --color-danger: #ef9b9b;
+  --color-danger-100: #382329;
+  --color-danger-800: #ffb4b4;
+  --shadow-sm: 0 1px 2px #0006;
+  --shadow-md: 0 3px 10px #0006;
+  --shadow-lg: 0 12px 32px #0008;
+}
+
+/* Keep the blue cover, chapter dividers and demonstration panels legible. */
+:root[data-theme="dark"] .theme-inverse {
+  --color-bg: #f2f2f3;
+  --color-accent: #94bce3;
+  --color-accent-100: #eef6ff;
+  --color-accent-200: #d6ebff;
+  --color-accent-300: #b5d9fd;
+  --color-accent-400: #94bce3;
+  --color-accent-500: #749dc4;
+  --color-accent-600: #597ea3;
+  --color-accent-700: #416180;
+  --color-accent-800: #2c455d;
+  --color-accent-900: #1d2d3d;
+  --color-danger: #8c2f2f;
+  --color-danger-100: #f6e9e9;
+  --color-danger-800: #6d2525;
+}
+
+.theme-toggle {
+  position: fixed;
+  top: 18px;
+  right: 24px;
+  z-index: 70;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  min-height: 44px;
+  padding: 10px 14px;
+  border: 1px solid var(--color-divider);
+  border-radius: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  box-shadow: var(--shadow-sm);
+  font-size: 11px;
+  letter-spacing: .06em;
+  cursor: pointer;
+}
+.theme-toggle:hover { border-color: var(--color-accent); }
+.theme-toggle:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 3px; }
+.theme-toggle > [aria-hidden] { font-size: 20px; line-height: 1; }
+@media (max-width: 720px) {
+  .theme-toggle { top: 12px; right: 16px; }
+}

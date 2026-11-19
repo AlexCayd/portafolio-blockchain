@@ -3,6 +3,15 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script>
+  (() => {
+    let preference;
+    try { preference = localStorage.getItem('blockchain-theme'); } catch (_) {}
+    document.documentElement.dataset.theme = preference === 'dark' || preference === 'light'
+      ? preference : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  })();
+</script>
+<link rel="stylesheet" href="./theme.css">
 <script src="./support.js"></script>
 </head>
 <body>
@@ -83,6 +92,11 @@
     <div data-progress style="height: 100%; background: var(--color-accent); width: 0%"></div>
   </div>
 
+  <button class="theme-toggle mono" type="button" aria-label="Modo oscuro" aria-pressed="{{ darkMode }}" onClick="{{ onThemeToggle }}">
+    <span aria-hidden="true">{{ themeIcon }}</span>
+    <span>{{ themeLabel }}</span>
+  </button>
+
   <nav data-rail style="position: fixed; top: 50%; left: 26px; transform: translateY(-50%); z-index: 50; display: grid; gap: 2px">
     <a data-nav href="#portada"><i></i><span>00 Portada</span></a>
     <a data-nav href="#prologo"><i></i><span>·· Prólogo</span></a>
@@ -103,7 +117,7 @@
     <a data-nav href="#s15"><i></i><span>15 Fuentes</span></a>
   </nav>
 
-  <header id="portada" style="background: var(--color-accent-900); color: var(--color-bg); padding: 104px 0 84px">
+  <header class="theme-inverse" id="portada" style="background: var(--color-accent-900); color: var(--color-bg); padding: 104px 0 84px">
     <div data-anim="hero" style="max-width: 1180px; margin: 0 auto; padding: 0 40px; display: grid; gap: 34px">
       <div class="mono" style="display: flex; align-items: center; gap: 12px; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--color-accent-400)">
         <span style="width: 26px; height: 1px; background: var(--color-accent)"></span>
@@ -112,19 +126,19 @@
       <h1 style="margin: 0; font-size: 96px; line-height: 0.92; letter-spacing: -0.02em; max-width: 16ch; text-wrap: balance">Blockchain</h1>
       <p style="margin: 0; font-size: 22px; line-height: 1.5; color: var(--color-accent-200); max-width: 60ch; text-wrap: pretty">Bob quiere pagarle 50 pesos a Alice por internet, sin un banco en medio. Esta es la historia de todo lo que hace falta inventar para lograrlo: quince capítulos, una analogía para cada idea y demostraciones que puede tocar con el ratón. La matemática está aquí, pero solo si la pide.</p>
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1px; background: var(--color-accent-800); margin-top: 10px">
-        <div style="background: var(--color-accent-900); padding: 20px 0 6px; display: grid; gap: 4px">
+        <div class="theme-inverse" style="background: var(--color-accent-900); padding: 20px 0 6px; display: grid; gap: 4px">
           <div style="font-family: var(--font-heading); font-size: 40px; line-height: 1">15</div>
           <div class="mono" style="font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-accent-400)">Capítulos</div>
         </div>
-        <div style="background: var(--color-accent-900); padding: 20px 0 6px 20px; display: grid; gap: 4px">
+        <div class="theme-inverse" style="background: var(--color-accent-900); padding: 20px 0 6px 20px; display: grid; gap: 4px">
           <div style="font-family: var(--font-heading); font-size: 40px; line-height: 1">34</div>
           <div class="mono" style="font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-accent-400)">Demos jugables</div>
         </div>
-        <div style="background: var(--color-accent-900); padding: 20px 0 6px 20px; display: grid; gap: 4px">
+        <div class="theme-inverse" style="background: var(--color-accent-900); padding: 20px 0 6px 20px; display: grid; gap: 4px">
           <div style="font-family: var(--font-heading); font-size: 40px; line-height: 1">20</div>
           <div class="mono" style="font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-accent-400)">Apuntes y páginas fuente</div>
         </div>
-        <div style="background: var(--color-accent-900); padding: 20px 0 6px 20px; display: grid; gap: 4px">
+        <div class="theme-inverse" style="background: var(--color-accent-900); padding: 20px 0 6px 20px; display: grid; gap: 4px">
           <div style="font-family: var(--font-heading); font-size: 40px; line-height: 1">0</div>
           <div class="mono" style="font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-accent-400)">Fórmulas obligatorias</div>
         </div>
@@ -344,7 +358,7 @@
     </div>
   </section>
 
-  <section class="act">
+  <section class="act theme-inverse">
     <span class="act-n" aria-hidden="true">I</span>
     <div data-anim="up" style="max-width: 1180px; margin: 0 auto; padding: 0 40px; display: grid; gap: 16px; position: relative">
       <span class="mono" style="font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--color-accent-400)">Acto I · Capítulos 01 a 04</span>
@@ -434,7 +448,7 @@
           <span class="mono" style="font-size: 9.5px; letter-spacing: 0.1em; color: var(--color-neutral-600)">SHA-256</span>
           <span data-anim="arrow" style="font-family: var(--font-heading); font-size: 30px; line-height: 1; color: var(--color-accent)">→</span>
         </div>
-        <div style="background: var(--color-accent-900); padding: 24px 22px; display: grid; gap: 12px">
+        <div class="theme-inverse" style="background: var(--color-accent-900); padding: 24px 22px; display: grid; gap: 12px">
           <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 14px; flex-wrap: wrap">
             <span class="mono" style="font-size: 10.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-accent-400)">Salida</span>
             <span class="mono" style="font-size: 10.5px; letter-spacing: 0.08em; color: var(--color-accent-400)">256 bits · 64 hex · siempre igual de largo</span>
@@ -561,7 +575,7 @@
           <span style="font-size: 14.5px; line-height: 1.45; color: var(--color-neutral-700)">Parece poco intuitivo porque no se busca a alguien que cumpla el mismo día que <em>usted</em>, sino a cualquier pareja. Con 23 personas hay 253 parejas.</span>
         </div>
 
-        <div style="background: var(--color-accent-900); color: var(--color-bg); padding: 24px 22px; display: grid; gap: 14px; align-content: start">
+        <div class="theme-inverse" style="background: var(--color-accent-900); color: var(--color-bg); padding: 24px 22px; display: grid; gap: 14px; align-content: start">
           <span class="lbl" style="color: var(--color-accent-400)">SHA-256 recortado a n bits</span>
           <div style="display: flex; flex-wrap: wrap; gap: 6px">
             <sc-for list="{{ colBitsOpts }}" as="o" hint-placeholder-count="4">
@@ -570,8 +584,8 @@
           </div>
           <button class="btn btn-primary" onClick="{{ onColRun }}" disabled="{{ colRunning }}" style="border-radius: 0; padding: 12px 20px; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; justify-self: start">{{ colBtn }}</button>
           <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--color-accent-800)">
-            <div style="background: var(--color-accent-900); padding: 10px 0; display: grid; gap: 2px"><span class="big" style="font-size: 34px">{{ colTries }}</span><span class="mono" style="font-size: 10px; color: var(--color-accent-400); letter-spacing: 0.08em">INTENTOS</span></div>
-            <div style="background: var(--color-accent-900); padding: 10px 0 10px 14px; display: grid; gap: 2px"><span class="big" style="font-size: 34px; color: var(--color-accent-300)">≈ {{ colExpect }}</span><span class="mono" style="font-size: 10px; color: var(--color-accent-400); letter-spacing: 0.08em">ESPERADOS ≈ 1.18 · 2^(n/2)</span></div>
+            <div class="theme-inverse" style="background: var(--color-accent-900); padding: 10px 0; display: grid; gap: 2px"><span class="big" style="font-size: 34px">{{ colTries }}</span><span class="mono" style="font-size: 10px; color: var(--color-accent-400); letter-spacing: 0.08em">INTENTOS</span></div>
+            <div class="theme-inverse" style="background: var(--color-accent-900); padding: 10px 0 10px 14px; display: grid; gap: 2px"><span class="big" style="font-size: 34px; color: var(--color-accent-300)">≈ {{ colExpect }}</span><span class="mono" style="font-size: 10px; color: var(--color-accent-400); letter-spacing: 0.08em">ESPERADOS ≈ 1.18 · 2^(n/2)</span></div>
           </div>
           <sc-if value="{{ colFound }}" hint-placeholder-val="{{ false }}">
             <div style="display: grid; gap: 6px; border-top: 1px solid var(--color-accent-800); padding-top: 12px">
@@ -777,7 +791,7 @@
           </sc-if>
         </div>
 
-        <div style="background: var(--color-accent-900); color: var(--color-bg); padding: 24px 22px; display: grid; gap: 14px; align-content: start">
+        <div class="theme-inverse" style="background: var(--color-accent-900); color: var(--color-bg); padding: 24px 22px; display: grid; gap: 14px; align-content: start">
           <span style="font-family: var(--font-heading); font-size: 26px">Lo que recibe Alice</span>
           <label class="lbl" for="sig-recv" style="color: var(--color-accent-400)">Mensaje recibido · edítelo como si fuera Eve</label>
           <input id="sig-recv" class="input" type="text" value="{{ sigRecv }}" onInput="{{ onSigRecv }}" style="font-size: 16px; padding: 10px 12px; border-radius: 0; background: var(--color-accent-800); color: var(--color-bg); border-color: var(--color-accent-700)">
@@ -819,7 +833,7 @@
         <p style="margin: 0; font-size: 17.5px; line-height: 1.6; color: var(--color-neutral-800); text-wrap: pretty">Los esquemas reales calculan un hash del mensaje y lo codifican antes de firmar (RSA-PSS, ECDSA; EdDSA lo hace por dentro). Si el hash fuera débil y alguien fabricara dos contratos con la misma huella, una sola firma respaldaría a los dos. Por eso MD5 y SHA-1 están retirados para firmar.</p>
         <p style="margin: 0; font-size: 17.5px; line-height: 1.6; color: var(--color-neutral-800); text-wrap: pretty">Y una firma prueba que el mensaje salió de <em>esa llave</em>, no de <em>esa persona</em>. Si Eve consigue que Alice crea que la llave de Eve es la de Bob, todas las verificaciones saldrán bien. Hace falta algo que ate llave y nombre: un certificado.</p>
       </div>
-      <div data-anim="up" style="background: var(--color-accent-900); color: var(--color-bg); padding: 28px 26px; display: grid; gap: 14px; align-content: start">
+      <div class="theme-inverse" data-anim="up" style="background: var(--color-accent-900); color: var(--color-bg); padding: 28px 26px; display: grid; gap: 14px; align-content: start">
         <div class="mono" style="font-size: 10.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-accent-400)">Certificados X.509 · el pasaporte</div>
         <div style="font-family: var(--font-heading); font-size: 30px; line-height: 1.06">Una autoridad firma: «esta llave pública es de Bob»</div>
         <p style="margin: 0; font-size: 16.5px; line-height: 1.56; color: var(--color-accent-200)">Como un pasaporte, que vale porque lo emite un gobierno en el que usted confía. Al verificar un certificado se revisa la firma del emisor, la cadena hasta una raíz confiable, la vigencia, el nombre, los usos permitidos y si fue revocado. El certificado <strong>nunca</strong> contiene la llave privada.</p>
@@ -917,8 +931,8 @@
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--color-neutral-300)">
               <div style="background: var(--color-accent-100); padding: 12px; display: grid; gap: 2px"><span class="lbl" style="color: var(--color-accent-700)">Público · n = p·q</span><span class="big" style="font-size: 30px; color: var(--color-accent-900)">{{ rsaN }}</span></div>
               <div style="background: var(--color-accent-100); padding: 12px; display: grid; gap: 2px"><span class="lbl" style="color: var(--color-accent-700)">Público · e</span><span class="big" style="font-size: 30px; color: var(--color-accent-900)">{{ rsaE }}</span></div>
-              <div style="background: var(--color-accent-900); padding: 12px; display: grid; gap: 2px"><span class="lbl" style="color: var(--color-accent-400)">Secreto · φ(n) = (p−1)(q−1)</span><span class="big" style="font-size: 30px; color: var(--color-bg)">{{ rsaPhi }}</span></div>
-              <div style="background: var(--color-accent-900); padding: 12px; display: grid; gap: 2px"><span class="lbl" style="color: var(--color-accent-400)">Secreto · d = e⁻¹ mod φ</span><span class="big" style="font-size: 30px; color: var(--color-bg)">{{ rsaD }}</span></div>
+              <div class="theme-inverse" style="background: var(--color-accent-900); padding: 12px; display: grid; gap: 2px"><span class="lbl" style="color: var(--color-accent-400)">Secreto · φ(n) = (p−1)(q−1)</span><span class="big" style="font-size: 30px; color: var(--color-bg)">{{ rsaPhi }}</span></div>
+              <div class="theme-inverse" style="background: var(--color-accent-900); padding: 12px; display: grid; gap: 2px"><span class="lbl" style="color: var(--color-accent-400)">Secreto · d = e⁻¹ mod φ</span><span class="big" style="font-size: 30px; color: var(--color-bg)">{{ rsaD }}</span></div>
             </div>
             <span class="mono" style="font-size: 12px; color: var(--color-neutral-600)">Comprobación: e · d = {{ rsaED }} = {{ rsaEDk }} · φ(n) + 1</span>
           </div>
@@ -934,7 +948,7 @@
             </div>
             <button class="chip" aria-pressed="{{ rsaTamperOn }}" onClick="{{ onRsaTamper }}" style="justify-self: start; font-size: 13.5px">Alterar la firma en 1</button>
           </div>
-          <div style="background: var(--color-accent-900); color: var(--color-bg); padding: 18px 18px; display: grid; gap: 10px; align-content: start">
+          <div class="theme-inverse" style="background: var(--color-accent-900); color: var(--color-bg); padding: 18px 18px; display: grid; gap: 10px; align-content: start">
             <span class="lbl" style="color: var(--color-accent-400)">El ataque: factorizar n</span>
             <button class="btn btn-primary" onClick="{{ onRsaFactor }}" style="border-radius: 0; padding: 10px 16px; font-size: 11.5px; letter-spacing: 0.1em; text-transform: uppercase; justify-self: start">Probar divisores uno por uno</button>
             <span style="font-size: 15.5px; line-height: 1.5; color: var(--color-accent-100)">{{ rsaFactorTxt }}</span>
@@ -1005,7 +1019,7 @@
     </div>
 
     <div data-anim="up" style="margin-top: 40px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 24px">
-      <div style="background: var(--color-accent-900); color: var(--color-bg); padding: 30px 28px; display: grid; gap: 14px; align-content: start">
+      <div class="theme-inverse" style="background: var(--color-accent-900); color: var(--color-bg); padding: 30px 28px; display: grid; gap: 14px; align-content: start">
         <div class="mono" style="font-size: 10.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-accent-400)">El número que nunca se repite</div>
         <div style="font-family: var(--font-heading); font-size: 30px; line-height: 1.06">El nonce de la firma</div>
         <p style="margin: 0; font-size: 16.5px; line-height: 1.58; color: var(--color-accent-200); text-wrap: pretty">ECDSA usa un número efímero k distinto en cada firma. Si se repite en dos mensajes, cualquiera despeja la llave privada con álgebra de secundaria. Un k sesgado o filtrado también la delata. Así cayó en 2010 la llave con que Sony firmaba el software de la PlayStation 3: usaba siempre el mismo k.</p>
@@ -1053,7 +1067,7 @@
     </div>
   </section>
 
-  <section class="act">
+  <section class="act theme-inverse">
     <span class="act-n" aria-hidden="true">II</span>
     <div data-anim="up" style="max-width: 1180px; margin: 0 auto; padding: 0 40px; display: grid; gap: 16px; position: relative">
       <span class="mono" style="font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--color-accent-400)">Acto II · Capítulos 05 a 08</span>
@@ -1137,7 +1151,7 @@
     </div>
 
     <div data-anim="up" style="margin-top: 52px; display: grid; grid-template-columns: repeat(auto-fit, minmax(330px, 1fr)); gap: 24px">
-      <div style="background: var(--color-accent-900); color: var(--color-bg); padding: 30px 28px; display: grid; gap: 14px; align-content: start">
+      <div class="theme-inverse" style="background: var(--color-accent-900); color: var(--color-bg); padding: 30px 28px; display: grid; gap: 14px; align-content: start">
         <div class="mono" style="font-size: 10.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-accent-400)">Sin confiar en la autoridad</div>
         <div style="font-family: var(--font-heading); font-size: 32px; line-height: 1.05">El esquema Haber–Stornetta</div>
         <p style="margin: 0; font-size: 17px; line-height: 1.58; color: var(--color-accent-200); text-wrap: pretty">Cada sello nuevo incorpora el hash del sello anterior: <span class="mono" style="font-size: 15px; color: var(--color-bg)">h<sub>n</sub> = H(documento<sub>n</sub> ‖ h<sub>n−1</sub>)</span>. Falsificar una fecha obliga a recalcular todos los sellos posteriores, lo que es inviable si la cadena es pública. En su versión original se publicaba en el periódico.</p>
@@ -1195,7 +1209,7 @@
       </div>
 
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 22px">
-        <div style="background: var(--color-accent-900); color: var(--color-bg); padding: 26px 24px; display: grid; gap: 12px; align-content: start">
+        <div class="theme-inverse" style="background: var(--color-accent-900); color: var(--color-bg); padding: 26px 24px; display: grid; gap: 12px; align-content: start">
           <div class="mono" style="font-size: 10.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-accent-400)">Prueba de inclusión de «{{ mkSelName }}»</div>
           <sc-for list="{{ mkProof }}" as="p" hint-placeholder-count="3">
             <div style="display: grid; grid-template-columns: 26px minmax(0, 1fr); gap: 12px; align-items: baseline; padding: 9px 0; border-bottom: 1px solid var(--color-accent-800)">
@@ -1346,7 +1360,7 @@
         </table>
       </div>
 
-      <div data-anim="up" style="background: var(--color-accent-900); color: var(--color-bg); padding: 28px 26px; display: grid; gap: 12px; margin-top: 14px">
+      <div class="theme-inverse" data-anim="up" style="background: var(--color-accent-900); color: var(--color-bg); padding: 28px 26px; display: grid; gap: 12px; margin-top: 14px">
         <div class="mono" style="font-size: 10.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-accent-400)">Lo que falta para una cadena real</div>
         <p style="margin: 0; font-size: 18px; line-height: 1.55; color: var(--color-accent-100); max-width: 82ch; text-wrap: pretty">Este pipeline registra una transacción por bloque y confía en que Bob controla su propia cadena. Para pasar a una blockchain real harían falta tres cosas más: un mecanismo de consenso entre varios nodos, una red que propague los bloques, y una regla para resolver el conflicto cuando dos nodos publican a la vez.</p>
       </div>
@@ -1416,7 +1430,7 @@
         <div style="font-family: var(--font-heading); font-size: 30px; line-height: 1.06">Vinculación</div>
         <p style="margin: 0; font-size: 16.5px; line-height: 1.55; color: var(--color-neutral-800)">El sobre solo abre a una cosa. Nadie puede exhibir dos aperturas distintas del mismo compromiso. Protege a quien lo recibe.</p>
       </div>
-      <div style="background: var(--color-accent-900); color: var(--color-bg); padding: 28px 26px; display: grid; gap: 12px; align-content: start">
+      <div class="theme-inverse" style="background: var(--color-accent-900); color: var(--color-bg); padding: 28px 26px; display: grid; gap: 12px; align-content: start">
         <div class="mono" style="font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-accent-400)">El teorema incómodo</div>
         <div style="font-family: var(--font-heading); font-size: 30px; line-height: 1.06">No se puede tener las dos perfectas</div>
         <p style="margin: 0; font-size: 16.5px; line-height: 1.55; color: var(--color-accent-200)">Es un resultado demostrado, no una limitación de ingeniería. Toda construcción elige qué propiedad sacrificar, y esa elección decide a quién se protege a largo plazo.</p>
@@ -1496,7 +1510,7 @@
         <sc-if value="{{ crStage1 }}" hint-placeholder-val="{{ false }}">
           <div style="display: grid; gap: 16px">
             <div class="mono" style="font-size: 10.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-accent-700)">Paso 2 · el sobre está sellado</div>
-            <div style="background: var(--color-accent-900); color: var(--color-bg); padding: 20px 18px; display: grid; gap: 8px">
+            <div class="theme-inverse" style="background: var(--color-accent-900); color: var(--color-bg); padding: 20px 18px; display: grid; gap: 8px">
               <span class="mono" style="font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-accent-400)">Lo que ve el rival · c = H(m ‖ r)</span>
               <span class="mono" style="font-size: 16px; word-break: break-all">{{ crCommitHex }}</span>
               <span style="font-size: 15px; color: var(--color-accent-200)">No hay nada aquí que revele si eligió cara o cruz. Y usted ya no puede cambiar de opinión: solo conoce una apertura válida de este compromiso.</span>
@@ -1567,7 +1581,7 @@
         </div>
         <span style="font-size: 14.5px; line-height: 1.5; color: var(--color-neutral-700)">La aleatoriedad debe ser secreta, fresca y de al menos 128 bits, y la codificación inequívoca: «ab» + «c» no debe confundirse con «a» + «bc». Conviene incluir contexto, como la sesión y la identidad.</span>
       </div>
-      <div style="background: var(--color-accent-900); color: var(--color-bg); padding: 24px 22px; display: grid; gap: 12px; align-content: start">
+      <div class="theme-inverse" style="background: var(--color-accent-900); color: var(--color-bg); padding: 24px 22px; display: grid; gap: 12px; align-content: start">
         <span class="lbl" style="color: var(--color-accent-400)">El rival prueba todos los votos posibles</span>
         <sc-for list="{{ voteAttack }}" as="a" hint-placeholder-count="2">
           <div style="display: grid; grid-template-columns: 70px minmax(0, 1fr) 30px; gap: 10px; align-items: center; padding: 8px 0; border-bottom: 1px solid var(--color-accent-800)">
@@ -1608,7 +1622,7 @@
             <input id="pd-r2" type="range" min="1" max="1000" value="{{ pdR2 }}" onInput="{{ onPdR2 }}">
             <span class="mono" style="font-size: 15px">C₂ = <strong style="color: var(--color-accent-800)">{{ pdC2 }}</strong></span>
           </div>
-          <div style="background: var(--color-accent-900); color: var(--color-bg); padding: 18px; display: grid; gap: 10px; align-content: start">
+          <div class="theme-inverse" style="background: var(--color-accent-900); color: var(--color-bg); padding: 18px; display: grid; gap: 10px; align-content: start">
             <span class="lbl" style="color: var(--color-accent-400)">Sin abrir nada</span>
             <span class="mono" style="font-size: 14.5px">C₁ · C₂ mod p = <strong>{{ pdProd }}</strong></span>
             <span class="mono" style="font-size: 14.5px">Com({{ pdSumM }}; {{ pdSumR }}) = <strong>{{ pdSum }}</strong></span>
@@ -1622,7 +1636,7 @@
 
   <section style="max-width: 1180px; margin: 0 auto; padding: 84px 40px 0">
     <div data-anim="up" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 24px">
-      <div style="background: var(--color-accent-900); color: var(--color-bg); padding: 30px 28px; display: grid; gap: 14px; align-content: start">
+      <div class="theme-inverse" style="background: var(--color-accent-900); color: var(--color-bg); padding: 30px 28px; display: grid; gap: 14px; align-content: start">
         <div class="mono" style="font-size: 10.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-accent-400)">El esquema es seguro, el protocolo no tanto</div>
         <div style="font-family: var(--font-heading); font-size: 30px; line-height: 1.06">El último en revelar</div>
         <p style="margin: 0; font-size: 16.5px; line-height: 1.58; color: var(--color-accent-200); text-wrap: pretty">Vuelva a la moneda por teléfono. Alice se compromete, Bob anuncia, y Alice debe abrir. Si al ver lo de Bob nota que va a perder, puede simplemente… no abrir. El compromiso le impide <em>cambiar</em> su valor, pero no <em>abandonar</em>. En cualquier sorteo colectivo, quien revela al final puede sesgar el resultado reteniendo su parte.</p>
@@ -1682,7 +1696,7 @@
     </div>
   </section>
 
-  <section class="act">
+  <section class="act theme-inverse">
     <span class="act-n" aria-hidden="true">III</span>
     <div data-anim="up" style="max-width: 1180px; margin: 0 auto; padding: 0 40px; display: grid; gap: 16px; position: relative">
       <span class="mono" style="font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--color-accent-400)">Acto III · Capítulos 09 a 12</span>
@@ -1823,7 +1837,7 @@
     </div>
 
     <div data-anim="up" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 24px; margin-top: 40px">
-      <div style="background: var(--color-accent-900); color: var(--color-bg); padding: 28px 26px; display: grid; gap: 12px; align-content: start">
+      <div class="theme-inverse" style="background: var(--color-accent-900); color: var(--color-bg); padding: 28px 26px; display: grid; gap: 12px; align-content: start">
         <div class="mono" style="font-size: 10.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-accent-400)">Un atacante con la mayoría del cómputo puede…</div>
         <div style="display: grid; gap: 8px; font-size: 16.5px; line-height: 1.45">
           <span>✓ Reorganizar la cadena reciente con una rama alternativa.</span>
@@ -1903,11 +1917,11 @@
           </div>
           <span class="mono" style="font-size: 11px; color: var(--color-neutral-600)">Barra: intentos hechos frente a los esperados (puede pasarse: es azar)</span>
         </div>
-        <div style="background: var(--color-accent-900); color: var(--color-bg); padding: 24px 22px; display: grid; gap: 12px; align-content: start">
+        <div class="theme-inverse" style="background: var(--color-accent-900); color: var(--color-bg); padding: 24px 22px; display: grid; gap: 12px; align-content: start">
           <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1px; background: var(--color-accent-800)">
-            <div style="background: var(--color-accent-900); padding: 8px 0; display: grid; gap: 2px"><span class="big" style="font-size: 30px">{{ mineTries }}</span><span class="mono" style="font-size: 9.5px; color: var(--color-accent-400); letter-spacing: 0.08em">INTENTOS</span></div>
-            <div style="background: var(--color-accent-900); padding: 8px 0 8px 12px; display: grid; gap: 2px"><span class="big" style="font-size: 30px">{{ mineRate }}</span><span class="mono" style="font-size: 9.5px; color: var(--color-accent-400); letter-spacing: 0.08em">HASHES / S</span></div>
-            <div style="background: var(--color-accent-900); padding: 8px 0 8px 12px; display: grid; gap: 2px"><span class="big" style="font-size: 30px">{{ mineTime }}</span><span class="mono" style="font-size: 9.5px; color: var(--color-accent-400); letter-spacing: 0.08em">SEGUNDOS</span></div>
+            <div class="theme-inverse" style="background: var(--color-accent-900); padding: 8px 0; display: grid; gap: 2px"><span class="big" style="font-size: 30px">{{ mineTries }}</span><span class="mono" style="font-size: 9.5px; color: var(--color-accent-400); letter-spacing: 0.08em">INTENTOS</span></div>
+            <div class="theme-inverse" style="background: var(--color-accent-900); padding: 8px 0 8px 12px; display: grid; gap: 2px"><span class="big" style="font-size: 30px">{{ mineRate }}</span><span class="mono" style="font-size: 9.5px; color: var(--color-accent-400); letter-spacing: 0.08em">HASHES / S</span></div>
+            <div class="theme-inverse" style="background: var(--color-accent-900); padding: 8px 0 8px 12px; display: grid; gap: 2px"><span class="big" style="font-size: 30px">{{ mineTime }}</span><span class="mono" style="font-size: 9.5px; color: var(--color-accent-400); letter-spacing: 0.08em">SEGUNDOS</span></div>
           </div>
           <span class="lbl" style="color: var(--color-accent-400)">Nonce {{ mineNonce }}</span>
           <span class="mono" style="font-size: 14px; word-break: break-all; line-height: 1.5"><span style="background: {{ mineZeroBg }}; color: var(--color-bg); padding: 0 2px">{{ mineHead }}</span>{{ mineTail }}</span>
@@ -2206,15 +2220,15 @@
           <span style="font-size: 14.5px; line-height: 1.5; color: var(--color-neutral-700)">Con 10 participantes se toleran hasta 3; con 13, hasta 4 (cinco exigirían 16). No significa que «exactamente un tercio malicioso siempre es seguro».</span>
         </div>
         <div style="display: grid; gap: 14px; align-content: start">
-          <div style="background: var(--color-accent-900); color: var(--color-bg); padding: 22px 22px; display: grid; gap: 8px">
+          <div class="theme-inverse" style="background: var(--color-accent-900); color: var(--color-bg); padding: 22px 22px; display: grid; gap: 8px">
             <span class="lbl" style="color: var(--color-accent-400)">Ataque Sybil</span>
             <span style="font-size: 15.5px; line-height: 1.5; color: var(--color-accent-100)">Crear mil identidades no debe dar mil votos. Por eso PoW pondera por trabajo y PoS por participación, no por número de llaves.</span>
           </div>
-          <div style="background: var(--color-accent-900); color: var(--color-bg); padding: 22px 22px; display: grid; gap: 8px">
+          <div class="theme-inverse" style="background: var(--color-accent-900); color: var(--color-bg); padding: 22px 22px; display: grid; gap: 8px">
             <span class="lbl" style="color: var(--color-accent-400)">El teorema FLP</span>
             <span style="font-size: 15.5px; line-height: 1.5; color: var(--color-accent-100)">En una red totalmente asíncrona donde un solo nodo puede caerse, ningún protocolo determinista garantiza terminar siempre. No dice que el acuerdo falle; limita la garantía de progreso. Los protocolos reales suponen algo de sincronía o usan azar.</span>
           </div>
-          <div style="background: var(--color-accent-900); color: var(--color-bg); padding: 22px 22px; display: grid; gap: 8px">
+          <div class="theme-inverse" style="background: var(--color-accent-900); color: var(--color-bg); padding: 22px 22px; display: grid; gap: 8px">
             <span class="lbl" style="color: var(--color-accent-400)">Con firmas</span>
             <span style="font-size: 15.5px; line-height: 1.5; color: var(--color-accent-100)">El algoritmo SM aprovecha que una orden firmada se puede reenviar como prueba. Aun así, un traidor puede firmar órdenes contradictorias, y el umbral de un tercio de PBFT o de la finalidad en PoS no desaparece.</span>
           </div>
@@ -2297,7 +2311,7 @@
     </div>
   </section>
 
-  <section class="act">
+  <section class="act theme-inverse">
     <span class="act-n" aria-hidden="true">IV</span>
     <div data-anim="up" style="max-width: 1180px; margin: 0 auto; padding: 0 40px; display: grid; gap: 16px; position: relative">
       <span class="mono" style="font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--color-accent-400)">Acto IV · Capítulos 13 a 15</span>
@@ -2371,38 +2385,38 @@
       </div>
 
       <div data-anim="stagger" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1px; background: var(--color-accent-800); border: 1px solid var(--color-accent-800)">
-        <div style="background: var(--color-accent-900); padding: 28px 26px; display: grid; gap: 11px; align-content: start">
+        <div class="theme-inverse" style="background: var(--color-accent-900); padding: 28px 26px; display: grid; gap: 11px; align-content: start">
           <div class="mono" style="font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-accent-400)">Dinero confidencial</div>
           <div style="font-family: var(--font-heading); font-size: 29px; line-height: 1.06">Monero · RingCT</div>
           <p style="margin: 0; font-size: 16.5px; line-height: 1.56; color: var(--color-accent-100)">Cada monto se sustituye por un compromiso de Pedersen, y la validez de la transacción se reduce a comprobar que la diferencia entre salidas y entradas es un compromiso a cero. Obligatorio desde septiembre de 2017. En 2018 migró sus pruebas de rango a Bulletproofs, con una reducción de cerca del 80 % en el tamaño de transacción.</p>
         </div>
-        <div style="background: var(--color-accent-900); padding: 28px 26px; display: grid; gap: 11px; align-content: start">
+        <div class="theme-inverse" style="background: var(--color-accent-900); padding: 28px 26px; display: grid; gap: 11px; align-content: start">
           <div class="mono" style="font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-accent-400)">Cuando el álgebra decide la arquitectura</div>
           <div style="font-family: var(--font-heading); font-size: 29px; line-height: 1.06">Mimblewimble · Grin y Beam</div>
           <p style="margin: 0; font-size: 16.5px; line-height: 1.56; color: var(--color-accent-100)">Si toda salida es un compromiso y las sumas se cancelan, las transacciones intermedias pueden borrarse de la cadena: creada y luego gastada, ambos compromisos se anulan y desaparecen del histórico. El resultado es una cadena que crece con el estado actual, no con la historia. No es «Bitcoin con privacidad»: solo existe porque Pedersen es homomórfico.</p>
         </div>
-        <div style="background: var(--color-accent-900); padding: 28px 26px; display: grid; gap: 11px; align-content: start">
+        <div class="theme-inverse" style="background: var(--color-accent-900); padding: 28px 26px; display: grid; gap: 11px; align-content: start">
           <div class="mono" style="font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-accent-400)">Compromisos en un árbol</div>
           <div style="font-family: var(--font-heading); font-size: 29px; line-height: 1.06">Zcash</div>
           <p style="margin: 0; font-size: 16.5px; line-height: 1.56; color: var(--color-accent-100)">Cada nota se representa por un compromiso publicado en un árbol de Merkle incremental. Gastarla consiste en demostrar, en conocimiento cero, que se conoce la apertura de alguna hoja, sin revelar cuál.</p>
           <div style="display: grid; gap: 1px; background: var(--color-accent-800); margin-top: 6px">
-            <div style="background: var(--color-accent-900); display: grid; grid-template-columns: 92px minmax(0, 1fr); gap: 12px; padding: 7px 0; font-size: 14.5px"><span class="mono" style="font-size: 11.5px; color: var(--color-accent-400)">Sprout 2016</span><span>SHA-256 · simple pero caro en el circuito</span></div>
-            <div style="background: var(--color-accent-900); display: grid; grid-template-columns: 92px minmax(0, 1fr); gap: 12px; padding: 7px 0; font-size: 14.5px"><span class="mono" style="font-size: 11.5px; color: var(--color-accent-400)">Sapling 2018</span><span>Hash de Pedersen · mucho más barato</span></div>
-            <div style="background: var(--color-accent-900); display: grid; grid-template-columns: 92px minmax(0, 1fr); gap: 12px; padding: 7px 0; font-size: 14.5px"><span class="mono" style="font-size: 11.5px; color: var(--color-accent-400)">Orchard 2022</span><span>Sinsemilla · para Halo 2, sin setup</span></div>
+            <div class="theme-inverse" style="background: var(--color-accent-900); display: grid; grid-template-columns: 92px minmax(0, 1fr); gap: 12px; padding: 7px 0; font-size: 14.5px"><span class="mono" style="font-size: 11.5px; color: var(--color-accent-400)">Sprout 2016</span><span>SHA-256 · simple pero caro en el circuito</span></div>
+            <div class="theme-inverse" style="background: var(--color-accent-900); display: grid; grid-template-columns: 92px minmax(0, 1fr); gap: 12px; padding: 7px 0; font-size: 14.5px"><span class="mono" style="font-size: 11.5px; color: var(--color-accent-400)">Sapling 2018</span><span>Hash de Pedersen · mucho más barato</span></div>
+            <div class="theme-inverse" style="background: var(--color-accent-900); display: grid; grid-template-columns: 92px minmax(0, 1fr); gap: 12px; padding: 7px 0; font-size: 14.5px"><span class="mono" style="font-size: 11.5px; color: var(--color-accent-400)">Orchard 2022</span><span>Sinsemilla · para Halo 2, sin setup</span></div>
           </div>
         </div>
-        <div style="background: var(--color-accent-900); padding: 28px 26px; display: grid; gap: 11px; align-content: start">
+        <div class="theme-inverse" style="background: var(--color-accent-900); padding: 28px 26px; display: grid; gap: 11px; align-content: start">
           <div class="mono" style="font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-accent-400)">El despliegue más grande</div>
           <div style="font-family: var(--font-heading); font-size: 29px; line-height: 1.06">EIP-4844 · KZG en producción</div>
           <p style="margin: 0; font-size: 16.5px; line-height: 1.56; color: var(--color-accent-100)">Activado en marzo de 2024. Cada transacción puede llevar «blobs» de unos 128 KB que no se guardan en el estado: el bloque conserva únicamente un compromiso KZG de 48 bytes al polinomio que interpola el blob.</p>
           <p style="margin: 0; font-size: 16px; line-height: 1.55; color: var(--color-accent-300)">Su ceremonia de configuración reunió más de 140 000 contribuciones. Basta que una sola persona haya destruido honestamente su aportación para que el secreto siga siendo secreto: la confianza requerida no es en la mayoría, sino en la existencia de al menos un participante honesto.</p>
         </div>
-        <div style="background: var(--color-accent-900); padding: 28px 26px; display: grid; gap: 11px; align-content: start">
+        <div class="theme-inverse" style="background: var(--color-accent-900); padding: 28px 26px; display: grid; gap: 11px; align-content: start">
           <div class="mono" style="font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-accent-400)">Auditar sin exponer</div>
           <div style="font-family: var(--font-heading); font-size: 29px; line-height: 1.06">Certificate Transparency</div>
           <p style="margin: 0; font-size: 16.5px; line-height: 1.56; color: var(--color-accent-100)">Árboles de Merkle sobre certificados X.509 forman registros públicos que solo crecen. Cualquiera puede exigir después la prueba de que un certificado estaba incluido, lo que permite detectar emisiones fraudulentas de autoridades comprometidas. En operación desde 2013.</p>
         </div>
-        <div style="background: var(--color-accent-900); padding: 28px 26px; display: grid; gap: 11px; align-content: start">
+        <div class="theme-inverse" style="background: var(--color-accent-900); padding: 28px 26px; display: grid; gap: 11px; align-content: start">
           <div class="mono" style="font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-accent-400)">Verificar sin descargar</div>
           <div style="font-family: var(--font-heading); font-size: 29px; line-height: 1.06">Muestreo de disponibilidad</div>
           <p style="margin: 0; font-size: 16.5px; line-height: 1.56; color: var(--color-accent-100)">Un nodo ligero necesita convencerse de que los datos de un bloque se publicaron, sin bajarlos. Se compromete la extensión codificada y se piden muestras al azar: si el productor ocultó más de la mitad, unas decenas de muestras lo detectan con probabilidad abrumadora. Es la base de Celestia.</p>
@@ -2668,6 +2682,7 @@
 <script type="text/x-dc" data-dc-script data-props="{}">
 class Component extends DCLogic {
   state = {
+    darkMode: document.documentElement.dataset.theme === "dark",
     panels: { formal: false, tsa: false, hs: false, comDef: false, imposs: false, extra: false, hmac: false, sha: false, ecdsa: false, target: false, prob: false },
     calcText: "Bob envía 50 a Alice", calcHash: "",
     avaA: "Bob envía 50 a Alice", avaB: "Bob envía 500 a Alice", hashA: "", hashB: "",
@@ -2771,7 +2786,23 @@ class Component extends DCLogic {
   gcd(a, b) { while (b) { [a, b] = [b, a % b]; } return a; }
   modinv(a, m) { let [r0, r1, s0, s1] = [m, a, 0, 1]; while (r1) { const q = Math.floor(r0 / r1); [r0, r1] = [r1, r0 - q * r1]; [s0, s1] = [s1, s0 - q * s1]; } return r0 === 1 ? ((s0 % m) + m) % m : null; }
 
+  applyTheme(darkMode) {
+    document.documentElement.dataset.theme = darkMode ? "dark" : "light";
+    this.setState({ darkMode });
+  }
+
+  toggleTheme() {
+    const darkMode = !this.state.darkMode;
+    this.themeExplicit = true;
+    try { localStorage.setItem("blockchain-theme", darkMode ? "dark" : "light"); } catch (_) {}
+    this.applyTheme(darkMode);
+  }
+
   componentDidMount() {
+    try { this.themeExplicit = ["dark", "light"].includes(localStorage.getItem("blockchain-theme")); } catch (_) {}
+    this.themeMedia = window.matchMedia("(prefers-color-scheme: dark)");
+    this.onSystemTheme = e => { if (!this.themeExplicit) this.applyTheme(e.matches); };
+    this.themeMedia.addEventListener("change", this.onSystemTheme);
     this.recalc(this.state.calcText);
     this.recompare(this.state.avaA, this.state.avaB);
     this.buildMerkle(this.state.mkSel, this.state.mkCount);
@@ -2782,6 +2813,7 @@ class Component extends DCLogic {
   }
 
   componentWillUnmount() {
+    this.themeMedia.removeEventListener("change", this.onSystemTheme);
     this.dead = true;
     if (this.ro) this.ro.disconnect();
     if (this.lenis) { try { this.lenis.destroy(); } catch (e) {} }
@@ -3618,6 +3650,10 @@ class Component extends DCLogic {
     const SRC_T = [["S", "Apuntes de clase · 15"], ["P", "Páginas del profesor · 5"], ["E", "Documentación primaria · 16"]];
 
     return {
+      darkMode: S.darkMode,
+      themeIcon: S.darkMode ? "☀" : "☾",
+      themeLabel: S.darkMode ? "Modo claro" : "Modo oscuro",
+      onThemeToggle: () => this.toggleTheme(),
       toggle, sign, panels: S.panels, demoCount: 34,
 
       /* prólogo */
