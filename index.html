@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
+<title>Blockchain · Portafolio académico</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script>
@@ -83,6 +84,37 @@
     .table { display: block; overflow-x: auto; }
     .blueprint, [style*="padding: 26px 24px"], [style*="padding: 24px 22px"] { padding-left: 16px !important; padding-right: 16px !important; }
   }
+
+  .academic { max-width: 1180px; margin: 0 auto; padding: 100px 40px 0; }
+  .academic-head { display: flex; align-items: center; gap: 18px; margin-bottom: 36px; }
+  .academic-number { width: 62px; height: 62px; background: var(--color-accent); color: var(--color-bg); display: grid; place-items: center; font-family: var(--font-heading); font-size: 32px; flex: none; }
+  .academic h2 { margin: 0; font-size: 52px; line-height: 1; letter-spacing: -0.01em; }
+  .academic h3 { margin: 0; font-size: 32px; line-height: 1.12; }
+  .academic h4 { margin: 0; font-family: var(--font-heading); font-size: 23px; line-height: 1.2; }
+  .academic p { margin: 0; font-size: 18px; line-height: 1.65; color: var(--color-neutral-800); }
+  .academic .story-t { font-size: 27px; line-height: 1.22; color: var(--color-accent-900); }
+  .academic-flow { display: grid; gap: 24px; margin-top: 36px; }
+  .academic-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 310px), 1fr)); gap: 20px; }
+  .academic-card { display: grid; gap: 14px; padding: 24px; border: 1px solid var(--color-divider); align-content: start; min-width: 0; }
+  .academic-example { display: grid; gap: 14px; padding: 24px; border-left: 3px solid var(--color-accent); background: var(--color-surface); min-width: 0; }
+  .academic-formula { font-family: 'IBM Plex Mono', monospace; font-size: 15px; line-height: 1.8; overflow-wrap: anywhere; }
+  .academic-table-wrap { overflow-x: auto; }
+  .academic table { width: 100%; border-collapse: collapse; font-size: 16px; line-height: 1.5; }
+  .academic th, .academic td { text-align: left; padding: 12px; border-bottom: 1px solid var(--color-divider); vertical-align: top; }
+  .academic th { font-weight: 500; background: var(--color-surface); }
+  .scheme-row { display: grid; grid-template-columns: 1.1fr .8fr .8fr .8fr 1.1fr 1.6fr; }
+  .scheme-row > span { padding: 14px 12px; border-bottom: 1px solid var(--color-divider); }
+  .scheme-header { font-family: 'IBM Plex Mono', monospace; font-size: 11px; text-transform: uppercase; background: var(--color-surface); }
+  .kad-row { display: grid; grid-template-columns: 60px 80px 160px minmax(230px, 1fr); min-width: 550px; }
+  .kad-row > span { padding: 12px; border-bottom: 1px solid var(--color-divider); line-height: 1.5; }
+  .academic-controls { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+  .academic select { font: inherit; color: var(--color-text); background: var(--color-bg); padding: 10px; border: 1px solid var(--color-divider); max-width: 100%; }
+  .academic .btn { border-radius: 0; }
+  .academic-source { font-size: 14px !important; color: var(--color-neutral-600) !important; }
+  .academic details { border: 1px solid var(--color-divider); padding: 18px 22px; }
+  .academic summary { cursor: pointer; color: var(--color-accent-800); font-size: 17px; }
+  .academic details p { margin-top: 14px; }
+  @media (max-width: 720px) { .academic { padding: 70px 16px 0; } .academic-card, .academic-example { padding: 18px; } .academic .story-t { font-size: 22px; } }
 </style>
 </helmet>
 
@@ -113,8 +145,15 @@
     <a data-nav href="#s11"><i></i><span>11 La carrera</span></a>
     <a data-nav href="#s12"><i></i><span>12 Consenso</span></a>
     <a data-nav href="#s13"><i></i><span>13 Mundo real</span></a>
-    <a data-nav href="#s14"><i></i><span>14 Repaso</span></a>
-    <a data-nav href="#s15"><i></i><span>15 Fuentes</span></a>
+    <a data-nav href="#s14"><i></i><span>14 Redes P2P</span></a>
+    <a data-nav href="#s15"><i></i><span>15 Kademlia</span></a>
+    <a data-nav href="#s16"><i></i><span>16 Wallets</span></a>
+    <a data-nav href="#s17"><i></i><span>17 Schnorr</span></a>
+    <a data-nav href="#s18"><i></i><span>18 Shamir y QR</span></a>
+    <a data-nav href="#s19"><i></i><span>19 Pruebas ZK</span></a>
+    <a data-nav href="#s20"><i></i><span>20 Anillos</span></a>
+    <a data-nav href="#s21"><i></i><span>21 Repaso</span></a>
+    <a data-nav href="#s22"><i></i><span>22 Fuentes</span></a>
   </nav>
 
   <header class="theme-inverse" id="portada" style="background: var(--color-accent-900); color: var(--color-bg); padding: 104px 0 84px">
@@ -124,18 +163,18 @@
         <span>Portafolio · Blockchain</span>
       </div>
       <h1 style="margin: 0; font-size: 96px; line-height: 0.92; letter-spacing: -0.02em; max-width: 16ch; text-wrap: balance">Blockchain</h1>
-      <p style="margin: 0; font-size: 22px; line-height: 1.5; color: var(--color-accent-200); max-width: 60ch; text-wrap: pretty">Bob quiere pagarle 50 pesos a Alice por internet, sin un banco en medio. Esta es la historia de todo lo que hace falta inventar para lograrlo: quince capítulos, una analogía para cada idea y demostraciones que puede tocar con el ratón. La matemática está aquí, pero solo si la pide.</p>
+      <p style="margin: 0; font-size: 22px; line-height: 1.5; color: var(--color-accent-200); max-width: 60ch; text-wrap: pretty">Bob quiere pagarle 50 pesos a Alice por internet, sin un banco en medio. Esta es la historia de todo lo que hace falta inventar para lograrlo: veintidós capítulos, una analogía para cada idea y demostraciones que puede tocar con el ratón. La matemática está aquí, pero solo si la pide.</p>
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1px; background: var(--color-accent-800); margin-top: 10px">
         <div class="theme-inverse" style="background: var(--color-accent-900); padding: 20px 0 6px; display: grid; gap: 4px">
-          <div style="font-family: var(--font-heading); font-size: 40px; line-height: 1">15</div>
+          <div style="font-family: var(--font-heading); font-size: 40px; line-height: 1">22</div>
           <div class="mono" style="font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-accent-400)">Capítulos</div>
         </div>
         <div class="theme-inverse" style="background: var(--color-accent-900); padding: 20px 0 6px 20px; display: grid; gap: 4px">
-          <div style="font-family: var(--font-heading); font-size: 40px; line-height: 1">34</div>
+          <div style="font-family: var(--font-heading); font-size: 40px; line-height: 1">42</div>
           <div class="mono" style="font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-accent-400)">Demos jugables</div>
         </div>
         <div class="theme-inverse" style="background: var(--color-accent-900); padding: 20px 0 6px 20px; display: grid; gap: 4px">
-          <div style="font-family: var(--font-heading); font-size: 40px; line-height: 1">20</div>
+          <div style="font-family: var(--font-heading); font-size: 40px; line-height: 1">28</div>
           <div class="mono" style="font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-accent-400)">Apuntes y páginas fuente</div>
         </div>
         <div class="theme-inverse" style="background: var(--color-accent-900); padding: 20px 0 6px 20px; display: grid; gap: 4px">
@@ -1034,6 +1073,9 @@
           <div style="background: var(--color-bg); display: grid; grid-template-columns: 120px minmax(0, 1fr); gap: 12px; padding: 9px 0; font-size: 15px"><span class="mono" style="font-size: 12.5px; color: var(--color-accent-800)">BLS12-381</span><span>Firmas BLS; el consenso de Ethereum.</span></div>
           <div style="background: var(--color-bg); display: grid; grid-template-columns: 120px minmax(0, 1fr); gap: 12px; padding: 9px 0; font-size: 15px"><span class="mono" style="font-size: 12.5px; color: var(--color-accent-800)">BN254</span><span>Emparejamientos para pruebas en la EVM.</span></div>
           <div style="background: var(--color-bg); display: grid; grid-template-columns: 120px minmax(0, 1fr); gap: 12px; padding: 9px 0; font-size: 15px"><span class="mono" style="font-size: 12.5px; color: var(--color-accent-800)">BabyJubJub</span><span>Cómoda dentro de circuitos de conocimiento cero.</span></div>
+          <div style="background: var(--color-bg); display: grid; grid-template-columns: 120px minmax(0, 1fr); gap: 12px; padding: 9px 0; font-size: 15px"><span class="mono" style="font-size: 12.5px; color: var(--color-accent-800)">Jubjub</span><span>Curva sobre el campo escalar de BLS12-381; permite operaciones dentro de circuitos.</span></div>
+          <div style="background: var(--color-bg); display: grid; grid-template-columns: 120px minmax(0, 1fr); gap: 12px; padding: 9px 0; font-size: 15px"><span class="mono" style="font-size: 12.5px; color: var(--color-accent-800)">Bandersnatch</span><span>Curva de Edwards sobre ese mismo campo; Banderwagon expone un grupo de orden primo.</span></div>
+          <div style="background: var(--color-bg); display: grid; grid-template-columns: 120px minmax(0, 1fr); gap: 12px; padding: 9px 0; font-size: 15px"><span class="mono" style="font-size: 12.5px; color: var(--color-accent-800)">decaf377</span><span>Abstracción de grupo de orden primo sobre una curva de Edwards; distingue la curva del grupo expuesto.</span></div>
         </div>
         <p style="margin: 0; font-size: 15px; line-height: 1.5; color: var(--color-neutral-700)"><strong>Una curva no es un algoritmo de firma.</strong> ECDSA y Schnorr comparten secp256k1: Bitcoin usa ECDSA y, desde Taproot, también Schnorr (BIP-340). No firma con RSA.</p>
       </div>
@@ -1042,7 +1084,7 @@
     <div data-anim="up" style="margin-top: 48px">
       <div class="mono" style="font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-accent-700); margin-bottom: 16px">Firmas con superpoderes · cada una resuelve otro problema</div>
       <div data-anim="stagger" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 20px">
-        <sc-for list="{{ specialSigs }}" as="s" hint-placeholder-count="7">
+        <sc-for list="{{ specialSigs }}" as="s" hint-placeholder-count="11">
           <div class="blueprint" style="padding: 22px 20px; display: grid; gap: 8px; align-content: start">
             <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
             <span style="font-family: var(--font-heading); font-size: 24px; line-height: 1.05">{{ s.name }}</span>
@@ -1673,21 +1715,21 @@
     </div>
 
     <div style="overflow-x: auto">
-      <table class="table" style="min-width: 900px">
-        <thead><tr><th>Esquema</th><th>Tipo</th><th>Oculta</th><th>Vincula</th><th>Propiedades</th><th>Dónde se usa</th></tr></thead>
-        <tbody>
+      <div role="table" aria-label="Catálogo de compromisos" style="min-width: 900px">
+        <div role="row" class="scheme-row scheme-header"><span role="columnheader">Esquema</span><span role="columnheader">Tipo</span><span role="columnheader">Oculta</span><span role="columnheader">Vincula</span><span role="columnheader">Propiedades</span><span role="columnheader">Dónde se usa</span></div>
+        <div role="rowgroup">
           <sc-for list="{{ cmpRows }}" as="r" hint-placeholder-count="8">
-            <tr>
-              <td style="font-family: var(--font-heading); font-size: 18px; line-height: 1.15">{{ r.name }}</td>
-              <td class="mono" style="font-size: 11.5px; color: var(--color-neutral-700)">{{ r.tipo }}</td>
-              <td style="font-size: 13.5px">{{ r.oculta }}</td>
-              <td style="font-size: 13.5px">{{ r.vincula }}</td>
-              <td class="mono" style="font-size: 11px; color: var(--color-accent-700); line-height: 1.5">{{ r.props }}</td>
-              <td style="font-size: 14.5px; line-height: 1.45; color: var(--color-neutral-800)">{{ r.uso }}</td>
-            </tr>
+            <div role="row" class="scheme-row">
+              <span role="cell" style="font-family: var(--font-heading); font-size: 18px; line-height: 1.15">{{ r.name }}</span>
+              <span role="cell" class="mono" style="font-size: 11.5px; color: var(--color-neutral-700)">{{ r.tipo }}</span>
+              <span role="cell" style="font-size: 13.5px">{{ r.oculta }}</span>
+              <span role="cell" style="font-size: 13.5px">{{ r.vincula }}</span>
+              <span role="cell" class="mono" style="font-size: 11px; color: var(--color-accent-700); line-height: 1.5">{{ r.props }}</span>
+              <span role="cell" style="font-size: 14.5px; line-height: 1.45; color: var(--color-neutral-800)">{{ r.uso }}</span>
+            </div>
           </sc-for>
-        </tbody>
-      </table>
+        </div>
+      </div>
     </div>
 
     <div data-anim="up" style="margin-top: 34px; background: var(--color-accent-100); border-left: 3px solid var(--color-accent); padding: 26px 26px 28px; display: grid; gap: 12px; max-width: 900px">
@@ -2516,10 +2558,182 @@
     </div>
   </section>
 
-  <section id="s14" style="margin-top: 100px; background: var(--color-surface); padding: 74px 0 80px">
+  <section class="academic" aria-labelledby="algorithm-map-title"><div class="academic-flow"><span class="lbl">Ampliación · mapa de algoritmos de clase [S02]</span><h3 id="algorithm-map-title">Estructura, escala y consenso tienen funciones distintas</h3><div class="academic-table-wrap"><table><thead><tr><th scope="col">Pieza del mapa</th><th scope="col">Para qué sirve</th><th scope="col">Ejemplo de su límite</th></tr></thead><tbody><tr><td>Árboles Patricia y mapas de estado</td><td>Consultar claves compartiendo prefijos; sus versiones autenticadas comprometen el estado mediante hashes.</td><td>Una prueba de pertenencia no decide qué actualización de estado es válida.</td></tr><tr><td>Lightning y canales de pago</td><td>Actualizar un estado entre participantes y recurrir a la cadena para liquidar o resolver disputas.</td><td>Requieren liquidez y reglas de cierre; no eliminan la capa de consenso base.</td></tr><tr><td>Sharding</td><td>Dividir procesamiento o datos entre particiones.</td><td>Coordinar operaciones y seguridad entre particiones es parte del diseño.</td></tr><tr><td>Proof of Burn y Proof of Capacity</td><td>Relacionar la participación con destrucción verificable de activos o almacenamiento comprometido.</td><td>El recurso por sí solo no especifica elección de cadena, validación y recuperación ante fallas.</td></tr><tr><td>Plataformas y clientes</td><td>Implementar protocolos: Bitcoin Core, clientes de Ethereum y entornos de consorcio.</td><td>Una plataforma, un hash y un mecanismo de consenso pertenecen a niveles distintos.</td></tr></tbody></table></div></div></section>
+
+  <section id="s14" class="academic" aria-labelledby="title-s14">
+    <div data-anim="up" class="academic-head"><span class="academic-number">14</span><div><div class="lbl" style="margin-bottom: 6px">Redes P2P · gráficas y probabilidad</div><h2 id="title-s14">¿Cómo se entera toda la red?</h2></div></div>
+    <div data-anim="up" class="story"><span class="story-k">La historia</span><p class="story-t">Bob ya firmó el pago. Ahora debe contárselo a Alice y a los demás nodos. No hay una oficina central: la noticia viaja de vecino en vecino, como un rumor que cruza una ciudad.</p></div>
+    <div class="academic-flow">
+<p><strong>Objetivo de aprendizaje.</strong> Modelar una red como una gráfica, distinguir difusión de consenso y relacionar conectividad, latencia y seguridad. Una firma válida sirve de poco si el mensaje no llega a los demás participantes.</p>
+<h3>Una red es una gráfica</h3>
+<p>En <span class="academic-formula">G = (V, E)</span>, V representa las computadoras y E sus conexiones. El <strong>grado</strong> cuenta vecinos; un <strong>camino</strong> enlaza nodos; la <strong>distancia</strong> mide el camino más corto en saltos y el <strong>diámetro</strong> es la mayor de esas distancias. La conectividad permite intercambiar mensajes; el consenso determina qué mensajes forman una historia válida.</p>
+<div class="academic-example"><span class="lbl">Ejemplo resuelto · vecinos que se conocen</span><p>Alice conoce a Bob, Carla y Diego. Entre esos tres vecinos hay dos conexiones de las tres posibles. Su coeficiente de agrupamiento es <strong>C = 2 / 3</strong>. En general, C(v) = 2e / [d(d − 1)], donde e cuenta enlaces entre sus d vecinos. Mucho agrupamiento aporta rutas redundantes locales, pero hacen falta conexiones entre grupos para que una noticia viaje lejos.</p></div>
+<h3>Cuatro formas de conectar a todos</h3>
+<div class="academic-table-wrap"><table><thead><tr><th scope="col">Modelo</th><th scope="col">Construcción y ventaja</th><th scope="col">Límite del modelo</th></tr></thead><tbody><tr><td>Aleatoria · Erdős–Rényi</td><td>Cada par se conecta con probabilidad p; grado esperado (n − 1)p.</td><td>La conectividad depende de n y p; no describe por sí sola una implementación de Bitcoin.</td></tr><tr><td>Mundo pequeño · Watts–Strogatz</td><td>Vecindarios locales con algunos atajos: agrupamiento y caminos cortos.</td><td>La latencia y la elección de atajos cambian el resultado.</td></tr><tr><td>Libre de escala · Barabási–Albert</td><td>La adhesión preferente produce nodos muy conectados o hubs.</td><td>Eliminar hubs puede afectar mucho la conectividad.</td></tr><tr><td>Estructurada · DHT</td><td>Los identificadores y una métrica guían la búsqueda de registros.</td><td>Buscar un registro no equivale a difundir bloques ni a alcanzar consenso.</td></tr></tbody></table></div>
+<div class="academic-example"><span class="lbl">Ejemplo resuelto · el umbral no es una regla de protocolo</span><p>Para n = 10 000, ln(n) ≈ 9.21. En el modelo aleatorio G(n,p), p ≈ ln(n)/n marca la escala del umbral de conectividad; para una alta probabilidad asintótica se requiere un margen creciente por encima. Esto <strong>no significa que nueve vecinos garanticen una red real conexa</strong>: hay fallas, elecciones correlacionadas y restricciones de conexión.</p></div>
+<div class="academic-card" aria-labelledby="gossip-title">
+  <span class="lbl">Demostración · difusión por rondas</span><h3 id="gossip-title">El rumor recorre doce nodos</h3>
+  <p>Los nodos 0–11 forman un anillo. Cada informado envía a sus dos vecinos; con atajos también conecta al nodo opuesto (i + 6 módulo 12). Cada ronda usa el estado de la ronda anterior. Es una inundación síncrona reproducible, una simplificación para estudiar la propagación.</p>
+  <div class="academic-controls"><button class="chip" aria-pressed="{{ gossipShortcutOn }}" onClick="{{ onGossipTopology }}">{{ gossipTopologyLabel }}</button><button class="btn btn-secondary" disabled="{{ gossipDone }}" onClick="{{ onGossipStep }}">Avanzar una ronda</button><button class="btn btn-ghost" onClick="{{ onGossipReset }}">Reiniciar difusión</button></div>
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(70px, 1fr)); gap: 8px"><sc-for list="{{ gossipNodes }}" as="node"><div style="border: 1px solid var(--color-divider); background: {{ node.bg }}; color: {{ node.fg }}; padding: 12px; text-align: center"><span class="mono">{{ node.id }}</span><br><span style="font-size: 12px">{{ node.label }}</span></div></sc-for></div>
+  <p aria-live="polite">{{ gossipStatus }}</p>
+</div>
+<h3>Probabilidad: bloques, demoras y aislamiento</h3>
+<p>Con tasa de cómputo y dificultad constantes, la llegada de bloques PoW se aproxima por un proceso de Poisson: el número de bloques en t tiene media λt y la espera es exponencial. Con T = 600 s, la probabilidad de esperar más de 30 minutos es e<sup>−1800/600</sup> ≈ 4.98%. No es una cita puntual: es una distribución de tiempos.</p>
+<div class="academic-card"><span class="lbl">Demostración · dos riesgos distintos</span><h3>La demora y los vecinos importan</h3>
+<label for="p2p-delay">Demora de propagación τ: {{ p2pDelay }} segundos</label><input id="p2p-delay" type="range" min="0" max="120" step="1" value="{{ p2pDelay }}" onInput="{{ onP2pDelay }}">
+<p class="academic-formula">P(otro bloque durante τ) ≈ 1 − exp(−τ / 600) = {{ p2pFork }}</p>
+<label for="p2p-peers">Vecinos elegidos d: {{ p2pPeers }}</label><input id="p2p-peers" type="range" min="1" max="16" step="1" value="{{ p2pPeers }}" onInput="{{ onP2pPeers }}">
+<p class="academic-formula">P(todos adversarios | f = 0.2) ≈ 0.2<sup>{{ p2pPeers }}</sup> = {{ p2pEclipse }}</p>
+<p>La primera cifra aproxima una ventana de competencia, no una reorganización exitosa. La segunda supone elecciones independientes con reemplazo: un eclipse real depende también de cómo se descubren y diversifican los pares. Con τ = 2 s resulta 0.333%; con d = 8 resulta 0.000256%.</p></div>
+<div class="academic-grid"><article class="academic-card"><h4>Eclipse y Sybil</h4><p>Un eclipse aísla la visión de una víctima al controlar sus vecinos. Sybil crea muchas identidades bajo un mismo actor. Son problemas relacionados, pero distintos. Diversificar rutas y proveedores ayuda; PoW y PoS limitan el peso en el consenso, sin impedir por sí solos crear pares falsos.</p></article><article class="academic-card"><h4>Gossip y disponibilidad</h4><p>Push envía noticias; pull las solicita; push–pull combina ambos. Los contactos repetidos hacen más lenta la cobertura final. En un DAG, varias ramas pueden coexistir sin ciclos dirigidos; todavía se necesitan reglas de orden y acuerdo.</p></article></div>
+<h3>Distribuir más información con menos tráfico</h3>
+<div class="academic-table-wrap"><table><thead><tr><th scope="col">Método</th><th scope="col">Idea</th><th scope="col">Ejemplo didáctico</th></tr></thead><tbody><tr><td>Anuncio y solicitud</td><td>Anunciar un identificador y enviar el contenido a quien lo solicita.</td><td>Si un vecino ya tiene el bloque, evita recibir otra copia completa.</td></tr><tr><td>Bloque compacto</td><td>Reconstruir desde el mempool y pedir las transacciones que falten.</td><td>3 000 identificadores de 6 bytes ocupan 18 000 bytes, antes de cabecera y demás campos.</td></tr><tr><td>Árbol y códigos de borrado</td><td>Repartir fragmentos con redundancia y reenviarlos por niveles.</td><td>Un código ideal (64,32) permite reconstruir con cualquier conjunto de 32 fragmentos válidos.</td></tr><tr><td>Malla por temas · GossipSub</td><td>Enviar por una malla y anunciar a otros pares; evaluar su comportamiento.</td><td>Separar suscripciones de bloques y otros mensajes.</td></tr><tr><td>Tallo y flor · Dandelion++</td><td>Retransmitir primero por un camino y después difundir.</td><td>Dificulta inferir el origen; no garantiza anonimato.</td></tr><tr><td>Muestreo de disponibilidad</td><td>Solicitar fragmentos aleatorios de datos codificados.</td><td>Si falta la mitad y las muestras son independientes, no detectarlo en 20 intentos tiene probabilidad 2⁻²⁰.</td></tr></tbody></table></div>
+<details><summary>Profundización · filtros de Bloom y submuestreo</summary><p>Un filtro de Bloom usa m bits y h funciones hash para N elementos. Su falso positivo aproximado es (1 − e<sup>−hN/m</sup>)<sup>h</sup>. Con m = 1 000, N = 100 y h = 7 resulta 0.82%; un filtro estándar correctamente mantenido no tiene falsos negativos. Un positivo exige comprobar el dato.</p><p>En un sondeo ideal independiente de 20 pares, si el 60% favorece A, X sigue Bin(20, 0.6), con media 12 y P(X ≥ 15) ≈ 12.56%. Una sola muestra no establece finalidad: los protocolos de submuestreo requieren reglas de repetición y supuestos sobre adversarios.</p></details>
+<p class="academic-source">Fuente docente: <a href="uploads/agregar_docs/p2p_blockchain_matematicas.pdf" target="_blank" rel="noopener">[S16] Las matemáticas detrás de las redes P2P en blockchain</a>, secciones 1–4 y 6–12. Los valores de los ejemplos son supuestos didácticos.</p></div>
+  </section>
+
+  <section id="s15" class="academic" aria-labelledby="title-s15">
+    <div data-anim="up" class="academic-head"><span class="academic-number">15</span><div><div class="lbl" style="margin-bottom: 6px">Kademlia · cubetas y distancia XOR</div><h2 id="title-s15">Un directorio sin recepcionista</h2></div></div>
+    <div data-anim="up" class="story"><span class="story-k">La historia</span><p class="story-t">Alice quiere encontrar un registro sin preguntar a un servidor central. Cada participante conoce unos pocos contactos de distintas zonas y la orienta hacia identificadores cada vez más cercanos.</p></div>
+    <div class="academic-flow">
+<p><strong>Objetivo de aprendizaje.</strong> Calcular distancias XOR, construir cubetas y seguir una búsqueda sin un directorio central. Kademlia organiza contactos mediante identificadores; la cercanía numérica por XOR no mide kilómetros ni latencia.</p>
+<div class="academic-grid"><article class="academic-card"><h4>El espacio de identificadores</h4><p>Con b = 4 hay 2⁴ = 16 posiciones, desde 0000 hasta 1111. El apunte ocupa diez: 0000, 0011, 0100, 0101, 0110, 1000, 1010, 1011, 1101 y 1110. Una clave de datos puede apuntar a una posición sin nodo.</p></article><article class="academic-card"><h4>La distancia XOR</h4><p>d(x,y) = x ⊕ y, interpretado como entero. Por ejemplo, 0110 ⊕ 1011 = 1101 = 13. Cuantos más bits iniciales coinciden, menor es la distancia. La cubeta i agrupa contactos con 2ⁱ ≤ d &lt; 2ⁱ⁺¹; el propio nodo, a distancia cero, no entra en ninguna.</p></article></div>
+<h3>De los bits a una tabla de contactos</h3>
+<p>Desde 0110, la cubeta 3 cubre 1xxx, la 2 cubre 00xx, la 1 cubre 010x y la 0 correspondería a 0111, que está ausente. El ejemplo conserva <strong>k = 1</strong> contacto por cubeta y elige el menor identificador para poder repetir los cálculos.</p>
+<div class="academic-table-wrap"><table><thead><tr><th scope="col">Cubeta de 0110</th><th scope="col">Distancias</th><th scope="col">Candidatos</th><th scope="col">Contacto guardado</th></tr></thead><tbody><tr><td>3</td><td>8–15</td><td>1000, 1010, 1011, 1101, 1110</td><td>1000</td></tr><tr><td>2</td><td>4–7</td><td>0000, 0011</td><td>0000</td></tr><tr><td>1</td><td>2–3</td><td>0100, 0101</td><td>0100</td></tr><tr><td>0</td><td>1</td><td>Sin nodo 0111</td><td>Vacía</td></tr></tbody></table></div>
+<div class="academic-example"><span class="lbl">Ejemplo resuelto · 1010 busca a 0101</span><p><strong>1010 → 0000 → 0100 → 0101.</strong> Las distancias al objetivo son 15 → 5 → 1 → 0; se consultan las cubetas 3, 2 y 0. En cada paso aumenta el prefijo compartido. La distancia no tiene que reducirse exactamente a la mitad: lo que baja es el límite de la zona que contiene al objetivo.</p></div>
+<div class="academic-card" aria-labelledby="kad-title"><span class="lbl">Demostración · la red del apunte</span><h3 id="kad-title">Busque cualquier identificador de 4 bits</h3>
+<div class="academic-controls"><label for="kad-origin">Origen</label><select id="kad-origin" value="{{ kadOrigin }}" onChange="{{ onKadOrigin }}"><sc-for list="{{ kadOriginOptions }}" as="node"><option value="{{ node.value }}">{{ node.label }}</option></sc-for></select><label for="kad-target">Objetivo o clave</label><select id="kad-target" value="{{ kadTarget }}" onChange="{{ onKadTarget }}"><sc-for list="{{ kadTargetOptions }}" as="node"><option value="{{ node.value }}">{{ node.label }}</option></sc-for></select></div>
+<div class="academic-table-wrap"><div role="table" aria-label="Ruta Kademlia"><div role="row" class="kad-row" style="background: var(--color-surface)"><span role="columnheader">Paso</span><span role="columnheader">Nodo</span><span role="columnheader">XOR / distancia</span><span role="columnheader">Decisión</span></div><sc-for list="{{ kadSteps }}" as="step"><div role="row" class="kad-row"><span role="cell">{{ step.index }}</span><span role="cell" class="mono">{{ step.node }}</span><span role="cell" class="mono">{{ step.xor }} / {{ step.distance }}</span><span role="cell">{{ step.action }}</span></div></sc-for></div></div>
+<p aria-live="polite">{{ kadResult }}</p><p class="academic-source">Modelo estático con k = 1 y selección por menor identificador. Si la cubeta principal está vacía, se busca en las de los siguientes bits 1 del XOR. Solo se avanza a contactos más cercanos.</p></div>
+<div class="academic-example"><span class="lbl">Ejemplo resuelto · una clave sin nodo</span><p>0110 busca la clave 1111: <strong>0110 → 1000 → 1101 → 1110</strong>, con distancias 9 → 7 → 2 → 1. Como 1111 está vacío y no hay un contacto más cercano, el responsable es 1110. La réplica siguiente sería 1101, a distancia 2. La clave identifica qué se busca; el nodo responsable indica dónde localizar el registro.</p></div>
+<h3>Del juguete a una DHT operativa</h3>
+<div class="academic-grid"><article class="academic-card"><h4>Entrada y mantenimiento</h4><p>Un nodo nuevo conoce un contacto de arranque y realiza búsquedas para poblar sus cubetas. Cuando una cubeta llena recibe un candidato, se comprueba si su contacto menos recientemente visto responde; los contactos activos se conservan. La antigüedad no prueba honestidad.</p></article><article class="academic-card"><h4>Paralelismo y réplicas</h4><p>La búsqueda real mantiene una lista de candidatos y consulta varios pares en paralelo (parámetro α). Guarda registros en varios nodos cercanos y los republica para soportar entradas, salidas y fallas. O(log n) expresa el comportamiento esperado bajo supuestos de distribución y conectividad; no garantiza cada búsqueda real.</p></article></div>
+<p>Una DHT puede localizar proveedores de contenido sin almacenar el archivo completo en cada nodo. En redes basadas en Kademlia también se pueden descubrir pares. <strong>Bitcoin no usa Kademlia para su red P2P.</strong> Encontrar pares o registros no sustituye la validación de bloques ni el consenso.</p>
+<details><summary>Ejercicio con solución · otra ruta</summary><p>Calcule la ruta desde 0011 hasta 1110 con las mismas tablas. Resultado: 0011 → 1000 → 1101 → 1110; distancias 13 → 6 → 3 → 0 y cubetas 3, 2, 1. Compruébelo en el selector y explique por qué cambiar un contacto podría reducir los saltos.</p></details>
+<p class="academic-source">Fuentes docentes: <a href="uploads/agregar_docs/kademlia_4bits.pdf" target="_blank" rel="noopener">[S17] Kademlia con identificadores de 4 bits</a>, secciones 1–6, y [S16], sección 5. Fundamento: <a href="https://pdos.csail.mit.edu/~petar/papers/maymounkov-kademlia-lncs.pdf" target="_blank" rel="noopener">Maymounkov y Mazières (2002)</a>.</p></div>
+  </section>
+
+  <section id="s16" class="academic" aria-labelledby="title-s16">
+    <div data-anim="up" class="academic-head"><span class="academic-number">16</span><div><div class="lbl" style="margin-bottom: 6px">Seguridad de wallets · autorización y custodia</div><h2 id="title-s16">La firma correcta sobre el permiso equivocado</h2></div></div>
+    <div data-anim="up" class="story"><span class="story-k">La historia</span><p class="story-t">La red acepta la firma de Bob, pero Bob descubre que autorizó más de lo que pretendía. El problema ahora es proteger tanto la llave como la decisión que toma con ella: un cheque y un poder general no conceden lo mismo.</p></div>
+    <div class="academic-flow">
+<p><strong>Objetivo de aprendizaje.</strong> Distinguir posesión de claves, intención del usuario y alcance de una autorización. Una wallet administra claves y produce firmas; los saldos y las reglas de gasto se registran en la cadena.</p>
+<div class="academic-example"><span class="lbl">Caso didáctico · el poder que dura más que el pago</span><p>Bob quiere pagar 50 tokens a una tienda, pero la interfaz le pide aprobar un límite de 1 000. Firma una vez y la tienda cobra 50. Si el contrato autorizado es comprometido, todavía puede gastar hasta 950 tokens más, sujeto al saldo y a las reglas del token. No hace falta falsificar una firma: se explota el permiso que Bob ya concedió.</p></div>
+<h3>Cuatro maneras de perder el control</h3>
+<div class="academic-table-wrap"><table><thead><tr><th scope="col">Familia</th><th scope="col">Qué se compromete</th><th scope="col">Control que responde al problema</th></tr></thead><tbody><tr><td>Robo de clave o semilla</td><td>El atacante adquiere la capacidad de firmar.</td><td>Aislamiento de claves, respaldo protegido y recuperación planificada.</td></tr><tr><td>Firma engañosa o firmador comprometido</td><td>Se obtiene una firma auténtica sobre una operación no comprendida o no autorizada internamente.</td><td>Mostrar datos legibles, simular efectos y aplicar políticas independientes antes de firmar.</td></tr><tr><td>Permisos excesivos</td><td>approve, permit o una delegación permiten acciones posteriores.</td><td>Limitar alcance, revisar al beneficiario y revocar por el mecanismo correspondiente.</td></tr><tr><td>Falla criptográfica o de verificación</td><td>Un nonce secreto repetido filtra la clave, o un contrato acepta pruebas incorrectas.</td><td>Generación de nonces adecuada y revisión de las condiciones de verificación.</td></tr></tbody></table></div>
+<div class="academic-card" aria-labelledby="wallet-title"><span class="lbl">Demostración · autorización y gasto</span><h3 id="wallet-title">Una firma, varios retiros posibles</h3>
+<p>Saldo inicial: 1 000 tokens. Cada botón de aprobación fija el permiso de la tienda; cobrar 50 simula una llamada transferFrom. El modelo usa un token que descuenta el gasto del permiso.</p>
+<div class="academic-controls"><button class="btn btn-secondary" onClick="{{ onWalletExact }}">Aprobar 50</button><button class="btn btn-secondary" onClick="{{ onWalletBroad }}">Aprobar 1 000</button><button class="btn btn-secondary" disabled="{{ walletBlocked }}" onClick="{{ onWalletSpend }}">Tienda cobra 50</button><button class="btn btn-secondary" onClick="{{ onWalletRevoke }}">Revocar permiso</button><button class="btn btn-ghost" onClick="{{ onWalletReset }}">Reiniciar wallet</button></div>
+<p class="academic-formula">Saldo: {{ walletBalance }} · Permiso restante: {{ walletAllowance }} · Total cobrado: {{ walletSpent }}</p><p aria-live="polite">{{ walletNote }}</p>
+<p class="academic-source">Simulación local sin cuentas ni fondos reales. Un permiso permite gastar hasta el menor entre saldo y allowance. Revocarlo bloquea futuros cargos bajo ese permiso; no recupera transferencias anteriores.</p></div>
+<h3>Transferencia, permiso y delegación</h3>
+<div class="academic-grid"><article class="academic-card"><h4>approve y permit</h4><p>approve registra una asignación de gasto para un spender. ERC-2612 permite establecerla mediante una firma presentada por un tercero. Su deadline limita hasta cuándo puede presentarse permit; no añade por sí solo una caducidad al allowance ya establecido. Nonce y dominio limitan reutilizaciones, pero no corrigen un permiso excesivo.</p></article><article class="academic-card"><h4>Delegación · EIP-7702</h4><p>Una EOA puede autorizar que su ejecución use el código de otro contrato. La firma vincula chain_id, dirección del delegado y nonce; chain_id = 0 permite su uso entre cadenas compatibles. La delegación permanece hasta sustituirse o eliminarse mediante otra autorización válida; eliminarla no borra automáticamente permisos de tokens. El comportamiento depende del código delegado.</p></article></div>
+<p>Son tres poderes distintos: una transferencia mueve activos según sus datos; una aprobación concede una capacidad limitada por el token; una delegación modifica la ejecución de la cuenta. Revisar solo el monto mostrado deja fuera al destinatario, la red, el contrato, los datos y los permisos futuros. <a href="https://eips.ethereum.org/EIPS/eip-2612" target="_blank" rel="noopener">ERC-2612</a> y <a href="https://eips.ethereum.org/EIPS/eip-7702" target="_blank" rel="noopener">EIP-7702</a> especifican sus alcances.</p>
+<h3>Dos nonces con funciones diferentes</h3>
+<p>El <strong>nonce de cuenta</strong> es un contador público para ordenar operaciones y evitar repeticiones. El <strong>nonce k de ECDSA</strong> es un secreto por firma: con orden de grupo n, la ecuación es s = k⁻¹(z + rd) mod n. Reutilizar k con la misma clave en dos mensajes distintos puede revelar la clave privada d.</p>
+<details><summary>Matemática opcional · recuperar una clave en un ejemplo pequeño</summary><p>Restar las dos ecuaciones da k = (z₁ − z₂)(s₁ − s₂)⁻¹ mod n; después d = (s₁k − z₁)r⁻¹ mod n, si existen los inversos.</p><p>Ejemplo algebraico reducido: n = 19, r = 10, z₁ = 5, z₂ = 9, s₁ = 8 y s₂ = 17. Como (8 − 17)⁻¹ = 2 mod 19, k = (5 − 9)·2 = 11 mod 19. Con 10⁻¹ = 2, d = (8·11 − 5)·2 = 14 mod 19. Sustituir recupera ambas ecuaciones. Estos números ilustran el álgebra, no una implementación de curva segura.</p><p><a href="https://www.rfc-editor.org/rfc/rfc6979" target="_blank" rel="noopener">RFC 6979</a> deriva k de forma determinista a partir de la clave y el mensaje. Su correcta implementación sigue siendo necesaria; determinista no significa público.</p></details>
+<h3>Defensa en profundidad: proteger la decisión de firmar</h3>
+<div class="academic-table-wrap"><table><thead><tr><th scope="col">Capa</th><th scope="col">Qué aporta</th><th scope="col">Qué debe comprobarse</th></tr></thead><tbody><tr><td>Custodia caliente, tibia y fría</td><td>Separar liquidez operativa, reposición y ahorro.</td><td>Una clave fuera de línea también puede firmar instrucciones engañosas.</td></tr><tr><td>Multifirma o MPC</td><td>Distribuir la autoridad mediante un umbral t de n.</td><td>Firmantes y canales independientes; un engaño compartido puede alcanzar el umbral.</td></tr><tr><td>Firma clara</td><td>Decodificar red, destino, valor, datos y efectos.</td><td>Los datos estructurados ayudan, pero una presentación legible no vuelve seguro al contrato.</td></tr><tr><td>Políticas previas</td><td>Limitar montos, velocidad, destinos y tipos de autorización.</td><td>La política debe ejecutarse en un entorno que el atacante no controle.</td></tr><tr><td>Monitoreo y respuesta</td><td>Detectar cambios de permisos y movimientos anómalos.</td><td>Preparar revocaciones y rotación; las transferencias confirmadas no tienen reversión general.</td></tr></tbody></table></div>
+<div class="academic-example"><span class="lbl">Aplicación · volver al pago de Bob</span><p>Antes de firmar, Bob comprueba la red, el contrato y el alcance: para comprar algo de 50 tokens autoriza solo lo necesario. Si la solicitud cambia a una delegación de cuenta, debe revisar ese poder adicional y su implementación. La firma prueba una operación bajo una clave; la seguridad operativa exige que esa operación corresponda a lo que Bob quiso hacer.</p></div>
+<p class="academic-source">Fuente docente: <a href="uploads/agregar_docs/seguridad_wallets.pdf" target="_blank" rel="noopener">[S18] Seguridad de billeteras en blockchain</a>, secciones 2–5. El caso de Bob es ilustrativo. Precisiones: ERC-2612, EIP-7702 y RFC 6979, enlazadas en el texto.</p></div>
+  </section>
+
+  <section id="s17" class="academic" aria-labelledby="title-s17">
+    <div data-anim="up" class="academic-head"><span class="academic-number">17</span><div><div class="lbl" style="margin-bottom: 6px">Firmas Schnorr · del papel al grupo</div><h2 id="title-s17">Una firma que se puede comprobar a mano</h2></div></div>
+    <div data-anim="up" class="story"><span class="story-k">La historia</span><p class="story-t">Bob quiere entender qué significa firmar. Reduce los números hasta poder seguirlos con lápiz: primero potencias, después puntos de una curva y, por último, varios participantes que cooperan.</p></div>
+    <div class="academic-flow">
+<p><strong>Objetivo de aprendizaje.</strong> Reproducir una firma Schnorr, traducir de potencias a puntos y distinguir una multifirma de una firma de umbral. Los grupos pequeños permiten revisar cada operación a mano.</p>
+<h3>Compromiso, desafío y respuesta</h3>
+<p>El apunte utiliza una convención de signos concreta: clave secreta x, pública y = g<sup>−x</sup>, compromiso r = g<sup>k</sup>, desafío e = H(r ‖ M) y respuesta s = k + xe mod q. La firma es (s,e); el verificador reconstruye rᵥ = g<sup>s</sup>y<sup>e</sup> y comprueba que H(rᵥ ‖ M) = e. Esto funciona porque los exponentes xe y −xe se cancelan.</p>
+<div class="academic-example"><span class="lbl">Ejemplo resuelto · el del apunte</span><p>Con p = 23, q = 11, g = 2, x = 6 y k = 7: y = 9 y r = 13. Para M = 14, el hash decimal de juguete da e = 1314 mod 11 = 5 y s = 37 mod 11 = 4. Se reconstruye rᵥ = 2⁴·9⁵ mod 23 = 13. Si el mensaje recibido cambia a 15, el desafío recalculado es 6 y la firma se rechaza.</p></div>
+<div class="academic-card"><span class="lbl">Demostración · verificar sin la clave secreta</span><h3>Conserve la firma y cambie el mensaje</h3>
+<p>Firma fija del mensaje 14: (s,e) = (4,5), clave pública y = 9. Solo cambia el mensaje que recibe el verificador.</p>
+<label for="schnorr-message">Mensaje recibido: {{ schnorrMessage }}</label><input id="schnorr-message" type="range" min="10" max="25" value="{{ schnorrMessage }}" onInput="{{ onSchnorrMessage }}">
+<p class="academic-formula">rᵥ = 2⁴ · 9⁵ mod 23 = 13<br>eᵥ = {{ schnorrHashInput }} mod 11 = {{ schnorrChallenge }}</p><p aria-live="polite">{{ schnorrVerdict }}</p><p class="academic-source">El hash decimal se reproduce por fidelidad al ejemplo. Es inseguro: distintos mensajes pueden tener el mismo desafío. La demo muestra también esas colisiones; no usa BIP-340.</p></div>
+<h3>La misma idea sobre una curva</h3>
+<p>En la curva y² = x³ + 2x + 2 sobre F₁₇ hay 19 puntos contando el infinito. Con G = (5,1), el doblado usa λ = (3·5² + 2)/(2·1) mod 17 = 13; por tanto 2G = (6,3). Las coordenadas se calculan módulo <strong>17</strong>; los escalares, módulo <strong>19</strong>.</p>
+<div class="academic-example"><span class="lbl">Ejemplo resuelto · firma con puntos</span><p>El apunte toma x = 7, Y = −7G = (0,11), k = 10 y R = (7,11). Para M = 14: e = 71114 mod 19 = 16 y s = (10 + 7·16) mod 19 = 8. El verificador calcula Rᵥ = 8G + 16Y = (7,11) y obtiene de nuevo e = 16. Con la convención pública positiva Q = xG, la misma igualdad se escribe sG = R + eQ.</p></div>
+<p>La tabla de firmas también incluye esquemas basados en hash (XMSS, SPHINCS+) y en retículas (Dilithium, Falcon). Cambiar de familia cambia supuestos, tamaños y gestión del estado; no convierte una firma individual en una firma de umbral ni permite verificarla con otra curva.</p>
+<h3>Firmar entre varios</h3>
+<div class="academic-table-wrap"><table><thead><tr><th scope="col">Construcción</th><th scope="col">Quién coopera</th><th scope="col">Qué debe distinguirse</th></tr></thead><tbody><tr><td>Multifirma agregada · MuSig2</td><td>Todos los participantes del conjunto n de n.</td><td>Produce una firma compacta; perder un participante puede impedir firmar.</td></tr><tr><td>Firma de umbral · FROST</td><td>Un subconjunto autorizado t de n.</td><td>Se combinan respuestas parciales sin reconstruir la clave en una sola máquina.</td></tr><tr><td>Taproot</td><td>La política usa una ruta de clave o una rama de script.</td><td>Una firma Schnorr no significa que todas las políticas sean umbrales.</td></tr><tr><td>Firma adaptadora</td><td>Una prefirma se completa usando un secreto.</td><td>La firma completada puede permitir extraer ese secreto respecto de la prefirma.</td></tr></tbody></table></div>
+<p>La linealidad explica por qué se combinan respuestas, pero sumar claves sin protección permite ataques de <em>rogue key</em>. Los protocolos de agregación vinculan las claves al conjunto mediante coeficientes y gestionan los nonces por sesión. <a href="https://github.com/bitcoin/bips/blob/master/bip-0327.mediawiki" target="_blank" rel="noopener">BIP-327</a> describe MuSig2; <a href="https://www.rfc-editor.org/rfc/rfc9591" target="_blank" rel="noopener">RFC 9591</a> especifica FROST.</p>
+<details><summary>Ejercicio resuelto · dos firmas revelan la clave</summary><p>El apunte firma M₁ = 14 y M₂ = 16 reutilizando k = 7. Se publican (s₁,e₁) = (4,5) y (s₂,e₂) = (5,7). Entonces x = (s₁ − s₂)(e₁ − e₂)⁻¹ mod 11 = (−1)·(−2)⁻¹ = 6. El nonce no es un contador reutilizable: repetirlo destruye la seguridad.</p></details>
+<p class="academic-source">Fuente: <a href="uploads/brightspace/schnorr_juguete.pdf" target="_blank" rel="noopener">[S19] Schnorr con números pequeños</a>. Los parámetros se reproducen del apunte; las precisiones de agregación y umbral se apoyan en BIP-327 y RFC 9591.</p></div>
+  </section>
+
+  <section id="s18" class="academic" aria-labelledby="title-s18">
+    <div data-anim="up" class="academic-head"><span class="academic-number">18</span><div><div class="lbl" style="margin-bottom: 6px">Shamir y QR · custodia de secretos</div><h2 id="title-s18">Una llave repartida en varias manos</h2></div></div>
+    <div data-anim="up" class="story"><span class="story-k">La historia</span><p class="story-t">Alice no quiere perder sus ahorros porque se pierda una sola copia de la clave. Reparte la recuperación entre cinco custodios: cualesquiera tres podrán ayudarla y dos no tendrán suficiente información.</p></div>
+    <div class="academic-flow">
+<p><strong>Objetivo de aprendizaje.</strong> Crear partes de un secreto, reconstruirlo por interpolación y diferenciar custodia, firma distribuida y soporte de almacenamiento. Una parte de Shamir es información sensible, aunque por sí sola no revele el secreto.</p>
+<h3>Una parábola repartida entre cinco personas</h3>
+<p>Para un umbral t de n se elige un campo finito y un polinomio f(X) = S + a₁X + … + a<sub>t−1</sub>X<sup>t−1</sup>, con coeficientes aleatorios uniformes independientes. Cada persona recibe (xᵢ,f(xᵢ)), con xᵢ distintos y no nulos. El secreto queda en f(0). Con t partes se interpola; con menos, cada candidato a secreto sigue siendo compatible bajo esos supuestos.</p>
+<div class="academic-example"><span class="lbl">Ejemplo resuelto · 3 de 5 en F₃₁</span><p>El apunte fija S = 13 y f(X) = 13 + 7X + 4X² mod 31. Las cinco partes son (1,24), (2,12), (3,8), (4,12) y (5,24). Con las tres primeras, los coeficientes de Lagrange en cero son 3, −3 y 1: 24·3 − 12·3 + 8 = 44 ≡ 13 mod 31. Los valores repetidos de y no convierten las partes en duplicados: sus abscisas son diferentes.</p></div>
+<div class="academic-card"><span class="lbl">Demostración · elegir custodios</span><h3>Reconstruya con cualquier grupo de tres</h3><p>Seleccione partes del polinomio del ejemplo. Sus coeficientes se muestran con fines didácticos; en un reparto real se mantienen secretos y se generan de nuevo al repartir.</p>
+<div class="academic-controls"><sc-for list="{{ shamirParts }}" as="part"><button class="chip" aria-pressed="{{ part.on }}" onClick="{{ part.toggle }}">{{ part.label }}</button></sc-for><button class="btn btn-ghost" onClick="{{ onShamirReset }}">Quitar partes</button></div>
+<p class="academic-formula">S = Σ yᵢ λᵢ mod 31, con λᵢ = Π xⱼ / (xⱼ − xᵢ)</p><p aria-live="polite">{{ shamirResult }}</p><p class="academic-formula">{{ shamirCalculation }}</p></div>
+<h3>Seguridad del reparto y de la recuperación</h3>
+<p>Shamir básico no autentica partes: una parte alterada puede producir otro resultado. Hay que comprobar umbral, índices distintos, campo, versión y pertenencia al mismo reparto. En una custodia verificable, <strong>Feldman</strong> publica compromisos Aⱼ = g<sup>aⱼ</sup> y comprueba g<sup>yᵢ</sup> = Π Aⱼ<sup>xᵢʲ</sup>; introduce supuestos de logaritmo discreto y no conserva el ocultamiento perfecto de los coeficientes publicados.</p>
+<p>Reconstruir una clave para usarla concentra otra vez el secreto en una máquina. Una firma de umbral, en cambio, usa partes y coeficientes de Lagrange para producir una firma sin recomponer allí la clave completa. Repartir una clave privada no equivale a autorizar múltiples firmas independientes.</p>
+<h3>Cuando una parte viaja en un QR</h3>
+<div class="academic-table-wrap"><table><thead><tr><th scope="col">Diseño</th><th scope="col">Qué se reparte</th><th scope="col">Qué aporta el QR</th></tr></thead><tbody><tr><td>QR como contenedor</td><td>Partes de Shamir codificadas como texto o bytes.</td><td>Lectura y tolerancia a daños; el secreto lo protege el esquema de umbral.</td></tr><tr><td>QR como secreto</td><td>La matriz de una imagen mediante criptografía visual.</td><td>La imagen aparece al combinar sombras; XOR digital y superposición física son operaciones distintas.</td></tr><tr><td>Modo híbrido</td><td>Una clave aleatoria que cifra un archivo con cifrado autenticado.</td><td>Cada QR guarda una parte pequeña de la clave; el archivo cifrado se conserva aparte.</td></tr></tbody></table></div>
+<p>En F₂⁸, sumar significa XOR y multiplicar se hace como polinomios reducidos, <strong>no módulo 256</strong>. El apunte usa el polinomio 0x11B. Para S = 0x53 y f(X) = 0x53 ⊕ 0xCA·X, las partes en X = 1,2,3 son 0x99, 0xDC y 0x16. Con las dos primeras y coeficientes 0xF7 y 0xF6: 0x99·0xF7 ⊕ 0xDC·0xF6 = 0x53.</p>
+<div class="academic-example"><span class="lbl">Ejemplo aplicado · respaldo recuperable</span><p>Un paquete QR debe identificar versión del formato, reparto, umbral, índice, campo y contenido de la parte, además de un control de errores. Base32 en mayúsculas se adapta al modo alfanumérico. La corrección Reed–Solomon del QR recupera daños de lectura; no demuestra quién emitió la parte ni protege una foto del QR. Antes de mezclar partes se validan los metadatos y, al recuperar, la autenticidad del archivo cifrado.</p></div>
+<details><summary>Criptografía visual y herramientas del apunte</summary><p>En un esquema XOR n de n, se eligen n − 1 matrices aleatorias y la última es su XOR con la imagen original. Recuperar exige todas. En Naor–Shamir 2 de 2, cada píxel se expande en subpíxeles; superponer láminas revela contraste con expansión de tamaño, no el XOR exacto de los píxeles.</p><p>Los apuntes presentan PyCryptodome, shamirs, sslib y shamir-mnemonic para compartir secretos, y segno/qrcode, zxing-cpp y OpenCV para codificar o leer QR. Sus formatos, campos y límites no son intercambiables; una interfaz de Python no constituye por sí sola una firma de umbral.</p></details>
+<p class="academic-source">Fuentes: <a href="uploads/brightspace/esquema_shamir.pdf" target="_blank" rel="noopener">[S20] El esquema de Shamir</a> y <a href="uploads/brightspace/qr_shamir.pdf" target="_blank" rel="noopener">[S21] Compartición de secretos con códigos QR</a>.</p></div>
+  </section>
+
+  <section id="s19" class="academic" aria-labelledby="title-s19">
+    <div data-anim="up" class="academic-head"><span class="academic-number">19</span><div><div class="lbl" style="margin-bottom: 6px">Conocimiento cero · de la relación a la prueba</div><h2 id="title-s19">Probar sin entregar el secreto</h2></div></div>
+    <div data-anim="up" class="story"><span class="story-k">La historia</span><p class="story-t">Bob quiere convencer a Alice de que conoce una clave o satisface una condición, sin entregarle los datos privados que lo demuestran. Debe definir exactamente qué afirma y qué información seguirá siendo pública.</p></div>
+    <div class="academic-flow">
+<p><strong>Objetivo de aprendizaje.</strong> Especificar una relación pública, identificar el testigo privado y seguir la construcción de una prueba. Probar que existe un testigo no significa revelar ese testigo ni que los datos externos sean verdaderos.</p>
+<h3>Tres propiedades que se exigen por separado</h3>
+<div class="academic-table-wrap"><table><thead><tr><th scope="col">Propiedad</th><th scope="col">Qué significa</th><th scope="col">Pregunta de revisión</th></tr></thead><tbody><tr><td>Completitud</td><td>Un probador honesto con un testigo válido convence al verificador.</td><td>¿Las entradas válidas se aceptan?</td></tr><tr><td>Solidez y conocimiento</td><td>Una afirmación falsa no debe aceptarse salvo con error pequeño; una prueba de conocimiento exige además un argumento de extracción.</td><td>¿Qué evita fabricar una prueba sin satisfacer la relación?</td></tr><tr><td>Conocimiento cero</td><td>La vista del verificador puede simularse sin el testigo, bajo el modelo correspondiente.</td><td>¿Se aprende algo más que la afirmación pública?</td></tr></tbody></table></div>
+<h3>Schnorr interactivo: compromiso, reto, respuesta</h3>
+<p>Para probar conocimiento de x tal que Y = g<sup>x</sup>, el probador publica T = g<sup>r</sup>, recibe c y responde z = r + cx mod q. El verificador comprueba g<sup>z</sup> = T·Y<sup>c</sup>. Aquí la clave pública es positiva, a diferencia de la convención del ejemplo del capítulo 17.</p>
+<div class="academic-card"><span class="lbl">Demostración · transcripción de Schnorr</span><h3>Compruebe la ecuación pública</h3><p>Grupo de juguete p = 23, q = 11, g = 2. Testigo didáctico x = 6, pública Y = 18, nonce fijo r = 7 y compromiso T = 13. Cada posición del control representa una sesión alternativa; reutilizar r entre sesiones reales revelaría x.</p>
+<label for="zk-challenge">Reto c: {{ zkChallenge }}</label><input id="zk-challenge" type="range" min="1" max="10" value="{{ zkChallenge }}" onInput="{{ onZkChallenge }}">
+<button class="chip" aria-pressed="{{ zkTamperOn }}" onClick="{{ onZkTamper }}">{{ zkTamperLabel }}</button>
+<p class="academic-formula">Respuesta z = {{ zkResponse }}<br>gᶻ mod 23 = {{ zkLeft }}<br>T · Yᶜ mod 23 = {{ zkRight }}</p><p aria-live="polite">{{ zkVerdict }}</p><p class="academic-source">El secreto se muestra para explicar las cuentas. Este simulador no ofrece privacidad ni implementa un SNARK.</p></div>
+<p>La simulación para un verificador honesto elige c y z y calcula T = g<sup>z</sup>Y<sup>−c</sup>; la ecuación verifica sin conocer x. Eso ilustra conocimiento cero frente a un verificador honesto, no prueba por sí solo seguridad ante cualquier verificador. Dos respuestas al mismo T con retos distintos permiten extraer x = (z₁ − z₂)/(c₁ − c₂) mod q.</p>
+<p><strong>Fiat–Shamir</strong> sustituye el reto del verificador por un hash de la etiqueta de dominio, los parámetros, la afirmación y el compromiso, junto con el contexto o mensaje cuando corresponda. Su justificación requiere un modelo y condiciones de seguridad; no basta hashear una pieza aislada.</p>
+<h3>GMW: comprobar una 3-coloración sin verla completa</h3>
+<p>El probador permuta los tres colores, compromete cada vértice y el verificador elige una arista al azar. Solo se abren sus extremos: deben coincidir con los compromisos y tener colores diferentes. Se repite con nuevos compromisos y nueva permutación. Si una asignación fija tiene al menos una arista incorrecta entre m, engañar en r rondas independientes tiene probabilidad como máximo (1 − 1/m)<sup>r</sup>. Para m = 3 y r = 10 resulta (2/3)¹⁰ ≈ 1.73%.</p>
+<h3>De una relación a un SNARK</h3>
+<div class="academic-table-wrap"><table><thead><tr><th scope="col">Etapa</th><th scope="col">Producto concreto</th><th scope="col">Error que hay que evitar</th></tr></thead><tbody><tr><td>1 · Especificar</td><td>x público, w privado y R(x,w).</td><td>Ocultar un valor que la propia salida pública permite deducir.</td></tr><tr><td>2 · Aritmetizar</td><td>Restricciones R1CS, PLONKish o AIR.</td><td>Calcular un valor sin restringirlo.</td></tr><tr><td>3 · Elegir sistema</td><td>Costo de prueba, verificación y supuestos.</td><td>Suponer que todos los sistemas tienen el mismo setup.</td></tr><tr><td>4 · Setup</td><td>Parámetros y claves según el esquema.</td><td>Reutilizar parámetros incompatibles con el circuito.</td></tr><tr><td>5–6 · Testigo y prueba</td><td>Señales intermedias y π = Prove(pk,x,w).</td><td>Filtrar el testigo mediante registros o entradas públicas.</td></tr><tr><td>7–8 · Verificar e integrar</td><td>Verify(vk,x,π), contexto y serialización.</td><td>Aceptar una prueba válida para otra aplicación o permitir repeticiones.</td></tr></tbody></table></div>
+<div class="academic-example"><span class="lbl">Ejemplo resuelto · circuito de una multiplicación</span><p>Relación: conozco a y b tales que a·b = c, con c público. Sobre F₁₀₁, a = 3, b = 4 y c = 12 satisfacen la restricción. También 3·38 = 114 ≡ 13: la aritmética modular exige restricciones adicionales para representar enteros, rangos o edades. Si solo se calculase c en el programa, sin imponer la igualdad en el circuito, el verificador no estaría comprobando esa operación.</p></div>
+<p>Groth16 usa un setup específico del circuito; PLONK con compromisos KZG puede usar un setup universal actualizable; STARKs y Bulletproofs son ejemplos de enfoques transparentes. Transparente no significa gratis: cambian tamaños, tiempos y supuestos. Un sistema sucinto no es automáticamente de conocimiento cero sin la construcción adecuada.</p>
+<p>Como guía de implementación, el apunte separa prototipos Python de herramientas para circuitos y probadores, como Circom/snarkjs, arkworks y Halo2. Las aplicaciones incluyen pruebas de rango de montos comprometidos, credenciales con divulgación limitada y verificación de cómputo. Si se prueba una edad sobre una credencial, todavía se debe confiar en su emisor y vincular la prueba al contexto de uso.</p>
+<p class="academic-source">Fuente: <a href="uploads/brightspace/pipeline_conocimiento_cero.pdf" target="_blank" rel="noopener">[S22] Pipeline de implementación de un esquema de conocimiento cero</a>.</p></div>
+  </section>
+
+  <section id="s20" class="academic" aria-labelledby="title-s20">
+    <div data-anim="up" class="academic-head"><span class="academic-number">20</span><div><div class="lbl" style="margin-bottom: 6px">Firmas de anillo · pertenencia y enlazabilidad</div><h2 id="title-s20">Alguien del grupo firmó</h2></div></div>
+    <div data-anim="up" class="story"><span class="story-k">La historia</span><p class="story-t">Alice, Bob y Carla forman un conjunto de claves públicas. Uno de ellos firma una declaración: el lector puede comprobar que pertenece al conjunto sin que la firma anuncie cuál de los tres fue.</p></div>
+    <div class="academic-flow">
+<p><strong>Objetivo de aprendizaje.</strong> Seguir el cierre de una firma de anillo y distinguir anonimato de enlazabilidad. Un anillo es una lista de claves públicas: basta la clave privada de uno de sus miembros para firmar.</p>
+<h3>Que firme alguien del grupo, sin decir quién</h3>
+<p>En AOS, la firma contiene un desafío inicial c₀ y respuestas rᵢ. El verificador recorre el anillo y calcula Rᵢ = rᵢG + cᵢYᵢ, seguido de cᵢ₊₁ = H(dominio, L, M, Rᵢ). Acepta si al terminar vuelve al desafío inicial. El firmante simula los otros eslabones y cierra el suyo con rₛ = a − cₛxₛ.</p>
+<div class="academic-card"><span class="lbl">Demostración · cierre AOS con números pequeños</span><h3>Tres claves, una sola firma</h3><p>Versión multiplicativa en p = 23, q = 11, g = 2: Rᵢ = gʳⁱYᵢᶜⁱ. Las claves públicas son 4, 9 y 13. Se firma M = 14; el verificador recibe c₀, las tres respuestas, el mensaje y el anillo.</p>
+<div class="academic-controls"><label for="ring-signer">Miembro que firma</label><select id="ring-signer" value="{{ ringSigner }}" onChange="{{ onRingSigner }}"><option value="0">Alice</option><option value="1">Bob</option><option value="2">Carla</option></select><button class="chip" aria-pressed="{{ ringTamperOn }}" onClick="{{ onRingTamper }}">{{ ringTamperLabel }}</button></div>
+<p class="academic-formula">{{ ringSignature }}</p><div style="display: grid; gap: 8px"><sc-for list="{{ ringSteps }}" as="row"><div style="padding: 12px; border: 1px solid var(--color-divider); overflow-wrap: anywhere" class="mono">{{ row.text }}</div></sc-for></div><p aria-live="polite">{{ ringVerdict }}</p><p class="academic-source">Modelo didáctico: SHA-256 sobre una codificación JSON del dominio, anillo, mensaje y compromiso, reducido módulo 11. Los secretos y los nonces son pequeños y fijos para reproducir las cuentas. No proporciona anonimato real ni seguridad; el grupo permite probar todas las claves.</p></div>
+<h3>AOS, LSAG y una imagen de clave</h3>
+<p>Una firma AOS prueba pertenencia sin identificar al miembro, pero no permite detectar por sí sola que ese miembro firmó antes. LSAG añade I = xₛHₚ(Yₛ), una <strong>imagen de clave</strong>, y demuestra con eslabones enlazados que se usó el mismo secreto en ambas relaciones. Tras verificar dos firmas, una imagen repetida permite enlazarlas sin revelar directamente qué clave del anillo firmó.</p>
+<div class="academic-example"><span class="lbl">Ejemplo aplicado · repetir un gasto</span><p>Una salida tiene una clave de gasto. Dos intentos bajo la misma clave producen la misma imagen en el esquema enlazable. Un registro de imágenes usadas permite rechazar el segundo intento según las reglas del sistema. Una coincidencia no reemplaza verificar la firma, la validez del gasto y el estado. Para una votación por convocatoria haría falta un diseño que limite el enlace al contexto deseado.</p></div>
+<div class="academic-table-wrap"><table><thead><tr><th scope="col">Familia</th><th scope="col">Quién firma</th><th scope="col">Qué se revela</th></tr></thead><tbody><tr><td>Firma de anillo</td><td>Un miembro elige el conjunto de claves públicas.</td><td>Pertenencia al anillo; no necesita un administrador que abra la identidad.</td></tr><tr><td>Firma de grupo</td><td>Un miembro de un grupo gestionado.</td><td>Anonimato con mecanismos de apertura según el esquema.</td></tr><tr><td>Multifirma</td><td>Cooperan varios firmantes.</td><td>Autorización colectiva; no es una firma anónima de uno solo.</td></tr><tr><td>Firma ciega</td><td>Un emisor firma un mensaje cegado.</td><td>Separa emisión y uso de un objeto; no es ocultamiento entre claves de un anillo.</td></tr></tbody></table></div>
+<h3>Del algoritmo a la implementación</h3>
+<p>El apunte organiza diez etapas: requisitos, grupo, hashes, claves, firma, verificación, enlace opcional, serialización, pruebas y despliegue. Las claves e imágenes deben estar en el subgrupo correcto y tener codificación canónica; los escalares se comprueban en rango. Hash a escalar y hash a punto son funciones diferentes. El dominio, la lista completa de claves y el mensaje se vinculan a la prueba.</p>
+<p>En el formato del apunte, con escalares y puntos de 32 bytes, AOS ocupa 32(n + 1) bytes y LSAG 32(n + 2), sin contar el anillo. Para n = 16, LSAG ocupa 576 bytes. Más señuelos no garantizan una probabilidad real uniforme de 1/n: la selección de claves y los metadatos pueden sesgar la inferencia. CLSAG es otra construcción relacionada; sus tamaños no se deducen sustituyendo nombres en esta fórmula.</p>
+<p class="academic-source">Fuente: <a href="uploads/brightspace/firmas_anillo_pipeline.pdf" target="_blank" rel="noopener">[S23] Firmas de anillo: pipeline de implementación</a>.</p></div>
+  </section>
+
+  <section id="s21" style="margin-top: 100px; background: var(--color-surface); padding: 74px 0 80px">
     <div style="max-width: 1180px; margin: 0 auto; padding: 0 40px">
       <div data-anim="up" style="display: flex; align-items: center; gap: 18px; margin-bottom: 30px">
-        <span style="width: 62px; height: 62px; background: var(--color-accent); color: var(--color-bg); display: grid; place-items: center; font-family: var(--font-heading); font-size: 32px; line-height: 1; flex: none">14</span>
+        <span style="width: 62px; height: 62px; background: var(--color-accent); color: var(--color-bg); display: grid; place-items: center; font-family: var(--font-heading); font-size: 32px; line-height: 1; flex: none">21</span>
         <div style="display: grid; gap: 2px">
           <div class="mono" style="font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-accent-700)">Autoevaluación</div>
           <h2 style="margin: 0; font-size: 52px; line-height: 1; letter-spacing: -0.01em">Ponga a prueba la historia</h2>
@@ -2593,7 +2807,7 @@
 
       <div data-anim="up" style="margin-top: 64px; display: grid; gap: 12px; max-width: 820px">
         <div class="mono" style="font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-accent-700)">Ronda 3 · ejercicios</div>
-        <h3 style="margin: 0; font-size: 38px; line-height: 1.04">Doce ejercicios con lápiz y papel</h3>
+        <h3 style="margin: 0; font-size: 38px; line-height: 1.04">Diecinueve ejercicios con lápiz y papel</h3>
         <p style="margin: 0; font-size: 17px; line-height: 1.55; color: var(--color-neutral-700)">Resuélvalos antes de abrir la respuesta. Varios se pueden comprobar con las demostraciones de arriba.</p>
       </div>
       <div style="display: grid; gap: 1px; background: var(--color-neutral-300); border: 1px solid var(--color-neutral-300); margin-top: 20px">
@@ -2629,17 +2843,18 @@
     </div>
   </section>
 
-  <section id="s15" style="max-width: 1180px; margin: 0 auto; padding: 92px 40px 0">
+  <section id="s22" style="max-width: 1180px; margin: 0 auto; padding: 92px 40px 0">
     <div data-anim="up" style="display: flex; align-items: center; gap: 18px; margin-bottom: 34px">
-      <span style="width: 62px; height: 62px; background: var(--color-accent); color: var(--color-bg); display: grid; place-items: center; font-family: var(--font-heading); font-size: 32px; line-height: 1; flex: none">15</span>
+      <span style="width: 62px; height: 62px; background: var(--color-accent); color: var(--color-bg); display: grid; place-items: center; font-family: var(--font-heading); font-size: 32px; line-height: 1; flex: none">22</span>
       <div style="display: grid; gap: 2px">
         <div class="mono" style="font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-accent-700)">Fuentes</div>
         <h2 style="margin: 0; font-size: 52px; line-height: 1; letter-spacing: -0.01em">De dónde viene todo esto</h2>
       </div>
     </div>
 
-    <p data-anim="up" style="margin: 0 0 30px; font-size: 18px; line-height: 1.6; color: var(--color-neutral-700); max-width: 80ch; text-wrap: pretty">Quince apuntes de clase (140 páginas), cinco páginas del profesor y documentación primaria para las precisiones. Donde los apuntes simplificaban, aquí se conserva la versión corregida: «resistente a colisiones» no es «sin colisiones», una reorganización puede sacar un pago de la cadena, la dificultad de Bitcoin está normalizada, subsidio y comisiones son cosas distintas, y las reglas del simulador son didácticas.</p>
+    <p data-anim="up" style="margin: 0 0 30px; font-size: 18px; line-height: 1.6; color: var(--color-neutral-700); max-width: 80ch; text-wrap: pretty">Las 22 notas de la unidad de Brightspace, la guía del simulador, cinco páginas del profesor y documentación primaria para las precisiones. Donde los apuntes simplificaban, aquí se conserva la versión corregida: «resistente a colisiones» no es «sin colisiones», una reorganización puede sacar un pago de la cadena, la dificultad de Bitcoin está normalizada, subsidio y comisiones son cosas distintas, y las reglas del simulador son didácticas.</p>
 
+<details style="margin: 28px 0; padding: 20px; border: 1px solid var(--color-divider)"><summary style="cursor: pointer; color: var(--color-accent-800)">Cobertura de las 22 notas de Brightspace</summary><div class="academic" style="padding: 20px 0 0"><p>Correspondencia temática revisada en la unidad Notas. Los enlaces al curso requieren sesión de Brightspace; los cinco materiales incorporados en esta revisión también están disponibles como PDF locales. El HTML sintetiza los conceptos y ejemplos; el desarrollo completo y el código de los apuntes se conservan en las fuentes.</p><div class="academic-table-wrap"><table><thead><tr><th scope="col">Nota en Brightspace</th><th scope="col">Sección del portafolio</th><th scope="col">Contenido integrado</th></tr></thead><tbody><tr><td><a href="https://anahuac.brightspace.com/d2l/le/lessons/2409697/topics/21243415" target="_blank" rel="noopener">hash_aplicaciones</a></td><td><a href="#s02">Cap. 01–02</a></td><td>Propiedades y usos del hash</td></tr><tr><td><a href="https://anahuac.brightspace.com/d2l/le/lessons/2409697/topics/21243418" target="_blank" rel="noopener">compromisos</a></td><td><a href="#s07">Cap. 07–08</a></td><td>Definiciones, familias y seguridad</td></tr><tr><td><a href="https://anahuac.brightspace.com/d2l/le/lessons/2409697/topics/21243467" target="_blank" rel="noopener">aplicaciones_compromiso</a></td><td><a href="#s13">Cap. 07–08, 13</a></td><td>Aplicaciones y límites</td></tr><tr><td><a href="https://anahuac.brightspace.com/d2l/le/lessons/2409697/topics/21321767" target="_blank" rel="noopener">blockchain-aplicaciones</a></td><td><a href="#s13">Cap. 13</a></td><td>Sectores y viabilidad</td></tr><tr><td><a href="https://anahuac.brightspace.com/d2l/le/lessons/2409697/topics/21333249" target="_blank" rel="noopener">time_stamping</a></td><td><a href="#s05">Cap. 05</a></td><td>TSA, anclaje y Merkle</td></tr><tr><td><a href="https://anahuac.brightspace.com/d2l/le/lessons/2409697/topics/21333261" target="_blank" rel="noopener">blockchain_artesanal</a></td><td><a href="#s06">Cap. 06</a></td><td>Construcción y validación</td></tr><tr><td><a href="https://anahuac.brightspace.com/d2l/le/lessons/2409697/topics/21365247" target="_blank" rel="noopener">cur_19_00120Apuntes20de20Digital%20BlockChain</a></td><td><a href="#s04">Cap. 04, 17, 19–20</a></td><td>Firmas y pruebas</td></tr><tr><td><a href="https://anahuac.brightspace.com/d2l/le/lessons/2409697/topics/21365248" target="_blank" rel="noopener">cur_19_00120Apuntes20Digital%20Tabla</a></td><td><a href="#s04">Cap. 03–04, 17, 20</a></td><td>Familias de firmas</td></tr><tr><td><a href="https://anahuac.brightspace.com/d2l/le/lessons/2409697/topics/21365250" target="_blank" rel="noopener">cur_19_00120Apuntes20Digital20Curves%20BlockChain</a></td><td><a href="#s04">Cap. 04, 17</a></td><td>Curvas y grupos</td></tr><tr><td><a href="https://anahuac.brightspace.com/d2l/le/lessons/2409697/topics/21365252" target="_blank" rel="noopener">8_cur_19_001_BlockChain_Algoritmos</a></td><td><a href="#algorithm-map-title">Cap. 06, 12, 14–15, 19</a></td><td>Mapa de estructuras, protocolos y escala</td></tr><tr><td><a href="https://anahuac.brightspace.com/d2l/le/lessons/2409697/topics/21365569" target="_blank" rel="noopener">7_cur_19_00120Apuntes20-%20Copy</a></td><td><a href="#s09">Cap. 09, 13</a></td><td>Panorama de blockchain</td></tr><tr><td><a href="https://anahuac.brightspace.com/d2l/le/lessons/2409697/topics/21392487" target="_blank" rel="noopener">bitcoin_target_halving</a></td><td><a href="#s10">Cap. 10</a></td><td>Target, ajuste y subsidio</td></tr><tr><td><a href="https://anahuac.brightspace.com/d2l/le/lessons/2409697/topics/21421625" target="_blank" rel="noopener">apuntes_mineria_pow</a></td><td><a href="#s11">Cap. 09–11</a></td><td>Distribuciones y confirmaciones</td></tr><tr><td><a href="https://anahuac.brightspace.com/d2l/le/lessons/2409697/topics/21427575" target="_blank" rel="noopener">consenso_blockchain</a></td><td><a href="#s12">Cap. 12</a></td><td>PoW, PoS y comparación</td></tr><tr><td><a href="https://anahuac.brightspace.com/d2l/le/lessons/2409697/topics/21463129" target="_blank" rel="noopener">schnorr_juguete</a></td><td><a href="#s17">Cap. 17</a></td><td>Potencias, curvas, agregación y umbrales</td></tr><tr><td><a href="https://anahuac.brightspace.com/d2l/le/lessons/2409697/topics/21498355" target="_blank" rel="noopener">esquema_shamir</a></td><td><a href="#s18">Cap. 18</a></td><td>Reparto, Lagrange y verificación</td></tr><tr><td><a href="https://anahuac.brightspace.com/d2l/le/lessons/2409697/topics/21498362" target="_blank" rel="noopener">qr_shamir</a></td><td><a href="#s18">Cap. 18</a></td><td>F₂⁸, QR, modo híbrido y criptografía visual</td></tr><tr><td><a href="https://anahuac.brightspace.com/d2l/le/lessons/2409697/topics/21516717" target="_blank" rel="noopener">pipeline_conocimiento_cero</a></td><td><a href="#s19">Cap. 19</a></td><td>Σ, Fiat–Shamir, GMW y SNARK</td></tr><tr><td><a href="https://anahuac.brightspace.com/d2l/le/lessons/2409697/topics/21516716" target="_blank" rel="noopener">firmas_anillo_pipeline</a></td><td><a href="#s20">Cap. 20</a></td><td>AOS, LSAG, enlace e implementación</td></tr><tr><td><a href="https://anahuac.brightspace.com/d2l/le/lessons/2409697/topics/21546193" target="_blank" rel="noopener">seguridad_wallets</a></td><td><a href="#s16">Cap. 16</a></td><td>Permisos, custodia y defensa</td></tr><tr><td><a href="https://anahuac.brightspace.com/d2l/le/lessons/2409697/topics/21554076" target="_blank" rel="noopener">p2p_blockchain_matematicas</a></td><td><a href="#s14">Cap. 14–15</a></td><td>Gráficas, probabilidad, difusión y DHT</td></tr><tr><td><a href="https://anahuac.brightspace.com/d2l/le/lessons/2409697/topics/21565315" target="_blank" rel="noopener">kademlia_4bits</a></td><td><a href="#s15">Cap. 15</a></td><td>Cubetas y rutas XOR</td></tr></tbody></table></div></div></details>
     <div data-anim="up" style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px">
       <sc-for list="{{ srcTabs }}" as="t" hint-placeholder-count="3">
         <button onClick="{{ t.onClick }}" style="background: {{ t.bg }}; color: {{ t.fg }}; border: 1px solid {{ t.bd }}; padding: 9px 16px; cursor: pointer; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase" style-hover="border-color: var(--color-accent)">{{ t.label }}</button>
@@ -2673,7 +2888,7 @@
   <footer style="margin-top: 90px; background: var(--color-accent-900); color: var(--color-accent-300); padding: 40px 0">
     <div class="mono" style="max-width: 1180px; margin: 0 auto; padding: 0 40px; display: flex; flex-wrap: wrap; gap: 10px 28px; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase">
       <span>Portafolio · Blockchain</span>
-      <span>Quince capítulos · {{ demoCount }} demostraciones</span>
+      <span>Veintidós capítulos · {{ demoCount }} demostraciones</span>
       <span>Todo se calcula en su navegador · nada sale de esta página</span>
     </div>
   </footer>
@@ -2684,6 +2899,10 @@ class Component extends DCLogic {
   state = {
     darkMode: document.documentElement.dataset.theme === "dark",
     panels: { formal: false, tsa: false, hs: false, comDef: false, imposs: false, extra: false, hmac: false, sha: false, ecdsa: false, target: false, prob: false },
+    schnorrMessage: 14, shamirSelected: [], zkChallenge: 3, zkTamper: false, ringSigner: 1, ringTamper: false,
+    gossipKnown: [0], gossipRound: 0, gossipShortcut: false,
+    p2pDelay: 2, p2pPeers: 8, kadOrigin: 10, kadTarget: 5,
+    walletBalance: 1000, walletAllowance: 0, walletNote: "Elija un permiso y observe cuántas veces puede cobrar la tienda.",
     calcText: "Bob envía 50 a Alice", calcHash: "",
     avaA: "Bob envía 50 a Alice", avaB: "Bob envía 500 a Alice", hashA: "", hashB: "",
     mkSel: 3, mkCount: 8, mkLevels: [], mkProof: [],
@@ -2758,6 +2977,76 @@ class Component extends DCLogic {
       h0 = (h0 + a) | 0; h1 = (h1 + b) | 0; h2 = (h2 + c) | 0; h3 = (h3 + d) | 0; h4 = (h4 + e) | 0; h5 = (h5 + f) | 0; h6 = (h6 + g) | 0; h7 = (h7 + h) | 0;
     }
     return [h0, h1, h2, h3, h4, h5, h6, h7].map(x => (x >>> 0).toString(16).padStart(8, "0")).join("");
+  }
+
+  kadNodes = [0, 3, 4, 5, 6, 8, 10, 11, 13, 14];
+  bits4(n) { return n.toString(2).padStart(4, "0"); }
+  kadContacts(node) {
+    return [0, 1, 2, 3].map(i => this.kadNodes.find(n => n !== node && (node ^ n) >= 2 ** i && (node ^ n) < 2 ** (i + 1)));
+  }
+  kadRoute(origin, target) {
+    const steps = [];
+    let node = origin;
+    for (let index = 0; index < 16; index++) {
+      const distance = node ^ target;
+      const contacts = this.kadContacts(node);
+      let bucket = -1;
+      for (let i = 3; i >= 0; i--) {
+        if ((distance & (1 << i)) && contacts[i] !== undefined && (contacts[i] ^ target) < distance) { bucket = i; break; }
+      }
+      steps.push({ index, node: this.bits4(node), xor: this.bits4(distance), distance,
+        action: !distance ? "Objetivo encontrado" : bucket < 0 ? "Sin contacto más cercano: responsable de la clave" : "Cubeta " + bucket + " → " + this.bits4(contacts[bucket]) });
+      if (!distance || bucket < 0) break;
+      node = contacts[bucket];
+    }
+    return { steps, node };
+  }
+  gossipStep() {
+    this.setState(s => {
+      const known = new Set(s.gossipKnown);
+      for (const node of s.gossipKnown) {
+        known.add((node + 1) % 12); known.add((node + 11) % 12);
+        if (s.gossipShortcut) known.add((node + 6) % 12);
+      }
+      return known.size === s.gossipKnown.length ? {} : { gossipKnown: [...known].sort((a, b) => a - b), gossipRound: s.gossipRound + 1 };
+    });
+  }
+
+  smallPow(base, exponent, modulus) { return Number(this.modpow(BigInt(base), BigInt(exponent), BigInt(modulus))); }
+  field31(n) { return ((n % 31) + 31) % 31; }
+  shamirRecover(indices) {
+    const parts = indices.map(i => ({ x: i + 1, y: this.field31(13 + 7 * (i + 1) + 4 * (i + 1) ** 2) }));
+    const terms = parts.map(a => {
+      let weight = 1;
+      for (const b of parts) if (a.x !== b.x) weight = this.field31(weight * b.x * this.modinv(this.field31(b.x - a.x), 31));
+      return { y: a.y, weight };
+    });
+    return { secret: this.field31(terms.reduce((sum, t) => sum + t.y * t.weight, 0)), terms };
+  }
+  ringHash(message, commitment) {
+    const bytes = this.shaSync(JSON.stringify(["portfolio/AOS/toy/v1", [4, 9, 13], message, commitment]));
+    return Number(BigInt("0x" + bytes) % 11n);
+  }
+  ringSign(signer) {
+    const secrets = [2, 5, 7], publicKeys = [4, 9, 13], c = [0, 0, 0], r = [1, 3, 8], a = 6;
+    c[(signer + 1) % 3] = this.ringHash(14, this.smallPow(2, a, 23));
+    for (let i = (signer + 1) % 3; i !== signer; i = (i + 1) % 3) {
+      const commitment = this.smallPow(2, r[i], 23) * this.smallPow(publicKeys[i], c[i], 23) % 23;
+      c[(i + 1) % 3] = this.ringHash(14, commitment);
+    }
+    r[signer] = ((a - c[signer] * secrets[signer]) % 11 + 11) % 11;
+    return { c0: c[0], responses: r };
+  }
+  ringVerify(signature, message) {
+    let challenge = signature.c0;
+    const steps = [4, 9, 13].map((key, i) => {
+      const commitment = this.smallPow(2, signature.responses[i], 23) * this.smallPow(key, challenge, 23) % 23;
+      const next = this.ringHash(message, commitment);
+      const text = "Eslabón " + (i + 1) + ": c = " + challenge + ", r = " + signature.responses[i] + ", R = " + commitment + " → c siguiente = " + next;
+      challenge = next;
+      return { text };
+    });
+    return { steps, final: challenge, valid: challenge === signature.c0 };
   }
 
   /* ---------- formato ---------- */
@@ -3486,7 +3775,18 @@ class Component extends DCLogic {
       { q: "Si el target de minería baja, la dificultad…", opts: ["Sube", "Baja", "No cambia"], ok: 0, why: "Menor target significa menos hashes aceptables por debajo del umbral: más intentos esperados, mayor dificultad." },
       { q: "¿Qué reduce a la mitad el halving?", opts: ["Las comisiones", "El subsidio de monedas nuevas", "La dificultad"], ok: 1, why: "Solo el subsidio, cada 210 000 bloques. Las comisiones no tienen halving y la dificultad se ajusta por otra regla." },
       { q: "En PBFT, ¿cuántos nodos bizantinos se toleran con 10 participantes?", opts: ["1", "3", "5"], ok: 1, why: "n ≥ 3f + 1 → 10 ≥ 3·3 + 1. Con cuatro fallas harían falta 13." },
-      { q: "Antes de proponer una blockchain para un problema, ¿qué debería comprobar?", opts: ["Que varias organizaciones desconfiadas necesiten escribir en el mismo registro", "Que el sector esté de moda", "Que haya presupuesto de innovación"], ok: 0, why: "Si falta cualquiera de las cuatro condiciones —varias partes, desconfianza real, ausencia de intermediario neutral, necesidad de auditoría— una base de datos con firmas digitales resuelve mejor y más barato." }
+      { q: "Antes de proponer una blockchain para un problema, ¿qué debería comprobar?", opts: ["Que varias organizaciones desconfiadas necesiten escribir en el mismo registro", "Que el sector esté de moda", "Que haya presupuesto de innovación"], ok: 0, why: "Si falta cualquiera de las cuatro condiciones —varias partes, desconfianza real, ausencia de intermediario neutral, necesidad de auditoría— una base de datos con firmas digitales resuelve mejor y más barato." },
+      { q: "¿Qué diferencia hay entre difusión y consenso?", opts: ["Son lo mismo", "La difusión transporta mensajes; el consenso acuerda la historia válida", "El consenso solo comprime bloques"], ok: 1, why: "Recibir un bloque no basta para aceptarlo. Cada nodo verifica las reglas y el protocolo decide la historia compartida." },
+      { q: "¿Cuál es la distancia XOR entre 0110 y 1011?", opts: ["5", "13", "1"], ok: 1, why: "0110 XOR 1011 = 1101, que vale 13 en decimal. No es una distancia geográfica." },
+      { q: "Si no existe el nodo 1111 en la red del capítulo 15, ¿quién responde por esa clave?", opts: ["No puede guardarse", "0000, por ser el primero", "1110, por ser el más cercano por XOR"], ok: 2, why: "1110 XOR 1111 = 1, la menor distancia entre los diez nodos presentes." },
+      { q: "En ERC-2612, ¿qué limita el deadline de permit?", opts: ["Hasta cuándo puede presentarse la autorización", "La vida de todos los tokens", "Siempre cancela el allowance al vencer"], ok: 0, why: "El deadline limita la presentación de permit. No añade caducidad automática al permiso de gasto ya registrado." },
+      { q: "¿Por qué una firma válida puede permitir un robo?", opts: ["Porque todo ECDSA está roto", "Porque el usuario o firmador autorizó un poder que no comprendió", "Porque los hashes descifran claves"], ok: 1, why: "La validez criptográfica no demuestra que la interfaz reflejara la intención ni que el alcance del permiso fuera adecuado." },
+      { q: "¿Qué ocurre al reutilizar el nonce secreto k de ECDSA en dos mensajes distintos?", opts: ["Solo se repite el nonce público de cuenta", "Mejora la privacidad", "Puede recuperarse la clave privada"], ok: 2, why: "Las dos ecuaciones comparten k y permiten despejarlo y después recuperar d, bajo las condiciones indicadas en el capítulo 16." },
+      {"q": "¿En qué difieren MuSig2 y una firma de umbral t de n?", "opts": ["MuSig2 agrega la cooperación n de n; un umbral permite un subconjunto autorizado", "Son siempre idénticos", "Shamir es una firma de anillo"], "ok": 0, "why": "La agregación n de n y la autorización t de n son políticas distintas. FROST produce firmas con un subconjunto suficiente."},
+      {"q": "Con umbral 3 de 5, ¿qué revelan dos partes válidas de Shamir bajo sus supuestos?", "opts": ["Dos tercios de la clave", "Nada sobre el secreto más allá de la información previa", "El secreto si se escanean como QR"], "ok": 1, "why": "Los coeficientes aleatorios hacen que cada secreto candidato sea compatible con menos del umbral. El soporte no cambia esa propiedad."},
+      {"q": "¿Qué protege la corrección de errores de un QR?", "opts": ["La identidad del emisor", "La confidencialidad de una foto", "La recuperación de datos ante daños de lectura"], "ok": 2, "why": "La redundancia permite corregir daños limitados; no cifra ni autentica por sí sola el contenido."},
+      {"q": "En una prueba ZK, ¿qué es el testigo?", "opts": ["El dato privado que satisface la relación pública", "La clave pública del navegador", "Una copia pública de todos los datos"], "ok": 0, "why": "El probador usa el testigo para generar la prueba. La afirmación y las salidas públicas siguen revelando lo que expresan."},
+      {"q": "¿Qué añade LSAG frente a una firma de anillo no enlazable?", "opts": ["Que todos los miembros deben firmar", "Una imagen de clave para enlazar firmas bajo la misma clave", "El nombre del firmante"], "ok": 1, "why": "La imagen de clave permite detectar repeticiones tras verificar las firmas, sin identificar directamente al miembro."}
     ];
     const quiz = QUIZ.map((item, qi) => {
       const picked = S.qAns[qi];
@@ -3564,7 +3864,14 @@ class Component extends DCLogic {
       { k: "I", title: "Probabilidad", q: "Elija la distribución para: bloques de Eve en una hora; bloques de Eve antes del sexto honesto; tiempo hasta el tercer bloque de Eve.", a: "Poisson; binomial negativa; Gamma (Erlang)." },
       { k: "J", title: "Doble gasto", q: "¿Por qué una firma válida no impide que su dueño firme dos gastos del mismo UTXO?", a: "Ambas firmas prueban autorización bajo la misma llave. El estado permite gastar cada UTXO una sola vez y el consenso decide qué historia vale." },
       { k: "K", title: "Sellado", q: "Una tesis se ancla mediante una raíz de Merkle. ¿Qué debe conservar su autor? ¿Prueba eso que sus resultados sean correctos?", a: "El documento exacto, la prueba de inclusión y la evidencia del anclaje; si usó nonce, también los datos de apertura. Respalda existencia previa, no calidad científica." },
-      { k: "L", title: "Aplicación", q: "Dos universidades quieren compartir certificados. ¿Cuándo bastan firmas y cuándo aporta algo un registro común con varios validadores?", a: "Las firmas bastan para acreditar emisor e integridad si no hace falta un estado compartido. Un registro común aporta acuerdo sobre emisión, revocación y actualizaciones entre partes con administración independiente, y hay que justificar su gobernanza." }
+      { k: "L", title: "Aplicación", q: "Dos universidades quieren compartir certificados. ¿Cuándo bastan firmas y cuándo aporta algo un registro común con varios validadores?", a: "Las firmas bastan para acreditar emisor e integridad si no hace falta un estado compartido. Un registro común aporta acuerdo sobre emisión, revocación y actualizaciones entre partes con administración independiente, y hay que justificar su gobernanza." },
+      { k: "M", title: "Red P2P", q: "Un nodo tiene cuatro vecinos y entre ellos hay tres enlaces. Calcule su agrupamiento. Con T = 600 s y τ = 6 s, estime la probabilidad de otro bloque en esa demora.", a: "C = 2·3/(4·3) = 0.5. La ventana de competencia da 1 − exp(−6/600) ≈ 0.995%; no es la probabilidad de un doble gasto." },
+      { k: "N", title: "Kademlia", q: "Con las tablas de k = 1 del capítulo 15, busque la clave 0010 desde 1000. ¿Qué nodo es responsable?", a: "1000 → 0000 → 0011, con distancias XOR 10 → 2 → 1. No existe 0010: el responsable es 0011." },
+      { k: "O", title: "Wallets", q: "Bob aprueba 1 000 tokens, la tienda cobra 50 y Bob revoca. ¿Qué permiso quedaba antes? ¿La revocación devuelve el cobro?", a: "En el modelo, quedaban 950. Revocar lo reduce a cero para futuros cargos; no devuelve los 50 ya transferidos. Aprobar solo 50 habría limitado la exposición inicial." },
+      {"k": "P", "title": "Schnorr", "q": "Con p = 23, q = 11, g = 2, x = 6 y k = 7, el mensaje 14 produce e = 5. Calcule y y s y explique la verificación.", "a": "y = 2^(−6) mod 23 = 9; s = (7 + 6·5) mod 11 = 4. El verificador reconstruye r = 2⁴·9⁵ mod 23 = 13 y recalcula H(13‖14) = 5."},
+      {"k": "Q", "title": "Shamir y QR", "q": "Reconstruya con (1,24), (2,12) y (3,8) en F₃₁. ¿Cambiaría el secreto al guardar esas partes en QR?", "a": "Pesos 3, −3 y 1: S = (72 − 36 + 8) mod 31 = 13. El QR solo cambia el soporte, no la interpolación ni el umbral."},
+      {"k": "R", "title": "Conocimiento cero", "q": "En el ejemplo p = 23, Y = 18, T = 13, r = 7 y x = 6, tome c = 3. Calcule z y ambos lados de la verificación.", "a": "z = (7 + 3·6) mod 11 = 3. 2³ mod 23 = 8; 13·18³ mod 23 = 8. La igualdad verifica sin enviar x al verificador."},
+      {"k": "S", "title": "Anillos", "q": "Con 16 miembros y elementos de 32 bytes, calcule el tamaño del formato LSAG del apunte. ¿Incluye el anillo?", "a": "32·(16 + 2) = 576 bytes. No incluye la lista de claves públicas. La fórmula se refiere al formato LSAG descrito, no a todas sus variantes."}
     ];
     const exercises = EX.map((e, i) => ({ k: e.k, title: e.title, q: e.q, a: e.a, open: !!S.exOpen[i], on: S.exOpen[i] ? "true" : "false", btn: S.exOpen[i] ? "Ocultar" : "Ver respuesta", onClick: () => this.setState(s => ({ exOpen: Object.assign({}, s.exOpen, { [i]: !s.exOpen[i] }) })) }));
 
@@ -3598,29 +3905,52 @@ class Component extends DCLogic {
       { t: "CA", d: "Autoridad certificadora: firma certificados que ligan nombres con llaves públicas." },
       { t: "Trusted setup", d: "Configuración inicial cuya seguridad exige que alguien destruya un secreto." },
       { t: "ZK", d: "Conocimiento cero: probar una afirmación sin revelar el testigo." },
-      { t: "Oráculo", d: "Fuente que introduce datos del mundo exterior en la cadena." }
+      { t: "Oráculo", d: "Fuente que introduce datos del mundo exterior en la cadena." },
+      { t: "P2P / gossip", d: "Comunicación entre pares y difusión de noticias mediante intercambios locales." },
+      { t: "DHT", d: "Tabla hash distribuida: localiza registros mediante claves sin un directorio central." },
+      { t: "Kademlia / XOR", d: "DHT que organiza contactos y búsquedas por la distancia XOR entre identificadores." },
+      { t: "k-bucket", d: "Cubeta de contactos dentro de un intervalo de distancias XOR." },
+      { t: "Eclipse / Sybil", d: "Aislamiento de la visión de un nodo / creación de muchas identidades por un actor." },
+      { t: "Shamir / Lagrange", d: "Reparto de un secreto con umbral y reconstrucción por interpolación en un campo finito." },
+      { t: "MuSig2 / FROST", d: "Agregación Schnorr n de n / firma Schnorr con umbral t de n." },
+      { t: "Fiat–Shamir", d: "Transformación que deriva el desafío de un hash del contexto público y el compromiso." },
+      { t: "Testigo / relación ZK", d: "Información privada y predicado público que vincula esa información con la afirmación." },
+      { t: "AOS / LSAG", d: "Firma de anillo no enlazable / firma de anillo con imagen de clave para detectar repeticiones." },
+      { t: "Feldman", d: "Reparto verificable mediante compromisos a coeficientes; introduce supuestos de logaritmo discreto." },
+      { t: "Wallet", d: "Software o dispositivo que gestiona claves y autorizaciones; los activos se registran en la cadena." },
+      { t: "Allowance / permit", d: "Límite de gasto concedido a un tercero / mecanismo ERC-2612 para establecerlo mediante firma." },
+      { t: "Delegación EIP-7702", d: "Autorización para ejecutar código delegado en una EOA hasta sustituir o eliminar la delegación." }
+
     ];
     const gq = S.glosQ.trim().toLowerCase();
     const glos = GLOS.filter(g => !gq || (g.t + " " + g.d).toLowerCase().indexOf(gq) >= 0);
 
     const SRC = {
       S: [
-        ["S01", "Apuntes · panorama general", "Panorama y aplicaciones sectoriales. 22 pp.", "Cap. 09, 13"],
-        ["S02", "Mapa de algoritmos de blockchain", "Algoritmos, estructuras y herramientas. 1 p.", "Cap. 06"],
-        ["S03", "Aplicaciones de los compromisos", "Privacidad, pruebas y errores de integración. 20 pp.", "Cap. 07, 08, 13"],
-        ["S04", "Minería PoW: probabilidad", "Distribuciones, confirmaciones, doble gasto, reorganizaciones. 26 pp.", "Cap. 09, 11"],
-        ["S05", "Target, dificultad y halving", "Ajuste de dificultad y subsidio. 6 pp.", "Cap. 10"],
-        ["S06", "Aplicaciones de blockchain", "Sectores y límites de las propuestas. 10 pp.", "Cap. 13"],
-        ["S07", "Blockchain artesanal", "Construcción y validación de una cadena. 4 pp.", "Cap. 01, 06"],
-        ["S08", "Esquemas de compromiso", "Definiciones, seguridad y familias. 18 pp.", "Prólogo, cap. 07, 08"],
-        ["S09", "Consenso", "PoW, PoS y ejemplos de votación. 17 pp.", "Cap. 09, 10, 12"],
-        ["S10", "Tabla de firmas digitales", "Comparación de familias de firma. 1 p.", "Cap. 03, 04"],
-        ["S11", "Curvas en blockchain", "Curvas y grupos del ecosistema. 1 p.", "Cap. 04"],
-        ["S12", "Firmas en blockchains", "Firmas y pruebas. 1 p.", "Cap. 04, 09"],
+        ["S01", "Apuntes · panorama general", "Panorama y aplicaciones sectoriales. 22 pp.", "Cap. 09, 13", "https://anahuac.brightspace.com/d2l/le/lessons/2409697/topics/21365569"],
+        ["S02", "Mapa de algoritmos de blockchain", "Algoritmos, estructuras y herramientas. 1 p.", "Cap. 06", "https://anahuac.brightspace.com/d2l/le/lessons/2409697/topics/21365252"],
+        ["S03", "Aplicaciones de los compromisos", "Privacidad, pruebas y errores de integración. 20 pp.", "Cap. 07, 08, 13", "https://anahuac.brightspace.com/d2l/le/lessons/2409697/topics/21243467"],
+        ["S04", "Minería PoW: probabilidad", "Distribuciones, confirmaciones, doble gasto, reorganizaciones. 26 pp.", "Cap. 09, 11", "https://anahuac.brightspace.com/d2l/le/lessons/2409697/topics/21421625"],
+        ["S05", "Target, dificultad y halving", "Ajuste de dificultad y subsidio. 6 pp.", "Cap. 10", "https://anahuac.brightspace.com/d2l/le/lessons/2409697/topics/21392487"],
+        ["S06", "Aplicaciones de blockchain", "Sectores y límites de las propuestas. 10 pp.", "Cap. 13", "https://anahuac.brightspace.com/d2l/le/lessons/2409697/topics/21321767"],
+        ["S07", "Blockchain artesanal", "Construcción y validación de una cadena. 4 pp.", "Cap. 01, 06", "https://anahuac.brightspace.com/d2l/le/lessons/2409697/topics/21333261"],
+        ["S08", "Esquemas de compromiso", "Definiciones, seguridad y familias. 18 pp.", "Prólogo, cap. 07, 08", "https://anahuac.brightspace.com/d2l/le/lessons/2409697/topics/21243418"],
+        ["S09", "Consenso", "PoW, PoS y ejemplos de votación. 17 pp.", "Cap. 09, 10, 12", "https://anahuac.brightspace.com/d2l/le/lessons/2409697/topics/21427575"],
+        ["S10", "Tabla de firmas digitales", "Comparación de familias de firma. 1 p.", "Cap. 03, 04", "https://anahuac.brightspace.com/d2l/le/lessons/2409697/topics/21365248"],
+        ["S11", "Curvas en blockchain", "Curvas y grupos del ecosistema. 1 p.", "Cap. 04", "https://anahuac.brightspace.com/d2l/le/lessons/2409697/topics/21365250"],
+        ["S12", "Firmas en blockchains", "Firmas y pruebas. 1 p.", "Cap. 04, 09", "https://anahuac.brightspace.com/d2l/le/lessons/2409697/topics/21365247"],
         ["S13", "Guía del simulador", "Requisitos y rúbrica del proyecto. 6 pp.", "Cap. 12"],
-        ["S14", "Aplicaciones del hash", "Propiedades y usos. 4 pp.", "Cap. 01, 02"],
-        ["S15", "Sellado de tiempo", "TSA, Haber–Stornetta, Merkle. 3 pp.", "Cap. 05"]
-      ].map(r => ({ id: r[0], t: r[1], d: r[2], cap: r[3], url: "", noUrl: true })),
+        ["S14", "Aplicaciones del hash", "Propiedades y usos. 4 pp.", "Cap. 01, 02", "https://anahuac.brightspace.com/d2l/le/lessons/2409697/topics/21243415"],
+        ["S15", "Sellado de tiempo", "TSA, Haber–Stornetta, Merkle. 3 pp.", "Cap. 05", "https://anahuac.brightspace.com/d2l/le/lessons/2409697/topics/21333249"],
+        ["S16", "Matemáticas de las redes P2P", "Dr. José de Jesús Ángel Ángel. Gráficas, difusión, probabilidad y DHT. 37 pp.", "Cap. 14, 15", "uploads/agregar_docs/p2p_blockchain_matematicas.pdf"],
+        ["S17", "Kademlia con identificadores de 4 bits", "Dr. José de Jesús Ángel Ángel. Cubetas, tablas y búsquedas XOR. 8 pp.", "Cap. 15", "uploads/agregar_docs/kademlia_4bits.pdf"],
+        ["S18", "Seguridad de billeteras en blockchain", "Dr. José de Jesús Ángel Ángel. Autorizaciones, ataques y defensa en profundidad. 6 pp.", "Cap. 16", "uploads/agregar_docs/seguridad_wallets.pdf"],
+        ["S19", "Schnorr con números pequeños", "Firmas en Z₂₃ y una curva sobre F₁₇, agregación y umbrales. 32 pp.", "Cap. 17", "uploads/brightspace/schnorr_juguete.pdf"],
+        ["S20", "El esquema de Shamir", "Campos finitos, Lagrange, reparto verificable y custodia. 19 pp.", "Cap. 18", "uploads/brightspace/esquema_shamir.pdf"],
+        ["S21", "Compartición de secretos con códigos QR", "Shamir sobre F₂⁸, formatos, modo híbrido y criptografía visual. 20 pp.", "Cap. 18", "uploads/brightspace/qr_shamir.pdf"],
+        ["S22", "Pipeline de conocimiento cero", "Schnorr, Fiat–Shamir, GMW y flujo de SNARKs.", "Cap. 19", "uploads/brightspace/pipeline_conocimiento_cero.pdf"],
+        ["S23", "Firmas de anillo: pipeline", "AOS, LSAG, imagen de clave, serialización y validación.", "Cap. 20", "uploads/brightspace/firmas_anillo_pipeline.pdf"]
+      ].map(r => ({ id: r[0], t: r[1], d: r[2], cap: r[3], url: r[4] || "", noUrl: !r[4] })),
       P: [
         ["P01", "Laboratorio de funciones hash", "Cumpleaños, extensión de longitud, HMAC, sal.", "Cap. 01", "http://math.com.mx/funciones_hash.html"],
         ["P02", "SHA-256 paso a paso", "Relleno, expansión y compresión.", "Cap. 01", "http://math.com.mx/sha256.html"],
@@ -3644,17 +3974,68 @@ class Component extends DCLogic {
         ["E13", "Bitcoin Core · consensus.h", "Maduración de coinbase.", "Cap. 11", "https://github.com/bitcoin/bitcoin/blob/master/src/consensus/consensus.h"],
         ["E14", "NIST FIPS 180-4", "Especificación de SHA-256.", "Cap. 01", "https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.180-4.pdf"],
         ["E15", "Lamport, Shostak y Pease (1982)", "The Byzantine Generals Problem.", "Cap. 12", "https://lamport.azurewebsites.net/pubs/byz.pdf"],
-        ["E16", "RFC 2104 · HMAC", "Construcción HMAC.", "Cap. 01", "https://www.rfc-editor.org/rfc/rfc2104"]
+        ["E16", "RFC 2104 · HMAC", "Construcción HMAC.", "Cap. 01", "https://www.rfc-editor.org/rfc/rfc2104"],
+        ["E17", "Kademlia · Maymounkov y Mazières (2002)", "Diseño original de la DHT, XOR y consultas paralelas.", "Cap. 15", "https://pdos.csail.mit.edu/~petar/papers/maymounkov-kademlia-lncs.pdf"],
+        ["E18", "EIP-7702", "Autorización y persistencia de la delegación de ejecución.", "Cap. 16", "https://eips.ethereum.org/EIPS/eip-7702"],
+        ["E19", "ERC-2612 · permit", "Aprobaciones mediante firma, nonce y deadline.", "Cap. 16", "https://eips.ethereum.org/EIPS/eip-2612"],
+        ["E20", "RFC 6979", "Generación determinista del nonce de ECDSA.", "Cap. 16", "https://www.rfc-editor.org/rfc/rfc6979"],
+        ["E21", "BIP-327 · MuSig2", "Agregación de claves y firmas Schnorr.", "Cap. 17", "https://github.com/bitcoin/bips/blob/master/bip-0327.mediawiki"],
+        ["E22", "RFC 9591 · FROST", "Protocolo de firmas Schnorr de umbral.", "Cap. 17, 18", "https://www.rfc-editor.org/rfc/rfc9591"]
       ].map(r => ({ id: r[0], t: r[1], d: r[2], cap: r[3], url: r[4], noUrl: false }))
     };
-    const SRC_T = [["S", "Apuntes de clase · 15"], ["P", "Páginas del profesor · 5"], ["E", "Documentación primaria · 16"]];
+    const SRC_T = [["S", "Apuntes de clase · 23"], ["P", "Páginas del profesor · 5"], ["E", "Documentación primaria · 22"]];
+
+    const schnorrInput = "13" + S.schnorrMessage;
+    const schnorrChallenge = Number(schnorrInput) % 11;
+    const selectedRecovery = S.shamirSelected.length >= 3 ? this.shamirRecover(S.shamirSelected) : null;
+    const zkResponse = (7 + S.zkChallenge * 6 + (S.zkTamper ? 1 : 0)) % 11;
+    const zkLeft = this.smallPow(2, zkResponse, 23), zkRight = 13 * this.smallPow(18, S.zkChallenge, 23) % 23;
+    const ringSignature = this.ringSign(S.ringSigner);
+    const ringCheck = this.ringVerify(ringSignature, S.ringTamper ? 15 : 14);
+
+    const kad = this.kadRoute(S.kadOrigin, S.kadTarget);
+    const kadPresent = this.kadNodes.includes(S.kadTarget);
 
     return {
       darkMode: S.darkMode,
       themeIcon: S.darkMode ? "☀" : "☾",
       themeLabel: S.darkMode ? "Modo claro" : "Modo oscuro",
       onThemeToggle: () => this.toggleTheme(),
-      toggle, sign, panels: S.panels, demoCount: 34,
+      toggle, sign, panels: S.panels, demoCount: 42,
+
+      schnorrMessage: S.schnorrMessage, schnorrHashInput: schnorrInput, schnorrChallenge,
+      onSchnorrMessage: e => this.setState({ schnorrMessage: +e.target.value }),
+      schnorrVerdict: schnorrChallenge !== 5 ? "Se rechaza: el desafío recalculado no coincide con e = 5." : S.schnorrMessage === 14 ? "Se acepta: mensaje original y desafío coincidente." : "Se acepta una alteración por una colisión del hash de juguete. Este ejemplo no ofrece seguridad.",
+      shamirParts: Array.from({ length: 5 }, (_, i) => ({ label: "Parte " + (i + 1) + " · (" + (i + 1) + ", " + this.field31(13 + 7 * (i + 1) + 4 * (i + 1) ** 2) + ")", on: S.shamirSelected.includes(i) ? "true" : "false", toggle: () => this.setState(s => ({ shamirSelected: s.shamirSelected.includes(i) ? s.shamirSelected.filter(n => n !== i) : [...s.shamirSelected, i].sort((a, b) => a - b) })) })),
+      onShamirReset: () => this.setState({ shamirSelected: [] }),
+      shamirResult: selectedRecovery ? "Con " + S.shamirSelected.length + " partes se recupera S = " + selectedRecovery.secret + "." : "Seleccionadas " + S.shamirSelected.length + " de 3 necesarias. No se reconstruye: falta alcanzar el umbral.",
+      shamirCalculation: selectedRecovery ? selectedRecovery.terms.map(t => t.y + "·" + t.weight).join(" + ") + " ≡ " + selectedRecovery.secret + " (mod 31)" : "Cada candidato de 0 a 30 sigue siendo compatible con menos de tres partes.",
+      zkChallenge: S.zkChallenge, onZkChallenge: e => this.setState({ zkChallenge: +e.target.value }), zkResponse, zkLeft, zkRight,
+      zkTamperOn: S.zkTamper ? "true" : "false", zkTamperLabel: S.zkTamper ? "Respuesta alterada (+1)" : "Respuesta honesta", onZkTamper: () => this.setState(s => ({ zkTamper: !s.zkTamper })),
+      zkVerdict: zkLeft === zkRight ? "Se acepta: ambos lados de la ecuación coinciden." : "Se rechaza: la respuesta alterada rompe la ecuación.",
+      ringSigner: S.ringSigner, onRingSigner: e => this.setState({ ringSigner: +e.target.value }),
+      ringTamperOn: S.ringTamper ? "true" : "false", ringTamperLabel: S.ringTamper ? "Mensaje alterado: 15" : "Mensaje original: 14", onRingTamper: () => this.setState(s => ({ ringTamper: !s.ringTamper })),
+      ringSignature: "c₀ = " + ringSignature.c0 + "; respuestas = [" + ringSignature.responses.join(", ") + "]", ringSteps: ringCheck.steps,
+      ringVerdict: (ringCheck.valid ? "Se acepta: " : "Se rechaza: ") + "el recorrido termina en " + ringCheck.final + (ringCheck.valid ? ", igual a c₀." : ", distinto de c₀.") + (S.ringTamper && ringCheck.valid ? " Coincidencia accidental del grupo de juguete: demuestra por qué estos tamaños son inseguros." : ""),
+      gossipNodes: Array.from({ length: 12 }, (_, id) => ({ id, label: S.gossipKnown.includes(id) ? "Informado" : "En espera", bg: S.gossipKnown.includes(id) ? "var(--color-accent-700)" : "var(--color-surface)", fg: S.gossipKnown.includes(id) ? "var(--color-bg)" : "var(--color-text)" })),
+      gossipShortcutOn: S.gossipShortcut ? "true" : "false", gossipTopologyLabel: S.gossipShortcut ? "Anillo con atajos" : "Anillo sin atajos", gossipDone: S.gossipKnown.length === 12,
+      gossipStatus: "Ronda " + S.gossipRound + ": " + S.gossipKnown.length + " de 12 informados." + (S.gossipKnown.length === 12 ? " Todos recibieron el mensaje; su validez se comprueba por separado." : " Avance para propagar la noticia."),
+      onGossipStep: () => this.gossipStep(), onGossipReset: () => this.setState({ gossipKnown: [0], gossipRound: 0 }),
+      onGossipTopology: () => this.setState(s => ({ gossipShortcut: !s.gossipShortcut, gossipKnown: [0], gossipRound: 0 })),
+      p2pDelay: S.p2pDelay, p2pPeers: S.p2pPeers, p2pFork: (100 * -Math.expm1(-S.p2pDelay / 600)).toFixed(3) + " %", p2pEclipse: (100 * 0.2 ** S.p2pPeers).toPrecision(4) + " %",
+      onP2pDelay: e => this.setState({ p2pDelay: +e.target.value }), onP2pPeers: e => this.setState({ p2pPeers: +e.target.value }),
+      kadOrigin: S.kadOrigin, kadTarget: S.kadTarget,
+      kadOriginOptions: this.kadNodes.map(value => ({ value, label: this.bits4(value) })),
+      kadTargetOptions: Array.from({ length: 16 }, (_, value) => ({ value, label: this.bits4(value) + (this.kadNodes.includes(value) ? " · nodo presente" : " · clave sin nodo") })),
+      onKadOrigin: e => this.setState({ kadOrigin: +e.target.value }), onKadTarget: e => this.setState({ kadTarget: +e.target.value }), kadSteps: kad.steps,
+      kadResult: (kadPresent ? "Nodo encontrado: " : "No existe ese nodo. Responsable de la clave: ") + this.bits4(kad.node) + ". Distancia XOR: " + (kad.node ^ S.kadTarget) + ". Saltos: " + (kad.steps.length - 1) + ".",
+      walletBalance: S.walletBalance, walletAllowance: S.walletAllowance, walletSpent: 1000 - S.walletBalance, walletNote: S.walletNote,
+      walletBlocked: Math.min(S.walletBalance, S.walletAllowance) < 50,
+      onWalletExact: () => this.setState({ walletAllowance: 50, walletNote: "Permiso fijado en 50. Un cobro de 50 agotará esta autorización." }),
+      onWalletBroad: () => this.setState({ walletAllowance: 1000, walletNote: "Permiso fijado en 1 000. Un cobro de 50 dejará capacidad para cargos posteriores, hasta el saldo disponible." }),
+      onWalletSpend: () => this.setState(s => Math.min(s.walletBalance, s.walletAllowance) < 50 ? {} : ({ walletBalance: s.walletBalance - 50, walletAllowance: s.walletAllowance - 50, walletNote: "La tienda cobró 50 mediante el permiso existente, sin otra firma de Bob. Revise el permiso restante." })),
+      onWalletRevoke: () => this.setState({ walletAllowance: 0, walletNote: "Permiso revocado. La tienda ya no puede cobrar con esta autorización; los cargos anteriores permanecen." }),
+      onWalletReset: () => this.setState({ walletBalance: 1000, walletAllowance: 0, walletNote: "Estado inicial restaurado. Elija un permiso para comenzar." }),
 
       /* prólogo */
       billCopies, billSpent: S.billSpent, billMsg: S.billMsg,
@@ -3761,6 +4142,10 @@ class Component extends DCLogic {
         { name: "Anillo", analogy: "Firmó alguien del grupo, no se sabe quién", body: "Oculta qué miembro firmó. Las variantes enlazables impiden el doble gasto en Monero." },
         { name: "Grupo", analogy: "Anónimo, con un administrador que puede abrir", body: "Los miembros firman de forma anónima, pero una autoridad puede revelar al firmante si hace falta." },
         { name: "Ciega", analogy: "Firmar a través de papel carbón", body: "El emisor firma sin ver el contenido completo. Base del dinero electrónico anónimo de los años ochenta." },
+        { name: "Seguridad hacia delante", analogy: "Una clave robada hoy no reescribe ayer", body: "La clave evoluciona por periodos y se destruyen estados antiguos. Bajo el esquema adecuado, comprometer la clave actual no permite falsificar firmas de periodos anteriores." },
+        { name: "Verificador designado", analogy: "Una prueba destinada a un lector", body: "Limita la fuerza de la evidencia ante terceros: según la construcción, el destinatario puede simularla y no usarla como una firma pública transferible." },
+        { name: "Delegación proxy", analogy: "Un poder con alcance definido", body: "Una clave delegada firma dentro de condiciones autorizadas. No equivale automáticamente a una delegación de ejecución EIP-7702." },
+        { name: "Credenciales selectivas", analogy: "Demostrar un atributo sin mostrar toda la credencial", body: "Combinan autenticidad del emisor con pruebas para revelar solo atributos o predicados. Deben vincular contexto, vigencia y requisitos de la aplicación." },
         { name: "Conocimiento cero", analogy: "Probar que sabe el secreto sin decirlo", body: "Bulletproofs, SNARK y STARK son pruebas, no firmas: demuestran una afirmación sin revelar el testigo." }
       ],
 
